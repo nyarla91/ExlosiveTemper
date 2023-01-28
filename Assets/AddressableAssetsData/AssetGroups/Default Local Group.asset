@@ -29,6 +29,14 @@ MonoBehaviour:
     m_Address: Scene/Gameplay
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: bdbbee2dd214d2849acf6557a0287755
+    m_Address: Spell/Restoration
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 12b4e5245d9ce2c42b1cd258ae9b3501
+    m_Address: Spell/Reload
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:

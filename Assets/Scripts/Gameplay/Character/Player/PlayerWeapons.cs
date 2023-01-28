@@ -1,7 +1,8 @@
 ﻿using System;
 using Extentions;
-using Gameplay.Character.Player.Weapons;
+using Gameplay.Weapons;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Gameplay.Character.Player
 {
@@ -14,6 +15,9 @@ namespace Gameplay.Character.Player
         private Timer _chargedShotCooldown;
 
         public Action<HitDetails> OnHit;
+
+        public void EndChargedCooldown() => _chargedShotCooldown.Reset();
+        public void SwapWeapons() => MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
 
         private void Awake()
         {
@@ -35,7 +39,6 @@ namespace Gameplay.Character.Player
                 return;
             if (_currentWeapon.TryChargedShot())
             {
-                MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
                 _chargedShotCooldown.Restart();
             }
         }

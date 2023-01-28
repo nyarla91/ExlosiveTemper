@@ -34,9 +34,16 @@ namespace Gameplay.Character.Player
             }
 
             if (IsSprinting)
-                Lazy.Resources.WasteHeat(_sprintHeatCostPerSecond * Time.fixedDeltaTime); 
-            
-            Move(Lazy.Controls.MoveVector);
+                Lazy.Resources.WasteHeat(_sprintHeatCostPerSecond * Time.fixedDeltaTime);
+
+            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Performing))
+            {
+                Move(Lazy.Controls.MoveVector);
+            }
+            else
+            {
+                Movable.Velocity = Velocity = Vector3.zero;
+            }
         }
 
         private void Move(Vector2 screenInput)

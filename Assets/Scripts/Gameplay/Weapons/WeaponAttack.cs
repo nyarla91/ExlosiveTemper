@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Gameplay.Character.Player.Weapons
+namespace Gameplay.Weapons
 {
     [Serializable]
     public class WeaponAttack

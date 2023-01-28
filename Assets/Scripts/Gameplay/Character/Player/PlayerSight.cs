@@ -12,9 +12,9 @@ namespace Gameplay.Character.Player
 
         private void FixedUpdate()
         {
-            if (Lazy.Movement.IsSprinting)
+            if (Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Sprint))
                 RotateTowardsMovement();
-            else
+            else if (Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Regular))
                 RotateTowardsAim();
         }
 

@@ -7,7 +7,6 @@ namespace Gameplay.Character.Player
     public class PlayerResources : LazyGetComponent<PlayerComposition>
     {
         [SerializeField] private Resource _heat;
-        [SerializeField] private int _heatSections;
         
         public ResourceWrap Heat => _heat.Wrap;
 
@@ -22,7 +21,7 @@ namespace Gameplay.Character.Player
         {
             if (hitDetails.HitEntityOwner != EntityOwner.Enemy)
                 return;
-            _heat.Value += 1;
+            _heat.Value += 25;
         }
     }
 }

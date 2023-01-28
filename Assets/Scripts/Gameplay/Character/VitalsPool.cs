@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using UnityEngine;
 using Zenject;
 
@@ -45,6 +46,14 @@ namespace Gameplay.Character
         private void Awake()
         {
             _health.OnOver += () => IsDead = true;
+        }
+
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F))
+                TakeDamage(10);
+            if (UnityEngine.Input.GetKeyDown(KeyCode.G))
+                RestoreHealth(10);
         }
 
         private void Start()

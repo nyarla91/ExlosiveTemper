@@ -1,10 +1,11 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
+using Gameplay.Character;
+using Gameplay.Character.Player;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Character.Player.Weapons
+namespace Gameplay.Weapons
 {
     public class Weapon : MonoBehaviour
     {

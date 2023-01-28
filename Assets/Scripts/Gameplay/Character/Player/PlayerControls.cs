@@ -16,6 +16,7 @@ namespace Gameplay.Character.Player
 
         public event Action OnShoot;
         public event Action OnChargedShot;
+        public event Action<int> OnSpellUse;
         
         private void Awake()
         {
@@ -25,12 +26,16 @@ namespace Gameplay.Character.Player
             _actions.Player.Sprint.canceled += EndSprint;
             _actions.Player.Shoot.started += ShootInvoke;
             _actions.Player.ChargedShot.started += ChargedShotInvoke;
+            _actions.Player.Spell1.canceled += FirstSpellUseInvoke;
+            _actions.Player.Spell2.canceled += SecondSpellUseInvoke;
         }
 
         private void StartSprint(InputAction.CallbackContext _) => IsSprintHolded = true;
         private void EndSprint(InputAction.CallbackContext _) => IsSprintHolded = false;
         private void ShootInvoke(InputAction.CallbackContext _) => OnShoot?.Invoke();
         private void ChargedShotInvoke(InputAction.CallbackContext _) => OnChargedShot?.Invoke();
+        private void FirstSpellUseInvoke(InputAction.CallbackContext _) => OnSpellUse?.Invoke(0);
+        private void SecondSpellUseInvoke(InputAction.CallbackContext _) => OnSpellUse?.Invoke(1);
 
         private void OnDestroy()
         {
