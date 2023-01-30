@@ -84,7 +84,6 @@ namespace Gameplay.Character.Player
             Spell spell = _spells[index];
             GameObject prefab = (await spell.Behaviour.LoadAssetAsync<GameObject>().Task); 
             SpellBehaviour behaviour = ContainerFactory.Instantiate<SpellBehaviour>(prefab, Transform.position, Transform);
-            print(behaviour);
             behaviour.Init(spell, Lazy);
             _spellBehaviours[index] = behaviour;
             spell.Behaviour.ReleaseAsset();

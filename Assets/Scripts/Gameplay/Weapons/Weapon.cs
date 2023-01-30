@@ -9,13 +9,15 @@ namespace Gameplay.Weapons
 {
     public class Weapon : MonoBehaviour
     {
+        [SerializeField] private int _animationIndex;
         [SerializeField] private PlayerWeapons _player;
         [SerializeField] private WeaponAttack _primaryAttack;
         [SerializeField] private WeaponAttack _chargedAttack;
         [SerializeField] private float _attackPeriod;
 
         private Timer _cooldown;
-        
+
+        public int AnimationIndex => _animationIndex;
         [Inject] private Pause Pause { get; set; }
 
         public bool TryShoot()

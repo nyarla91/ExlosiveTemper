@@ -14,10 +14,15 @@ namespace Gameplay.Character.Player
 
         private Timer _chargedShotCooldown;
 
+        public Weapon CurrentWeapon => _currentWeapon;
+
         public Action<HitDetails> OnHit;
 
         public void EndChargedCooldown() => _chargedShotCooldown.Reset();
-        public void SwapWeapons() => MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
+        public void SwapWeapons()
+        {
+            MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
+        }
 
         private void Awake()
         {
@@ -40,6 +45,7 @@ namespace Gameplay.Character.Player
             if (_currentWeapon.TryChargedShot())
             {
                 _chargedShotCooldown.Restart();
+                SwapWeapons();
             }
         }
     }
