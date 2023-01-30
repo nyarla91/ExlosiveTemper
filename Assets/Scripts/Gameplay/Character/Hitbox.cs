@@ -14,7 +14,8 @@ namespace Gameplay.Character
             {
                 6 => EntityOwner.Player,
                 8 => EntityOwner.Enemy,
-                _ => EntityOwner.Neutral
+                11 => EntityOwner.Neutral,
+                _ => EntityOwner.Enviroment,
             };
             return new HitDetails(entityOwner);
         }

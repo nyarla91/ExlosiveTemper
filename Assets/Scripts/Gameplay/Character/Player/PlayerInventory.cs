@@ -17,11 +17,6 @@ namespace Gameplay.Character.Player
             Lazy.Controls.OnConsumeHeat += TryConsumeHeat;
         }
 
-        private void Update()
-        {
-            print($"{HealthConsumable.Quantity} {HeatConsumable.Quantity}");
-        }
-
         private void TryConsumeHealth() => HealthConsumable.TryConsume(Lazy);
         private void TryConsumeHeat() => HeatConsumable.TryConsume(Lazy);
 

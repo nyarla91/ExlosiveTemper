@@ -1,5 +1,4 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +7,8 @@ namespace Gameplay.Character
     public class VitalsPool : MonoBehaviour
     {
         [SerializeField] private Resource _health;
+        [Tooltip("No damage can exceed this percent of max health")] [Range(0, 1)]
+        [SerializeField] private float _maxPercentDamage = 1;
 
         public ResourceWrap Health => _health.Wrap;
         
@@ -26,7 +27,7 @@ namespace Gameplay.Character
             if (damage <= 0 || IsDead)
                 return;
 
-            _health.Value -= damage;
+            _health.Value -= Mathf.Min(damage, _health.MaxValue * _maxPercentDamage);
         }
 
         public void RestoreHealth(float health)

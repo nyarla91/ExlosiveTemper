@@ -4,6 +4,7 @@
     {
         Player,
         Enemy,
-        Neutral
+        Neutral,
+        Enviroment
     }
 }

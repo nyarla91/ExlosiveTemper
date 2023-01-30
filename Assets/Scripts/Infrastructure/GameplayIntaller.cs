@@ -15,7 +15,9 @@ namespace Infrastructure
         {
             Container.Bind<CameraView>().FromInstance(_cameraView).AsSingle();
             GameObject player = Container.InstantiatePrefab(_playerPrefab, _playerOrigin);
-            Container.Bind<PlayerComposition>().FromInstance(player.GetComponent<PlayerComposition>());
+            PlayerComposition composition = player.GetComponent<PlayerComposition>();
+            Container.Bind<PlayerComposition>().FromInstance(composition);
+            Container.Bind<PlayerMovement>().FromInstance(composition.Movement);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
 using Input;
 using UnityEngine;
 using Zenject;
@@ -27,8 +26,7 @@ namespace Gameplay.Character.Player
                 return;
             }
             Ray ray = Lazy.CameraView.MainCamera.ScreenPointToRay(Lazy.Controls.MosueAim);
-            if (!Physics.Raycast(ray, out RaycastHit raycastHit, 1000, LayerMask.GetMask("MouseArea")))
-                return;
+            Physics.Raycast(ray, out RaycastHit raycastHit, 1000, LayerMask.GetMask("MouseArea"), QueryTriggerInteraction.Collide);
             SetSightDirection((raycastHit.point - Transform.position).WithY(0).normalized);
         }
 
