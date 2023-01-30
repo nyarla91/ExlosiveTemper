@@ -82,7 +82,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ConsumeHeatCrystal"",
+                    ""name"": ""ConsumeHeat"",
                     ""type"": ""Button"",
                     ""id"": ""abcacc49-b884-478e-945e-f04063b6c260"",
                     ""expectedControlType"": ""Button"",
@@ -91,7 +91,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ConsumeHealthCrystal"",
+                    ""name"": ""ConsumeHealth"",
                     ""type"": ""Button"",
                     ""id"": ""220b9635-408e-4db7-b6a7-b47f37eb1465"",
                     ""expectedControlType"": ""Button"",
@@ -322,7 +322,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ConsumeHeatCrystal"",
+                    ""action"": ""ConsumeHeat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -333,7 +333,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""ConsumeHeatCrystal"",
+                    ""action"": ""ConsumeHeat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -344,7 +344,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ConsumeHealthCrystal"",
+                    ""action"": ""ConsumeHealth"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -355,7 +355,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""ConsumeHealthCrystal"",
+                    ""action"": ""ConsumeHealth"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -444,8 +444,8 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         m_Player_ChargedShot = m_Player.FindAction("ChargedShot", throwIfNotFound: true);
         m_Player_Spell1 = m_Player.FindAction("Spell1", throwIfNotFound: true);
         m_Player_Spell2 = m_Player.FindAction("Spell2", throwIfNotFound: true);
-        m_Player_ConsumeHeatCrystal = m_Player.FindAction("ConsumeHeatCrystal", throwIfNotFound: true);
-        m_Player_ConsumeHealthCrystal = m_Player.FindAction("ConsumeHealthCrystal", throwIfNotFound: true);
+        m_Player_ConsumeHeat = m_Player.FindAction("ConsumeHeat", throwIfNotFound: true);
+        m_Player_ConsumeHealth = m_Player.FindAction("ConsumeHealth", throwIfNotFound: true);
         m_Player_ThumbstickAim = m_Player.FindAction("ThumbstickAim", throwIfNotFound: true);
         m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
@@ -514,8 +514,8 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ChargedShot;
     private readonly InputAction m_Player_Spell1;
     private readonly InputAction m_Player_Spell2;
-    private readonly InputAction m_Player_ConsumeHeatCrystal;
-    private readonly InputAction m_Player_ConsumeHealthCrystal;
+    private readonly InputAction m_Player_ConsumeHeat;
+    private readonly InputAction m_Player_ConsumeHealth;
     private readonly InputAction m_Player_ThumbstickAim;
     private readonly InputAction m_Player_MouseAim;
     private readonly InputAction m_Player_Sprint;
@@ -529,8 +529,8 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         public InputAction @ChargedShot => m_Wrapper.m_Player_ChargedShot;
         public InputAction @Spell1 => m_Wrapper.m_Player_Spell1;
         public InputAction @Spell2 => m_Wrapper.m_Player_Spell2;
-        public InputAction @ConsumeHeatCrystal => m_Wrapper.m_Player_ConsumeHeatCrystal;
-        public InputAction @ConsumeHealthCrystal => m_Wrapper.m_Player_ConsumeHealthCrystal;
+        public InputAction @ConsumeHeat => m_Wrapper.m_Player_ConsumeHeat;
+        public InputAction @ConsumeHealth => m_Wrapper.m_Player_ConsumeHealth;
         public InputAction @ThumbstickAim => m_Wrapper.m_Player_ThumbstickAim;
         public InputAction @MouseAim => m_Wrapper.m_Player_MouseAim;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
@@ -561,12 +561,12 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                 @Spell2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell2;
                 @Spell2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell2;
                 @Spell2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell2;
-                @ConsumeHeatCrystal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeatCrystal;
-                @ConsumeHeatCrystal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeatCrystal;
-                @ConsumeHeatCrystal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeatCrystal;
-                @ConsumeHealthCrystal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealthCrystal;
-                @ConsumeHealthCrystal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealthCrystal;
-                @ConsumeHealthCrystal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealthCrystal;
+                @ConsumeHeat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeat;
+                @ConsumeHeat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeat;
+                @ConsumeHeat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHeat;
+                @ConsumeHealth.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealth;
+                @ConsumeHealth.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealth;
+                @ConsumeHealth.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConsumeHealth;
                 @ThumbstickAim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThumbstickAim;
                 @ThumbstickAim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThumbstickAim;
                 @ThumbstickAim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThumbstickAim;
@@ -598,12 +598,12 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                 @Spell2.started += instance.OnSpell2;
                 @Spell2.performed += instance.OnSpell2;
                 @Spell2.canceled += instance.OnSpell2;
-                @ConsumeHeatCrystal.started += instance.OnConsumeHeatCrystal;
-                @ConsumeHeatCrystal.performed += instance.OnConsumeHeatCrystal;
-                @ConsumeHeatCrystal.canceled += instance.OnConsumeHeatCrystal;
-                @ConsumeHealthCrystal.started += instance.OnConsumeHealthCrystal;
-                @ConsumeHealthCrystal.performed += instance.OnConsumeHealthCrystal;
-                @ConsumeHealthCrystal.canceled += instance.OnConsumeHealthCrystal;
+                @ConsumeHeat.started += instance.OnConsumeHeat;
+                @ConsumeHeat.performed += instance.OnConsumeHeat;
+                @ConsumeHeat.canceled += instance.OnConsumeHeat;
+                @ConsumeHealth.started += instance.OnConsumeHealth;
+                @ConsumeHealth.performed += instance.OnConsumeHealth;
+                @ConsumeHealth.canceled += instance.OnConsumeHealth;
                 @ThumbstickAim.started += instance.OnThumbstickAim;
                 @ThumbstickAim.performed += instance.OnThumbstickAim;
                 @ThumbstickAim.canceled += instance.OnThumbstickAim;
@@ -643,8 +643,8 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         void OnChargedShot(InputAction.CallbackContext context);
         void OnSpell1(InputAction.CallbackContext context);
         void OnSpell2(InputAction.CallbackContext context);
-        void OnConsumeHeatCrystal(InputAction.CallbackContext context);
-        void OnConsumeHealthCrystal(InputAction.CallbackContext context);
+        void OnConsumeHeat(InputAction.CallbackContext context);
+        void OnConsumeHealth(InputAction.CallbackContext context);
         void OnThumbstickAim(InputAction.CallbackContext context);
         void OnMouseAim(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);

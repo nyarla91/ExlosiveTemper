@@ -33,8 +33,8 @@ namespace Extentions
             set => _maxValue = value;
         }
 
-        public bool IsFilled => Value.Equals(MaxValue);
-        public bool IsUnfilled => ! IsFilled;
+        public bool IsFull => Value.Equals(MaxValue);
+        public bool IsNotFull => ! IsFull;
 
         private ResourceWrap _wrap;
         public ResourceWrap Wrap => _wrap ??= new ResourceWrap(this);
@@ -42,6 +42,14 @@ namespace Extentions
         public delegate void OnChangeHandler(float current, float max);
         public event OnChangeHandler OnChange;
         public event Action OnOver;
+
+        public bool TrySpend(float value)
+        {
+            if (Value < value)
+                return false;
+            Value -= value;
+            return true;
+        }
     }
 
     public class ResourceWrap
@@ -50,6 +58,9 @@ namespace Extentions
 
         public float Value => _resource.Value;
         public float MaxValue => _resource.MaxValue;
+
+        public bool IsFull => _resource.IsFull;
+        public bool IsNotFull => _resource.IsNotFull;
 
         public event Resource.OnChangeHandler OnChange;
         public event Action OnOver;

@@ -12,6 +12,13 @@ namespace Gameplay.Character.Player
 
         public void WasteHeat(float value) => _heat.Value -= value;
 
+        public void AddHeat(float value)
+        {
+            if (value <= 0)
+                return;
+            _heat.Value += value;
+        }
+        
         private void Awake()
         {
             Lazy.Weapons.OnHit += TryAddHeat;

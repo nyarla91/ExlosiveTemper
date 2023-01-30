@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Content;
 using Extentions;
 using Extentions.Factory;
 using Gameplay.Spells;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using Zenject;
 
 namespace Gameplay.Character.Player

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Extentions;
+using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Character.Player
 {
-    public class PlayerComposition : MonoBehaviour
+    public class PlayerComposition : Transformable
     {
         private PlayerControls _controls;
         private PlayerMovement _movement;
@@ -11,6 +12,7 @@ namespace Gameplay.Character.Player
         private PlayerAnimation _animation;
         private PlayerWeapons _weapons;
         private PlayerResources _resources;
+        private PlayerInventory _inventory;
         private StateMachine _stateMachine;
         private VitalsPool _vitals;
         public PlayerControls Controls => _controls ??= GetComponent<PlayerControls>();
@@ -19,6 +21,8 @@ namespace Gameplay.Character.Player
         public PlayerSight Sight => _sight ??= GetComponent<PlayerSight>();
         public PlayerResources Resources => _resources ??= GetComponent<PlayerResources>();
         public PlayerWeapons Weapons => _weapons ??= GetComponent<PlayerWeapons>();
+
+        public PlayerInventory Inventory => _inventory ??= GetComponent<PlayerInventory>();
         public StateMachine StateMachine => _stateMachine ??= GetComponent<StateMachine>();
         public VitalsPool Vitals => _vitals ??= GetComponent<VitalsPool>();
         
