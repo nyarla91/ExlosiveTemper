@@ -24,6 +24,8 @@ namespace Gameplay.Character.Player
 
         private void FixedUpdate()
         {
+            Lazy.Vitals.Immune = IsSprinting;
+            
             if (SprintSircumstances)
             {
                 Lazy.StateMachine.TryEnterState(StateMachine.Sprint);

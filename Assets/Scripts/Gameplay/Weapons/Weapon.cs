@@ -51,7 +51,7 @@ namespace Gameplay.Weapons
                 if (target == null)
                     continue;
                 
-                _player.OnHit?.Invoke(target.TakeHit(1));
+                _player.OnHit?.Invoke(target.TakeHit(attack.DamagePerAttack / attack.ShotsPerAttack));
             }
         }
 

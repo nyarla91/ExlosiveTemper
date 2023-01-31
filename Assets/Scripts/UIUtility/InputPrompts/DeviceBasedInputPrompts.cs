@@ -5,13 +5,21 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UIUtility
+namespace UIUtility.InputPrompts
 {
-    public class DeviceBasedInputPrompts : LazyGetComponent<TMP_Text>
+    public abstract class DeviceBasedInputPrompts<TGraphics, TPrompt> : MonoBehaviour
     {
-        [SerializeField] private TMP_SpriteAsset _keyboardMouse;
-        [SerializeField] private TMP_SpriteAsset _xbox;
-        [SerializeField] private TMP_SpriteAsset _playStation;
+        [SerializeField] private TPrompt _keyboardMouse;
+        [SerializeField] private TPrompt _xbox;
+        [SerializeField] private TPrompt _playStation;
+
+        protected TPrompt KeyboardMouse => _keyboardMouse;
+        protected TPrompt Xbox => _xbox;
+        protected TPrompt PlayStation => _playStation;
+        
+        private TGraphics _graphics;
+
+        protected TGraphics Graphics => _graphics ??= GetComponent<TGraphics>();
 
         [Inject] private DeviceWatcher DeviceWatcher { get; set; }
 
@@ -27,7 +35,7 @@ namespace UIUtility
 
         private void UpdatePrompts()
         {
-            Lazy.spriteAsset = DeviceWatcher.CurrentInputScheme switch
+            ApplyPrompt(DeviceWatcher.CurrentInputScheme switch
             {
                 InputScheme.KeyboardMouse => _keyboardMouse,
                 InputScheme.None => _keyboardMouse,
@@ -40,7 +48,9 @@ namespace UIUtility
                     _ => throw new ArgumentOutOfRangeException()
                 },
                 _ => throw new ArgumentOutOfRangeException()
-            };
+            });
         }
+
+        protected abstract void ApplyPrompt(TPrompt prompt);
     }
 }

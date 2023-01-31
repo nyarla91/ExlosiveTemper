@@ -26,6 +26,8 @@ namespace Gameplay.Character.Enemy
 
         private IEnumerator ShootCycle()
         {
+            yield return new PausableWaitForSeconds(this, Pause, 1);
+            yield return new PausableWaitForSeconds(this, Pause, Random.Range(0, _wavesPeriod));
             while (true)
             {
                 for (int burst = 0; burst < _burstsPerWave; burst++)

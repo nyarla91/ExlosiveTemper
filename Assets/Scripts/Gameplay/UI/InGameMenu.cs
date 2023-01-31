@@ -12,7 +12,6 @@ namespace Gameplay.UI
     public class InGameMenu : Menu
     {
         [Inject] private SceneLoader SceneLoader { get; set; }
-        [Inject] private Pause Pause { get; set; }
 
         public void Quit() => Application.Quit();
         public void Surrender() => SceneLoader.LoadMainMenu();

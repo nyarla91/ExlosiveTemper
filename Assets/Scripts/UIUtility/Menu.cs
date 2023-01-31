@@ -20,7 +20,7 @@ namespace UIUtility
         
         public MenuWindow FirstMenuWindow => _firstMenuWindow;
         
-        [Inject] private Pause Pause { get; set; }
+        [Inject] protected Pause Pause { get; private set; }
         [Inject] private UINavigationSystem NavigationSystem { get; set; }
 
         public event Action OnOpen;

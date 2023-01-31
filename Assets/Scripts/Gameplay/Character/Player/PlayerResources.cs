@@ -7,6 +7,7 @@ namespace Gameplay.Character.Player
     public class PlayerResources : LazyGetComponent<PlayerComposition>
     {
         [SerializeField] private Resource _heat;
+        [SerializeField] private float _heatCollectPercent;
         
         public ResourceWrap Heat => _heat.Wrap;
 
@@ -22,13 +23,19 @@ namespace Gameplay.Character.Player
         private void Awake()
         {
             Lazy.Weapons.OnHit += TryAddHeat;
+            Lazy.Vitals.OnTakeDamage += _ => WasteHeat(100);
+        }
+
+        private void Start()
+        {
+            Lazy.Resources.AddHeat(50);
         }
 
         private void TryAddHeat(HitDetails hitDetails)
         {
             if (hitDetails.HitEntityOwner != EntityOwner.Enemy)
                 return;
-            _heat.Value += 25;
+            _heat.Value += hitDetails.Damage * _heatCollectPercent;
         }
     }
 }

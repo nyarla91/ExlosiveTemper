@@ -12,7 +12,6 @@ namespace Gameplay.Character.Enemy
         [SerializeField] private float _preferedDistance;
         [SerializeField] [Tooltip("The less, the smoother acceleration")] private float _acceleration;
 
-        private Transform _player;
         private Vector3 _destination;
 
         private Movable _movable;
@@ -20,12 +19,6 @@ namespace Gameplay.Character.Enemy
         public Movable Movable => _movable ??= GetComponent<Movable>();
         
         [Inject] private Pause Pause { get; set; }
-        
-        [Inject]
-        private void Construct(PlayerMovement player)
-        {
-            _player = player.Transform;
-        }
 
         private void FixedUpdate()
         {
@@ -35,8 +28,8 @@ namespace Gameplay.Character.Enemy
                 return;
             }
 
-            if (_player != null)
-                _destination = _player.position;
+            if (Lazy.Player != null)
+                _destination = Lazy.Player.Transform.position;
             float distanceToPlayer = Vector3.Distance(Transform.position.WithY(0), _destination);
             
             float speed;

@@ -66,3 +66,5 @@ MonoBehaviour:
         _pairs:
         - _key: language
           _value: 0
+        - _key: aim assist
+          _value: 2

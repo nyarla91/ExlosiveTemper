@@ -1,4 +1,7 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
+using Gameplay.Character.Enemy;
+using Gameplay.Rooms;
 using Input;
 using UnityEngine;
 using Zenject;
@@ -7,7 +10,15 @@ namespace Gameplay.Character.Player
 {
     public class PlayerSight : LazyGetComponent<PlayerComposition>
     {
+        [SerializeField] private Transform _aimPoint;
         [Inject] private DeviceWatcher DeviceWatcher { get; set; }
+        [Inject] private Settings.Settings Settings { get; set; }
+        public EnemySpawner Spawner { get; set; }
+
+        private void Start()
+        {
+            Lazy.CameraView.Init(_aimPoint);
+        }
 
         private void FixedUpdate()
         {
@@ -40,6 +51,30 @@ namespace Gameplay.Character.Player
             direction = direction.WithY(0);
             if (direction.Equals(Vector3.zero))
                 return;
+            
+            float maxAimAssistAngle = Settings.Config.Game.GetSettingValue("aim assist") * 5;
+            if (maxAimAssistAngle > 0 && Spawner.EnemiesAlive != null)
+            {
+                float forwardDegreees = direction.XZtoXY().ToDegrees(); 
+                Transform closestEnemy = null;
+                float closestAngle = 360;
+                foreach (EnemyComposition enemy in Spawner.EnemiesAlive)
+                {
+                    Vector3 enemyPosition = enemy.Transform.position;
+                    float enemyDegrees = (enemyPosition - Transform.position).XZtoXY().ToDegrees();
+                    float angle = Mathf.Abs(forwardDegreees - enemyDegrees);
+                    if (angle < closestAngle)
+                    {
+                        closestEnemy = enemy.Transform;
+                        closestAngle = angle;
+                    }
+                }
+                if (closestEnemy != null && closestAngle < maxAimAssistAngle)
+                {
+                    direction = closestEnemy.position - Transform.position;
+                }
+            }
+            
             direction.Normalize();
             Transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }

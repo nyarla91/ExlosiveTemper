@@ -18,5 +18,7 @@ namespace Localization
             1 => Russian,
             _ => ""
         };
+
+        public override string ToString() => $"({English}), ({Russian})";
     }
 }

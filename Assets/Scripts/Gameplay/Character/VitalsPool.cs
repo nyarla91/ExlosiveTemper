@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +16,10 @@ namespace Gameplay.Character
         [Inject] private Pause Pause { get; set; }
 
         public bool IsDead { get; private set; }
+        public bool Immune { get; set; }
+
+        public event Action OnHealthOver;
+        public event Action<float> OnTakeDamage;
 
         public void Init(int health, int shields, float shieldsRegeneration)
         {
@@ -22,12 +27,15 @@ namespace Gameplay.Character
             IsDead = false;
         }
 
-        public void TakeDamage(float damage)
+        public float TakeDamage(float damage)
         {
-            if (damage <= 0 || IsDead)
-                return;
+            if (Immune || damage <= 0 || IsDead)
+                return 0;
 
-            _health.Value -= Mathf.Min(damage, _health.MaxValue * _maxPercentDamage);
+            damage = Mathf.Min(damage, _health.MaxValue * _maxPercentDamage);
+            _health.Value -= damage;
+            OnTakeDamage?.Invoke(damage);
+            return damage;
         }
 
         public void RestoreHealth(float health)
@@ -46,7 +54,11 @@ namespace Gameplay.Character
 
         private void Awake()
         {
-            _health.OnOver += () => IsDead = true;
+            _health.OnOver += () =>
+            {
+                OnHealthOver?.Invoke();
+                IsDead = true;
+            };
         }
 
         private void Update()
