@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 855faef6b71a4c4faf06b0b203318fdb, type: 3}
-  m_Name: Enemy
+  m_Name: MachineGunEnemy
   m_EditorClassIdentifier: 
-  <Weight>k__BackingField: 2
-  <BasePrefab>k__BackingField: {fileID: 4939011507123562998, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
+  <Weight>k__BackingField: 3
+  <BasePrefab>k__BackingField: {fileID: 1770100258064046246, guid: c37312719cd7db049a249a108cf29d05, type: 3}

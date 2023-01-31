@@ -3981,9 +3981,9 @@ MonoBehaviour:
   _wavesPerRoom: 2
   _waveTotalWeight: 3
   _enemies:
-  - {fileID: 11400000, guid: b23fad300078e3f48a377be86cb366fb, type: 2}
-  - {fileID: 11400000, guid: 482a62f052821214ca9ea9806eb78af2, type: 2}
   - {fileID: 11400000, guid: b6d34da788cdc004da1eaa42ff612a8c, type: 2}
+  - {fileID: 11400000, guid: f8a6a261d955ed640a1f269ccfc1a238, type: 2}
+  - {fileID: 11400000, guid: b23fad300078e3f48a377be86cb366fb, type: 2}
 --- !u!4 &1477835362
 Transform:
   m_ObjectHideFlags: 0
@@ -4511,6 +4511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectionBox
       objectReference: {fileID: 0}
+    - target: {fileID: 5953643784307327350, guid: 8efcd8ed3d7666d4a95e0f01ae3430a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5953643784307327351, guid: 8efcd8ed3d7666d4a95e0f01ae3430a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4956,14 +4960,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960052953}
-  m_LocalRotation: {x: 0.47748372, y: -0.32761216, z: 0.1977804, w: 0.7909251}
-  m_LocalPosition: {x: 54, y: 146, z: -54}
+  m_LocalRotation: {x: 0.39044833, y: -0.34682897, z: 0.161729, w: 0.8373192}
+  m_LocalPosition: {x: 72.3, y: 124.2, z: -72.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736480347}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 62.239, y: -45, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -45, z: 0}
 --- !u!114 &1960052957
 MonoBehaviour:
   m_ObjectHideFlags: 0

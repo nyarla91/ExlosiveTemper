@@ -1,5 +1,6 @@
 ﻿using Extentions;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character
 {
@@ -7,10 +8,12 @@ namespace Gameplay.Character
     public class Movable : LazyGetComponent<Rigidbody>
     {
         public Vector3 Velocity { get; set; }
+        
+        [Inject] private Pause Pause { get; set; }
 
         private void FixedUpdate()
         {
-            Lazy.velocity = Velocity;
+            Lazy.velocity = Pause.IsPaused ? Vector3.zero : Velocity;
         }
     }
 }

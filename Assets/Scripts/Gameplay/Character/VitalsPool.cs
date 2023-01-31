@@ -63,9 +63,9 @@ namespace Gameplay.Character
 
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.U))
                 TakeDamage(10);
-            if (UnityEngine.Input.GetKeyDown(KeyCode.G))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.I))
                 RestoreHealth(10);
         }
 

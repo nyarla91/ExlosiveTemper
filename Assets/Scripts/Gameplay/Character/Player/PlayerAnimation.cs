@@ -1,5 +1,6 @@
 ﻿using Extentions;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character.Player
 {
@@ -8,8 +9,18 @@ namespace Gameplay.Character.Player
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
         
+        [Inject] private Pause Pause { get; set; }
+        
         private void Update()
         {
+            if (Pause.IsPaused)
+            {
+                _animator.speed = 0;
+                return;
+            }
+
+            _animator.speed = 1;
+            
             int runState;
             if (Lazy.Movement.Velocity.Equals(Vector3.zero))
                 runState = 0;

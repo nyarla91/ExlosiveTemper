@@ -15,16 +15,17 @@ namespace Gameplay.Character.Player
         private PlayerInventory _inventory;
         private StateMachine _stateMachine;
         private VitalsPool _vitals;
+        private Hitbox _hitbox;
         public PlayerControls Controls => _controls ??= GetComponent<PlayerControls>();
         public PlayerMovement Movement => _movement ??= GetComponent<PlayerMovement>();
         public PlayerAnimation Animation => _animation ??= GetComponent<PlayerAnimation>();
         public PlayerSight Sight => _sight ??= GetComponent<PlayerSight>();
         public PlayerResources Resources => _resources ??= GetComponent<PlayerResources>();
         public PlayerWeapons Weapons => _weapons ??= GetComponent<PlayerWeapons>();
-
         public PlayerInventory Inventory => _inventory ??= GetComponent<PlayerInventory>();
         public StateMachine StateMachine => _stateMachine ??= GetComponent<StateMachine>();
         public VitalsPool Vitals => _vitals ??= GetComponent<VitalsPool>();
+        public Hitbox Hitbox => _hitbox ??= GetComponent<Hitbox>();
         
         [Inject] public CameraView CameraView { get; private set; }
     }

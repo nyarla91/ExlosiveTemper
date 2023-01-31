@@ -10,18 +10,20 @@ namespace Gameplay.Character.Player
 {
     public class PlayerSight : LazyGetComponent<PlayerComposition>
     {
-        [SerializeField] private Transform _aimPoint;
         [Inject] private DeviceWatcher DeviceWatcher { get; set; }
         [Inject] private Settings.Settings Settings { get; set; }
+        [Inject] private Pause Pause { get; set; }
         public EnemySpawner Spawner { get; set; }
 
         private void Start()
         {
-            Lazy.CameraView.Init(_aimPoint);
+            Lazy.CameraView.Init(Transform);
         }
 
         private void FixedUpdate()
         {
+            if (Pause.IsPaused)
+                return;
             if (Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Sprint))
                 RotateTowardsMovement();
             else if (Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Regular))
@@ -52,7 +54,7 @@ namespace Gameplay.Character.Player
             if (direction.Equals(Vector3.zero))
                 return;
             
-            float maxAimAssistAngle = Settings.Config.Game.GetSettingValue("aim assist") * 5;
+            float maxAimAssistAngle = Settings.Config.Game.GetSettingValue("aim assist") * 3;
             if (maxAimAssistAngle > 0 && Spawner.EnemiesAlive != null)
             {
                 float forwardDegreees = direction.XZtoXY().ToDegrees(); 

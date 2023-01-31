@@ -18,7 +18,6 @@ namespace Settings.UI
         {
             LocalizedString localizedLabel = _labels[Mathf.RoundToInt(value)];
             int language = Settings.Config.Game.GetSettingValue("language");
-            print(language);
             _tmp.text = localizedLabel.GetTranslation(language);
         }
     }

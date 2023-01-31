@@ -3,6 +3,7 @@ using Extentions;
 using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Zenject;
 
 namespace Gameplay.Character.Player
 {
@@ -15,6 +16,8 @@ namespace Gameplay.Character.Player
         private Timer _chargedShotCooldown;
 
         public Weapon CurrentWeapon => _currentWeapon;
+        
+        [Inject] private Pause Pause { get; set; }
 
         public Action<HitDetails> OnHit;
 
@@ -33,14 +36,14 @@ namespace Gameplay.Character.Player
 
         private void TryShoot()
         {
-            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular))
+            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || Pause.IsPaused)
                 return;
             _currentWeapon.TryShoot();
         }
 
         private void TryChargedShot()
         {
-            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || _chargedShotCooldown.IsOn)
+            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || Pause.IsPaused || _chargedShotCooldown.IsOn)
                 return;
             if (_currentWeapon.TryChargedShot())
             {

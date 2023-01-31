@@ -23,7 +23,7 @@ namespace Gameplay.Character.Player
         private void Awake()
         {
             Lazy.Weapons.OnHit += TryAddHeat;
-            Lazy.Vitals.OnTakeDamage += _ => WasteHeat(100);
+            Lazy.Hitbox.OnTakeHit += _ => WasteHeat(100);
         }
 
         private void Start()

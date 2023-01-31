@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Gameplay.Character
 {
@@ -6,6 +7,8 @@ namespace Gameplay.Character
     {
         [SerializeField] private VitalsPool _vitalsPool;
 
+        public event Action<HitDetails> OnTakeHit; 
+        
         public HitDetails TakeHit(float damage)
         {
             float damageDealt = 0;
@@ -19,7 +22,9 @@ namespace Gameplay.Character
                 11 => EntityOwner.Neutral,
                 _ => EntityOwner.Enviroment,
             };
-            return new HitDetails(entityOwner, damageDealt);
+            HitDetails hitDetails = new HitDetails(entityOwner, damageDealt);
+            OnTakeHit?.Invoke(hitDetails);
+            return hitDetails;
         }
     }
 

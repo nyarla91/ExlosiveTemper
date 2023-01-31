@@ -1,6 +1,7 @@
 ﻿using System;
 using Extentions;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character.Player
 {
@@ -21,6 +22,8 @@ namespace Gameplay.Character.Player
         
         public bool IsSprinting => Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Sprint);
         public Vector3 Velocity { get; private set; }
+        
+        [Inject] private Pause Pause { get; set; }
 
         private void FixedUpdate()
         {
@@ -50,6 +53,8 @@ namespace Gameplay.Character.Player
 
         private void Move(Vector2 screenInput)
         {
+            if (Pause.IsPaused)
+                return;
             float maxSpeed = IsSprinting ? (_maxSpeed * _sprintMaxSpeedModifier) : _maxSpeed;
             float acceleration = IsSprinting ? (_acceleration * _sprintAccelerationModifier) : _acceleration;
             Vector3 targetVelocity = Lazy.CameraView.ScreenToPerspective(screenInput) * maxSpeed;
