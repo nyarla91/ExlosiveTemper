@@ -11,14 +11,17 @@ namespace Gameplay.Rooms
         
         public BoxCollider SpawnArea => _spawnArea;
         [Inject] public EnemySpawner Spawner { get; }
+        
+        public int Level { get; private set; }
 
-        public void MoveAndReset(Vector3 offset)
+        public void NextLevel(Vector3 offset)
         {
             foreach (Door door in _doors)
             {
                 door.Lock();
             }
             Transform.position += offset.WithY(0);
+            Level++;
             Spawner.StartWave(this);
         }
     }

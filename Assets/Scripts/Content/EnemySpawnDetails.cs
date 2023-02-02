@@ -8,5 +8,6 @@ namespace Content
     {
         [field: SerializeField] public int Weight { get; private set; }
         [field: SerializeField] public GameObject BasePrefab { get; private set; }
+        [field: SerializeField] public GameObject ElitePrefab { get; private set; }
     }
 }

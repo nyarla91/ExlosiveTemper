@@ -13,10 +13,6 @@ namespace UIUtility.InputPrompts
         [SerializeField] private TPrompt _xbox;
         [SerializeField] private TPrompt _playStation;
 
-        protected TPrompt KeyboardMouse => _keyboardMouse;
-        protected TPrompt Xbox => _xbox;
-        protected TPrompt PlayStation => _playStation;
-        
         private TGraphics _graphics;
 
         protected TGraphics Graphics => _graphics ??= GetComponent<TGraphics>();
@@ -27,6 +23,10 @@ namespace UIUtility.InputPrompts
         {
             DeviceWatcher.OnGamepadModelChanged += OnGamepadModelChanged;
             DeviceWatcher.OnInputSchemeChanged += OnInputSchemeChanged;
+        }
+
+        private void Start()
+        {
             UpdatePrompts();
         }
 

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512336334738670610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 10}
+  m_LocalPosition: {x: 0, y: 1.5, z: 11}
   m_LocalScale: {x: 0.1, y: 0.1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd637506f9040af82ca2edd3afd4614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimPoint: {fileID: 0}
 --- !u!114 &2869568182423169156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +508,7 @@ MonoBehaviour:
   _animationIndex: 0
   _player: {fileID: 2869568182423169156}
   _primaryAttack:
-    <DamagePerAttack>k__BackingField: 10
+    <DamagePerAttack>k__BackingField: 1000
     <ShotsPerAttack>k__BackingField: 1
     <SplashAmplitude>k__BackingField: 0
     <PiercesEnemies>k__BackingField: 0

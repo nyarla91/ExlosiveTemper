@@ -13,7 +13,7 @@ namespace Gameplay.Rooms
         {
             if (other.TryGetComponent(out PlayerComposition _))
             {
-                _originalRoom.MoveAndReset(_nextRoomOffset);
+                _originalRoom.NextLevel(_nextRoomOffset);
             }
         }
     }

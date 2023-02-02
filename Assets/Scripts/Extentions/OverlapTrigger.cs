@@ -8,13 +8,11 @@ namespace Extentions
     public class OverlapTrigger : Transformable
     {
         [SerializeField] private List<Collider> _colliders = new List<Collider>();
+        
+        public Collider[] Content => _colliders.Where(collider => collider is not null).ToArray();
 
-        public Collider[] Content => _colliders.ToArray();
-        
-        public T[] GetContent<T>() where T : Component
-            => _colliders.Select(collider => collider.GetComponent<T>())
-                .Where(collider => collider is not null).ToArray();
-        
+        public T[] GetContent<T>() where T : Component => Content.Select(collider => collider.GetComponent<T>()).Where(t => t is not null).ToArray();
+
         public T[] GetContent<T>(LayerMask layerMask) where T : Component
             => GetContent<T>().Where(c => layerMask == (layerMask | (1 << c.gameObject.layer)) && c.gameObject.activeInHierarchy).ToArray();
 
