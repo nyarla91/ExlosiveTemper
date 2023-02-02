@@ -41,7 +41,7 @@ namespace Gameplay.Weapons
             for (int i = 0; i < attack.ShotsPerAttack; i++)
             {
                 float degreeOffset = Random.Range(-attack.SplashAmplitude, attack.SplashAmplitude);
-                Ray ray = new Ray(_player.Transform.position.WithY(0.5f), direction.RotatedY(degreeOffset));
+                Ray ray = new Ray(_player.Transform.position.WithY(1.5f), direction.RotatedY(degreeOffset));
                 LayerMask mask = LayerMask.GetMask("Enemy", "Obstacle");
                 
                 if ( ! Physics.Raycast(ray, out RaycastHit raycastHit, 50, mask))

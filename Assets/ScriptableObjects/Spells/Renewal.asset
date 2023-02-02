@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf64a6c19cd64baeb5f1a9420721de9a, type: 3}
-  m_Name: Reload
+  m_Name: Renewal
   m_EditorClassIdentifier: 
+  <Name>k__BackingField:
+    _english: Renewal
+    _russian: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435"
+  <Icon>k__BackingField: {fileID: 21300000, guid: 9b7c68b77b46b7c48b9cf837424a59be, type: 3}
   <CastTime>k__BackingField: 1
-  <HeatCost>k__BackingField: 20
+  <HeatCost>k__BackingField: 30
   <Behaviour>k__BackingField:
-    m_AssetGUID: 12b4e5245d9ce2c42b1cd258ae9b3501
+    m_AssetGUID: bdbbee2dd214d2849acf6557a0287755
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

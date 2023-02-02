@@ -30,11 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: bdbbee2dd214d2849acf6557a0287755
-    m_Address: Spell/Restoration
+    m_Address: Spell/Renewal
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 12b4e5245d9ce2c42b1cd258ae9b3501
-    m_Address: Spell/Reload
+    m_Address: Spell/Preparation
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

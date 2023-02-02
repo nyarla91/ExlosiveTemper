@@ -113,11 +113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540787, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540787, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
@@ -135,7 +135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: aade757d206cff04da6629b429a8e511, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aade757d206cff04da6629b429a8e511, type: 3}
       propertyPath: m_LocalScale.x

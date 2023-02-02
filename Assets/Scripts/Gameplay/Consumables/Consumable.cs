@@ -1,4 +1,5 @@
-﻿using Gameplay.Character.Player;
+﻿using System;
+using Gameplay.Character.Player;
 
 namespace Gameplay.Consumables
 {
@@ -9,7 +10,13 @@ namespace Gameplay.Consumables
         public int Quantity
         {
             get => _quantity;
-            private set => _quantity = value;
+            private set
+            {
+                if (value == _quantity)
+                    return;
+                _quantity = value;
+                OnQuantityChanged?.Invoke(value);
+            }
         }
 
         public void AddOne() => Quantity++;
@@ -22,6 +29,8 @@ namespace Gameplay.Consumables
             Quantity--;
             return true;
         }
+
+        public event Action<int> OnQuantityChanged; 
 
         public abstract void ConsumeEffect(PlayerComposition player);
     }

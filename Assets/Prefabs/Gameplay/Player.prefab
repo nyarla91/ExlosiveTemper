@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869568182257926923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentWeapon: {fileID: 2869568182596998586}
   _secondaryWeapon: {fileID: 2869568181855516490}
-  _chargedShotCooldownTime: 10
+  _chargedShotCooldownTime: 5
 --- !u!114 &2869568182423169154
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: _projectileBaseDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4521895648498540787, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
 --- !u!4 &3586697783923709558 stripped

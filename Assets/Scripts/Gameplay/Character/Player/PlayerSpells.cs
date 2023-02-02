@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Content;
 using Extentions;
 using Extentions.Factory;
@@ -15,9 +16,13 @@ namespace Gameplay.Character.Player
         private SpellBehaviour[] _spellBehaviours;
         private Coroutine _castCoroutine;
         private SpellBehaviour _currentlyCastedSpell;
-        
+
+        public SpellBehaviour[] SpellBehaviours => _spellBehaviours;
+
         [Inject] private ContainerFactory ContainerFactory { get; set; }
 
+        public event Action<int, SpellBehaviour> OnSpellLoaded;
+        
         private void Awake()
         {
             Lazy.Controls.OnSpellUse += TryUseSpell;
@@ -85,6 +90,7 @@ namespace Gameplay.Character.Player
             behaviour.Init(spell, Lazy);
             _spellBehaviours[index] = behaviour;
             spell.Behaviour.ReleaseAsset();
+            OnSpellLoaded?.Invoke(index, behaviour);
         }
     }
 }
