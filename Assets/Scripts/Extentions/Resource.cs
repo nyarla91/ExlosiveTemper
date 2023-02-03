@@ -36,6 +36,12 @@ namespace Extentions
         public bool IsFull => Value.Equals(MaxValue);
         public bool IsNotFull => ! IsFull;
 
+        public float Percent
+        {
+            get => Value / MaxValue;
+            set => Value = MaxValue * value;
+        }
+
         private ResourceWrap _wrap;
         public ResourceWrap Wrap => _wrap ??= new ResourceWrap(this);
 
@@ -62,6 +68,7 @@ namespace Extentions
 
         public bool IsFull => _resource.IsFull;
         public bool IsNotFull => _resource.IsNotFull;
+        public float Percent => _resource.Percent;
 
         public event Resource.OnChangeHandler Changed;
         public event Action Over;

@@ -24,7 +24,7 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 21300000, guid: 0991c721122aa7b42837350e4d7948ee, type: 3}
   <HeatCost>k__BackingField: 1
   <Behaviour>k__BackingField:
-    m_AssetGUID: bdbbee2dd214d2849acf6557a0287755
+    m_AssetGUID: d1e8175cd1a233b48b7bf2eb9df0ff65
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

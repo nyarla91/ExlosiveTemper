@@ -525,7 +525,7 @@ MonoBehaviour:
     <DamagePerAttack>k__BackingField: 10
     <ShotsPerAttack>k__BackingField: 1
     <SplashAmplitude>k__BackingField: 0
-    <PiercesEnemies>k__BackingField: 1
+    <PiercesEnemies>k__BackingField: 0
   _chargedAttack:
     <DamagePerAttack>k__BackingField: 30
     <ShotsPerAttack>k__BackingField: 1

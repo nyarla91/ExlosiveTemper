@@ -17,6 +17,7 @@ namespace Gameplay.Character.Player
 
         public Timer ChargedShotCooldown => _chargedShotCooldown;
         public Weapon CurrentWeapon => _currentWeapon;
+        public Weapon SecondaryWeapon => _secondaryWeapon;
         
         [Inject] private Pause Pause { get; set; }
 

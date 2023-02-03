@@ -22,7 +22,7 @@ namespace Gameplay.Weapons
         public int AnimationIndex => _animationIndex;
         [Inject] private Pause Pause { get; set; }
 
-        public event Action<WeaponAttack, Vector3> HitscanBulletShot; 
+        public event Action<WeaponAttack, Vector3, Hitbox[]> HitscanBulletShot; 
 
         public bool TryShoot()
         {
@@ -52,14 +52,15 @@ namespace Gameplay.Weapons
                 if (attack.PiercesEnemies)
                 {
                     hits = Physics.RaycastAll(ray.origin, ray.direction, 50, mask);
-                    HitscanBulletShot?.Invoke(attack, hits.First().point);
+                    HitscanBulletShot?.Invoke(attack, hits.First().point,
+                        hits.Select(hit => hit.collider.GetComponent<Hitbox>()).ToArray());
                 }
                 else
                 {
                     if ( ! Physics.Raycast(ray, out RaycastHit raycastHit, 50, mask))
                         continue;
                     hits = new[] {raycastHit};
-                    HitscanBulletShot?.Invoke(attack, raycastHit.point);
+                    HitscanBulletShot?.Invoke(attack, raycastHit.point, new []{raycastHit.collider.GetComponent<Hitbox>()});
                 }
                 foreach (RaycastHit raycastHit in hits)
                 {

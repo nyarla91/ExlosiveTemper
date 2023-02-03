@@ -49,6 +49,14 @@ MonoBehaviour:
     m_Address: Spell/Scatter
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d1e8175cd1a233b48b7bf2eb9df0ff65
+    m_Address: Spell/ChargeOfAshes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fad7b7274eb08194586e13668f69d419
+    m_Address: Spell/BulletOfExecutor
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:
