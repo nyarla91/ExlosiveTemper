@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1042423782866176552
+--- !u!1001 &5428283893729520310
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -53,29 +53,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5817973971563999243, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_Name
-      value: BurningAuraSpell
+      value: ConjuctionSpell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
---- !u!1 &6830542715099429411 stripped
+--- !u!1 &2011063874802064061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5817973971563999243, guid: 48e3469133da29145a0675313c63892c, type: 3}
-  m_PrefabInstance: {fileID: 1042423782866176552}
+  m_PrefabInstance: {fileID: 5428283893729520310}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-8471837816943076416
+--- !u!114 &-8914890686116680592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6830542715099429411}
+  m_GameObject: {fileID: 2011063874802064061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df7290b99064703a9dbf868d50b31a8, type: 3}
+  m_Script: {fileID: 11500000, guid: d720a08259fe4b968a6a2ceb97ab6a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagePerSecond: 10
-  _tickPeriod: 0.5
-  _radiusReductionPerSecond: 1
-  _radiusPerCast: 5
-  _healingRadiusMultiplier: 0.2
+  _embersGained: 1

@@ -18,6 +18,7 @@ namespace Gameplay.Character.Player
         private StateMachine _stateMachine;
         private VitalsPool _vitals;
         private Hitbox _hitbox;
+        private Movable _movable;
         public PlayerControls Controls => _controls ??= GetComponent<PlayerControls>();
         public PlayerMovement Movement => _movement ??= GetComponent<PlayerMovement>();
         public PlayerAnimation Animation => _animation ??= GetComponent<PlayerAnimation>();
@@ -30,6 +31,7 @@ namespace Gameplay.Character.Player
         public StateMachine StateMachine => _stateMachine ??= GetComponent<StateMachine>();
         public VitalsPool Vitals => _vitals ??= GetComponent<VitalsPool>();
         public Hitbox Hitbox => _hitbox ??= GetComponent<Hitbox>();
+        public Movable Movable => _movable ??= GetComponent<Movable>();
         
         [Inject] public CameraView CameraView { get; private set; }
     }

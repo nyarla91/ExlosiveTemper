@@ -41,6 +41,14 @@ MonoBehaviour:
     m_Address: Spell/BurningAura
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 246f3eda3215e8b44860028c74a7828f
+    m_Address: Spell/Conjuction
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0344363eb0418294a9d95a700d5a04cf
+    m_Address: Spell/Scatter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:

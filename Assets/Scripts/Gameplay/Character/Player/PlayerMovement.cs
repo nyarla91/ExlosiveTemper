@@ -12,12 +12,10 @@ namespace Gameplay.Character.Player
         [SerializeField] private float _sprintAccelerationModifier;
         [SerializeField] private float _sprintHeatCostPerSecond;
 
-        private Movable _movable;
         private bool SprintSircumstances 
             => Lazy.Controls.IsSprintHolded 
                && Lazy.Controls.MoveVector.magnitude > 0
                && Lazy.Resources.Heat.Value > 0;
-        private Movable Movable => _movable ??= GetComponent<Movable>();
         
         public bool IsSprinting => Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Sprint);
         public Vector3 Velocity { get; private set; }
@@ -46,7 +44,7 @@ namespace Gameplay.Character.Player
             }
             else
             {
-                Movable.Velocity = Velocity = Vector3.zero;
+                Lazy.Movable.VoluntaryVelocity = Velocity = Vector3.zero;
             }
         }
 
@@ -58,7 +56,7 @@ namespace Gameplay.Character.Player
             float acceleration = IsSprinting ? (_acceleration * _sprintAccelerationModifier) : _acceleration;
             Vector3 targetVelocity = Lazy.CameraView.ScreenToPerspective(screenInput) * maxSpeed;
             Velocity = Vector3.MoveTowards(Velocity, targetVelocity, acceleration * Time.fixedDeltaTime);
-            Movable.Velocity = Velocity;
+            Lazy.Movable.VoluntaryVelocity = Velocity;
         }
     }
 }

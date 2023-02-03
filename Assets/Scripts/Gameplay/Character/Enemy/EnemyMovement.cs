@@ -31,7 +31,7 @@ namespace Gameplay.Character.Enemy
         {
             if (Pause.IsPaused)
             {
-                Movable.Velocity = Vector3.zero;
+                Movable.VoluntaryVelocity = Vector3.zero;
                 return;
             }
             
@@ -50,7 +50,7 @@ namespace Gameplay.Character.Enemy
                 targetVelocity += (Transform.position - closestEnemy.Transform.position).normalized * _retreatSpeed;
             }
 
-            Movable.Velocity = Vector3.MoveTowards(Movable.Velocity, targetVelocity, Time.fixedDeltaTime * _acceleration);
+            Movable.VoluntaryVelocity = Vector3.MoveTowards(Movable.VoluntaryVelocity, targetVelocity, Time.fixedDeltaTime * _acceleration);
         }
 
         private float GetSpeedFromDistance(float distanceToPlayer)

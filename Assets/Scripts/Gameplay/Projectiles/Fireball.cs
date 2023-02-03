@@ -18,7 +18,7 @@ namespace Gameplay.Projectiles
         private void Explode(Hitbox _)
         {
             LayerMask mask = LayerMask.GetMask("Player", "Enemy");
-            Hitbox[] targets = AreaOfEffect.GetTargets(Transform.position, _explosionRadius, mask);
+            Hitbox[] targets = AOE.GetTargets<Hitbox>(Transform.position, _explosionRadius, mask);
             targets.Foreach(hitbox => hitbox?.TakeHit(_explosionDamage));
         }
     }

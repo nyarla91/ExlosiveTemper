@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
+﻿using System.Collections;
 using Extentions;
 using Gameplay.Character;
 using UnityEngine;
@@ -14,7 +12,7 @@ namespace Gameplay.Spells
         [SerializeField] private float _tickPeriod;
         [SerializeField] private float _radiusReductionPerSecond;
         [SerializeField] private float _radiusPerCast;
-        [SerializeField] private float _healingRadiusModifier;
+        [SerializeField] private float _healingRadiusMultiplier;
         
         private float _radius;
         
@@ -29,15 +27,18 @@ namespace Gameplay.Spells
         private void Start()
         {
             StartCoroutine(DealingDamage());
+            Player.Vitals.Health.GainedExcees += excess => _radius += excess * _healingRadiusMultiplier;
         }
 
         private IEnumerator DealingDamage()
         {
             while (true)
             {
-                Hitbox[] targets = AreaOfEffect.GetTargets(Transform.position, _radius, LayerMask.GetMask("Enemy"));
+                print(_radius);
+                LayerMask mask = LayerMask.GetMask("Enemy");
+                Hitbox[] targets = AOE.GetTargets<Hitbox>(Transform.position, _radius, mask);
                 float damage = _damagePerSecond * _tickPeriod;
-                targets.Foreach(target => target.TakeHit(damage));
+                targets.Foreach(target => target?.TakeHit(damage));
                 _radius = Mathf.Max(_radius - _radiusReductionPerSecond * _tickPeriod, 0);
                 yield return new PausableWaitForSeconds(this, Pause, _tickPeriod);
             }

@@ -1,4 +1,5 @@
-﻿using Achievements;
+﻿using System;
+using Achievements;
 using Localization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,5 +15,11 @@ namespace Content
         [field: SerializeField] public int HeatCost { get; set; }
         [field: SerializeField] public AssetReference Behaviour { get; set; }
         [field: SerializeField] public Achievement Achievement { get; private set; }
+
+        private void OnValidate()
+        {
+            if (Achievement != null)
+                Achievement.UnlockedSpell = this;
+        }
     }
 }

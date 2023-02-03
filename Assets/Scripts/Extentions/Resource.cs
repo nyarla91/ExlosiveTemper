@@ -42,6 +42,7 @@ namespace Extentions
         public delegate void OnChangeHandler(float current, float max);
         public event OnChangeHandler Changed;
         public event Action Over;
+        public event Action<float> GainedExcees;
 
         public bool TrySpend(float value)
         {
@@ -64,12 +65,14 @@ namespace Extentions
 
         public event Resource.OnChangeHandler Changed;
         public event Action Over;
+        public event Action<float> GainedExcees;
 
         public ResourceWrap(Resource resource)
         {
             _resource = resource;
             _resource.Changed += (current, max) => Changed?.Invoke(current, max);
             _resource.Over += () => Over?.Invoke();
+            _resource.GainedExcees += excess => GainedExcees?.Invoke(excess);
         }
     }
 }
