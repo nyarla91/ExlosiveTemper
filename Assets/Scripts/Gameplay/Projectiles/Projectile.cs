@@ -68,7 +68,7 @@ namespace Gameplay.Projectiles
         
         [Inject] private Pause Pause { get; set; }
 
-        public event Action<Hitbox> OnHitboxHit;
+        public event Action<Hitbox> HitboxHit;
 
         public void Init(EntityOwner owner, float damage, Vector3 velocity)
         {
@@ -100,7 +100,7 @@ namespace Gameplay.Projectiles
                 return;
             
             HitDetails hit = hitbox.TakeHit(Damage);
-            OnHitboxHit?.Invoke(hitbox);
+            HitboxHit?.Invoke(hitbox);
             if (_destroyedOnHit || hit.HitEntityOwner == EntityOwner.Enviroment)
                 PoolDisable();
         }

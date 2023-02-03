@@ -3,34 +3,13 @@ using UnityEngine;
 
 namespace Gameplay.Spells
 {
-    public class RestorationSpell : SpellBehaviour, IContiniousSpell
+    public class RestorationSpell : SpellBehaviour
     {
-        [SerializeField] private float _heathOverCast;
-        [SerializeField] private float _heathAtTheEnd;
+        [SerializeField] private float _healthRestored;
         
-        public override void OnEndCast()
+        public override void OnCast()
         {
-            Player.Vitals.RestoreHealth(_heathAtTheEnd);
-            StopAllCoroutines();
-        }
-
-        public void OnCastStart()
-        {
-            StartCoroutine(Restoration());
-        }
-
-        public void OnInterruptCast()
-        {
-            StopAllCoroutines();
-        }
-
-        private IEnumerator Restoration()
-        {
-            while (true)
-            {
-                Player.Vitals.RestoreHealth(_heathOverCast / Spell.CastTime * Time.fixedDeltaTime);
-                yield return new WaitForFixedUpdate();
-            }
+            Player.Vitals.RestoreHealth(_healthRestored);
         }
     }
 }

@@ -13,8 +13,6 @@ namespace Gameplay.Character.Player
     public class PlayerSpells : LazyGetComponent<PlayerComposition>
     {
         private SpellBehaviour[] _spellBehaviours;
-        private Coroutine _castCoroutine;
-        private SpellBehaviour _currentlyCastedSpell;
 
         public SpellBehaviour[] SpellBehaviours => _spellBehaviours;
 
@@ -26,51 +24,14 @@ namespace Gameplay.Character.Player
         private void Awake()
         {
             Lazy.Controls.OnSpellUse += TryUseSpell;
-            Lazy.StateMachine.GetState(StateMachine.Performing).OnExit += TryInterruptCast;
-        }
-
-        private void TryInterruptCast()
-        {
-            if (Lazy.StateMachine.IsCurrentStateOneOf(StateMachine.Performing))
-                return;
-            if (_currentlyCastedSpell is IContiniousSpell continiousSpell)
-                continiousSpell.OnInterruptCast();
-            OnCastEndOrInterrupt();
         }
 
         private void TryUseSpell(int index)
         {
             SpellBehaviour spellToUse = _spellBehaviours[index];
-            if ( ! Lazy.StateMachine.CurrentState.CanSwitchToState(StateMachine.Performing)
-                 || Lazy.Resources.Heat.Value < spellToUse.Spell.HeatCost)
+            if ( ! Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
                 return;
-            _castCoroutine = StartCoroutine(SpellUsage(spellToUse));
-        }
-
-        private IEnumerator SpellUsage(SpellBehaviour spellBehaviour)
-        {
-            if (!Lazy.StateMachine.TryEnterState(StateMachine.Performing))
-                yield break;
-
-            _currentlyCastedSpell = spellBehaviour;
-            Spell spell = spellBehaviour.Spell;
-            IContiniousSpell continiousSpell = spellBehaviour is IContiniousSpell behaviour ? behaviour : null;
-            
-            continiousSpell?.OnCastStart();
-            for (float i = 0; i < spell.CastTime; i += Time.fixedDeltaTime)
-            {
-                Lazy.Resources.WasteHeat(spell.HeatCost / spell.CastTime * Time.fixedDeltaTime);
-                yield return new WaitForFixedUpdate();
-            }
-            spellBehaviour.OnEndCast();
-            OnCastEndOrInterrupt();
-        }
-
-        private void OnCastEndOrInterrupt()
-        {
-            _castCoroutine?.Stop(this, ref _castCoroutine);
-            _currentlyCastedSpell = null;
-            Lazy.StateMachine.TryExitState(StateMachine.Performing);
+            spellToUse.OnCast();
         }
 
         private void Start()

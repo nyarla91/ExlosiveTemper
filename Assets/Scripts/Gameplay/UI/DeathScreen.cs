@@ -12,7 +12,7 @@ namespace Gameplay.UI
 
         private void Start()
         {
-            PlayerComposition.Vitals.OnHealthOver += _menu.Open;
+            PlayerComposition.Vitals.HealthIsOver += _menu.Open;
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Extentions;
 using Gameplay.Character.Player;
+using Gameplay.Rooms;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay.UI
 {
-    public class HUDBootstrap : MonoBehaviour
+    public class HUDBootstrap : Transformable
     {
         [SerializeField] private ResourceBar _healthBar;
         [SerializeField] private ResourceBar _heatBar;
@@ -14,6 +15,7 @@ namespace Gameplay.UI
         [SerializeField] private ConsumableView _heatConsumable;
         [SerializeField] private InteractableView _interactable;
         [SerializeField] private SpellView[] _spells;
+        [SerializeField] private EnemySpawner _enemySpawner;
         
         [Inject]
         private PlayerComposition Player { get; set; }
@@ -27,6 +29,7 @@ namespace Gameplay.UI
             _heatConsumable.Init(Player.Inventory.HeatConsumable);
             _interactable.Init(Player.Interaction);
             _spells.Foreach(spell => spell.Init(Player.Resources, Player.Spells));
+            _enemySpawner.HUD = RectTransform;
         }
     }
 }

@@ -7,10 +7,15 @@ namespace Gameplay.Character
     {
         [SerializeField] private VitalsPool _vitalsPool;
 
+        public bool Immune { get; set; }
+        
         public event Action<HitDetails> OnTakeHit; 
         
         public HitDetails TakeHit(float damage)
         {
+            if (Immune)
+                return new HitDetails(EntityOwner.Neutral, 0);
+            
             float damageDealt = 0;
             if (_vitalsPool != null)
                 damageDealt = _vitalsPool.TakeDamage(damage);

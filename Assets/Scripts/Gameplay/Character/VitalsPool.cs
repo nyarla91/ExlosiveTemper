@@ -18,8 +18,8 @@ namespace Gameplay.Character
         public bool IsDead { get; private set; }
         public bool Immune { get; set; }
 
-        public event Action OnHealthOver;
-        public event Action<float> OnTakeDamage;
+        public event Action HealthIsOver;
+        public event Action<float> TookDamage;
 
         public void Init(int health, int shields, float shieldsRegeneration)
         {
@@ -34,7 +34,7 @@ namespace Gameplay.Character
 
             damage = Mathf.Min(damage, _health.MaxValue * _maxPercentDamage);
             _health.Value -= damage;
-            OnTakeDamage?.Invoke(damage);
+            TookDamage?.Invoke(damage);
             return damage;
         }
 
@@ -54,9 +54,9 @@ namespace Gameplay.Character
 
         private void Awake()
         {
-            _health.OnOver += () =>
+            _health.Over += () =>
             {
-                OnHealthOver?.Invoke();
+                HealthIsOver?.Invoke();
                 IsDead = true;
             };
         }

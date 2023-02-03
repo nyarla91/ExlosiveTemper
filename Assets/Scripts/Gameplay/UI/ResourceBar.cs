@@ -24,7 +24,7 @@ namespace Gameplay.UI
         public void Init(ResourceWrap resource)
         {
             _resource = resource;
-            _resource.OnChange += ApplyValue;
+            _resource.Changed += ApplyValue;
             ApplyValue(resource.Value, resource.MaxValue);
         }
 
@@ -76,7 +76,7 @@ namespace Gameplay.UI
         {
             if (_resource != null)
             {
-                _resource.OnChange -= ApplyValue;
+                _resource.Changed -= ApplyValue;
             }
         }
 

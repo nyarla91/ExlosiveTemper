@@ -11,6 +11,8 @@ namespace Gameplay.Character.Player
         
         public ResourceWrap Heat => _heat.Wrap;
 
+        public bool TrySpendHeat(float value) => _heat.TrySpend(value);
+        
         public void WasteHeat(float value) => _heat.Value -= value;
 
         public void AddHeat(float value)
@@ -22,8 +24,14 @@ namespace Gameplay.Character.Player
         
         private void Awake()
         {
-            Lazy.Weapons.OnHit += TryAddHeat;
-            Lazy.Hitbox.OnTakeHit += _ => WasteHeat(100);
+            Lazy.Weapons.Hit += TryAddHeat;
+            Lazy.Hitbox.OnTakeHit += DiscardHeat;
+        }
+
+        private void DiscardHeat(HitDetails hitDetails)
+        {
+            if (hitDetails.Damage > 0)
+                WasteHeat(100);
         }
 
         private void Start()

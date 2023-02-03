@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2869568181855516491}
   - component: {fileID: 2869568181855516490}
+  - component: {fileID: 6545669843713625879}
   m_Layer: 6
   m_Name: Shotgun
   m_TagString: Untagged
@@ -108,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869568181855516488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,16 +131,30 @@ MonoBehaviour:
   _animationIndex: 1
   _player: {fileID: 2869568182423169156}
   _primaryAttack:
-    <DamagePerAttack>k__BackingField: 4
+    <DamagePerAttack>k__BackingField: 35
     <ShotsPerAttack>k__BackingField: 5
     <SplashAmplitude>k__BackingField: 15
     <PiercesEnemies>k__BackingField: 0
   _chargedAttack:
-    <DamagePerAttack>k__BackingField: 8
+    <DamagePerAttack>k__BackingField: 70
     <ShotsPerAttack>k__BackingField: 5
     <SplashAmplitude>k__BackingField: 4
     <PiercesEnemies>k__BackingField: 0
-  _attackPeriod: 0.5
+  _attackPeriod: 1
+--- !u!114 &6545669843713625879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869568181855516488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f56efa9fdcf4870a1b9a258d75aaf17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shotTrailPrefab: {fileID: 4874207906263007439, guid: c55f003073c12d44c9e52ee621ff7ee0, type: 3}
+  _weapon: {fileID: 2869568181855516490}
 --- !u!1 &2869568182257926923
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,9 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1cbfb08e534114abb0de73dd2df326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spells:
-  - {fileID: 11400000, guid: daea4092b4624054e9367a439cbecf38, type: 2}
-  - {fileID: 11400000, guid: 725c227c95e5a0b4caa9a8a97f5fbba8, type: 2}
 --- !u!114 &6340909971823553986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2869568182596998587}
   - component: {fileID: 2869568182596998586}
+  - component: {fileID: 8448131092880563223}
   m_Layer: 6
   m_Name: Revolver
   m_TagString: Untagged
@@ -486,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869568182596998584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -508,16 +521,30 @@ MonoBehaviour:
   _animationIndex: 0
   _player: {fileID: 2869568182423169156}
   _primaryAttack:
-    <DamagePerAttack>k__BackingField: 1000
+    <DamagePerAttack>k__BackingField: 10
     <ShotsPerAttack>k__BackingField: 1
     <SplashAmplitude>k__BackingField: 0
-    <PiercesEnemies>k__BackingField: 0
+    <PiercesEnemies>k__BackingField: 1
   _chargedAttack:
     <DamagePerAttack>k__BackingField: 30
     <ShotsPerAttack>k__BackingField: 1
     <SplashAmplitude>k__BackingField: 0
-    <PiercesEnemies>k__BackingField: 0
-  _attackPeriod: 0.5
+    <PiercesEnemies>k__BackingField: 1
+  _attackPeriod: 0.2
+--- !u!114 &8448131092880563223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869568182596998584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f56efa9fdcf4870a1b9a258d75aaf17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shotTrailPrefab: {fileID: 4874207906263007439, guid: c55f003073c12d44c9e52ee621ff7ee0, type: 3}
+  _weapon: {fileID: 2869568182596998586}
 --- !u!1 &3322058991814913366
 GameObject:
   m_ObjectHideFlags: 0

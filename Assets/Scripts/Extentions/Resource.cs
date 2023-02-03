@@ -20,10 +20,10 @@ namespace Extentions
                     return;
 
                 if (_value > 0 && value == 0)
-                    OnOver?.Invoke();
+                    Over?.Invoke();
 
                 _value = value;
-                OnChange?.Invoke(_value, MaxValue);
+                Changed?.Invoke(_value, MaxValue);
             }
         }
 
@@ -40,8 +40,8 @@ namespace Extentions
         public ResourceWrap Wrap => _wrap ??= new ResourceWrap(this);
 
         public delegate void OnChangeHandler(float current, float max);
-        public event OnChangeHandler OnChange;
-        public event Action OnOver;
+        public event OnChangeHandler Changed;
+        public event Action Over;
 
         public bool TrySpend(float value)
         {
@@ -62,14 +62,14 @@ namespace Extentions
         public bool IsFull => _resource.IsFull;
         public bool IsNotFull => _resource.IsNotFull;
 
-        public event Resource.OnChangeHandler OnChange;
-        public event Action OnOver;
+        public event Resource.OnChangeHandler Changed;
+        public event Action Over;
 
         public ResourceWrap(Resource resource)
         {
             _resource = resource;
-            _resource.OnChange += (current, max) => OnChange?.Invoke(current, max);
-            _resource.OnOver += () => OnOver?.Invoke();
+            _resource.Changed += (current, max) => Changed?.Invoke(current, max);
+            _resource.Over += () => Over?.Invoke();
         }
     }
 }

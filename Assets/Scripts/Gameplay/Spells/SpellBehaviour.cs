@@ -1,11 +1,12 @@
 ﻿using Content;
+using Extentions;
 using Gameplay.Character.Player;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Spells
 {
-    public abstract class SpellBehaviour : MonoBehaviour
+    public abstract class SpellBehaviour : Transformable
     {
         public Spell Spell { get; private set; }
         protected PlayerComposition Player { get; private set; }
@@ -16,6 +17,6 @@ namespace Gameplay.Spells
             Player = player;
         }
 
-        public abstract void OnEndCast();
+        public abstract void OnCast();
     }
 }

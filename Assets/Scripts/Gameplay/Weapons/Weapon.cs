@@ -1,4 +1,6 @@
-﻿using Extentions;
+﻿using System;
+using System.Linq;
+using Extentions;
 using Gameplay.Character;
 using Gameplay.Character.Player;
 using UnityEngine;
@@ -19,6 +21,8 @@ namespace Gameplay.Weapons
 
         public int AnimationIndex => _animationIndex;
         [Inject] private Pause Pause { get; set; }
+
+        public event Action<WeaponAttack, Vector3> HitscanBulletShot; 
 
         public bool TryShoot()
         {
@@ -43,15 +47,28 @@ namespace Gameplay.Weapons
                 float degreeOffset = Random.Range(-attack.SplashAmplitude, attack.SplashAmplitude);
                 Ray ray = new Ray(_player.Transform.position.WithY(1.5f), direction.RotatedY(degreeOffset));
                 LayerMask mask = LayerMask.GetMask("Enemy", "Obstacle");
-                
-                if ( ! Physics.Raycast(ray, out RaycastHit raycastHit, 50, mask))
-                    continue;
 
-                Hitbox target = raycastHit.collider.GetComponent<Hitbox>();
-                if (target == null)
-                    continue;
-                
-                _player.OnHit?.Invoke(target.TakeHit(attack.DamagePerAttack / attack.ShotsPerAttack));
+                RaycastHit[] hits;
+                if (attack.PiercesEnemies)
+                {
+                    hits = Physics.RaycastAll(ray.origin, ray.direction, 50, mask);
+                    HitscanBulletShot?.Invoke(attack, hits.First().point);
+                }
+                else
+                {
+                    if ( ! Physics.Raycast(ray, out RaycastHit raycastHit, 50, mask))
+                        continue;
+                    hits = new[] {raycastHit};
+                    HitscanBulletShot?.Invoke(attack, raycastHit.point);
+                }
+                foreach (RaycastHit raycastHit in hits)
+                {
+                    Hitbox target = raycastHit.collider.GetComponent<Hitbox>();
+                    if (target == null)
+                        continue;
+                    
+                    _player.Hit?.Invoke(target.TakeHit(attack.DamagePerAttack / attack.ShotsPerAttack));    
+                }
             }
         }
 

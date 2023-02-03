@@ -20,7 +20,7 @@ namespace Gameplay.Character.Player
         
         [Inject] private Pause Pause { get; set; }
 
-        public Action<HitDetails> OnHit;
+        public Action<HitDetails> Hit;
 
         public void EndChargedCooldown() => _chargedShotCooldown.Reset();
         public void SwapWeapons()

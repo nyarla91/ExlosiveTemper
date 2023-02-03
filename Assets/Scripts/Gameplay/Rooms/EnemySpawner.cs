@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Content;
 using Extentions;
 using Extentions.Factory;
 using Gameplay.Character.Enemy;
 using Gameplay.Character.Player;
+using Gameplay.Collectables;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay.Rooms
@@ -22,12 +21,14 @@ namespace Gameplay.Rooms
         [SerializeField] private int _bossLevelPerodicity;
         [SerializeField] private List<GameObject> _bossesInOrder;
         [SerializeField] private List<GameObject> _lateBossesPool;
+        [SerializeField] private CollectableSpawnDetails[] _collectables;
 
         private readonly List<EnemyComposition> _enemiesAlive = new List<EnemyComposition>();
         
         [Inject] private ContainerFactory ContainerFactory { get; set; }
         [Inject] private PlayerComposition Player { get; set; }
         [Inject] private Pause Pause { get; set; }
+        public RectTransform HUD { get; set; }
 
         public EnemyComposition[] EnemiesAlive => _enemiesAlive.ToArray();
         public bool IsCombatOn => _enemiesAlive.Count > 0;
@@ -57,7 +58,18 @@ namespace Gameplay.Rooms
                         int roomLevel = _room.Level >= _numberOfElitesInRoom.Count ? _numberOfElitesInRoom.Count - 1 : _room.Level;
                         GameObject prefab = enemyI < _numberOfElitesInRoom[roomLevel] ? spawnedEnemy.ElitePrefab : spawnedEnemy.BasePrefab;
 
-                        SpawnEnemy(room, prefab);
+                        EnemyComposition newEnemy = SpawnEnemy(room, prefab);
+                        foreach (CollectableSpawnDetails collectable in _collectables)
+                        {
+                            if (collectable.DoesSpawnCollectableThisTime(spawnedEnemy.Weight))
+                            {
+                                newEnemy.VitalsPool.HealthIsOver += () =>
+                                {
+                                    Vector3 position = newEnemy.Transform.position + Random.insideUnitCircle.XYtoXZ() * 0.3f;
+                                    collectable.Factory.GetNewObject<Collectable>(position);
+                                };
+                            }
+                        }
                         spentWeight += spawnedEnemy.Weight;
                     }
                 }
@@ -66,13 +78,15 @@ namespace Gameplay.Rooms
             }
         }
 
-        private void SpawnEnemy(Room room, GameObject prefab)
+        private EnemyComposition SpawnEnemy(Room room, GameObject prefab)
         {
             Vector3 position = room.SpawnArea.bounds.RandomPointInBounds().WithY(0);
             EnemyComposition enemy = ContainerFactory.Instantiate<EnemyComposition>(prefab, position, Transform);
             enemy.Player = Player;
             _enemiesAlive.Add(enemy);
-            enemy.VitalsPool.OnHealthOver += () => _enemiesAlive.TryRemove(enemy);
+            enemy.Status.HUD = HUD;
+            enemy.VitalsPool.HealthIsOver += () => _enemiesAlive.TryRemove(enemy);
+            return enemy;
         }
 
         private void Awake()

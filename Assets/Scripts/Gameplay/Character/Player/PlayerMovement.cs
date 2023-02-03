@@ -1,5 +1,4 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
 using UnityEngine;
 using Zenject;
 
@@ -27,7 +26,7 @@ namespace Gameplay.Character.Player
 
         private void FixedUpdate()
         {
-            Lazy.Vitals.Immune = IsSprinting;
+            Lazy.Hitbox.Immune = IsSprinting;
             
             if (SprintSircumstances)
             {
