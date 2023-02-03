@@ -35,16 +35,10 @@ namespace Gameplay.Spells
         {
             while (true)
             {
-                print(_radius);
-                LayerMask mask = LayerMask.GetMask("Enemy");
-                Collider[] enemiesInside = Physics.OverlapSphere(Transform.position.WithY(1.5f), _radius, mask);
-                Hitbox[] hitboxes = enemiesInside.Select(enemy => enemy.GetComponent<Hitbox>()).ToArray();
+                Hitbox[] targets = AreaOfEffect.GetTargets(Transform.position, _radius, LayerMask.GetMask("Enemy"));
                 float damage = _damagePerSecond * _tickPeriod;
-                foreach (Hitbox hitbox in hitboxes)
-                {
-                    hitbox.TakeHit(damage);
-                }
-                _radius -= _radiusReductionPerSecond * _tickPeriod;
+                targets.Foreach(target => target.TakeHit(damage));
+                _radius = Mathf.Max(_radius - _radiusReductionPerSecond * _tickPeriod, 0);
                 yield return new PausableWaitForSeconds(this, Pause, _tickPeriod);
             }
         }

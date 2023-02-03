@@ -20,8 +20,7 @@ MonoBehaviour:
     _russian: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
       \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F."
   <Icon>k__BackingField: {fileID: 21300000, guid: 9b7c68b77b46b7c48b9cf837424a59be, type: 3}
-  <CastTime>k__BackingField: 1
-  <HeatCost>k__BackingField: 30
+  <HeatCost>k__BackingField: 0
   <Behaviour>k__BackingField:
     m_AssetGUID: bdbbee2dd214d2849acf6557a0287755
     m_SubObjectName: 

@@ -52,6 +52,7 @@ namespace Gameplay.Character.Player
             behaviour.Init(spell, Lazy);
             _spellBehaviours[index] = behaviour;
             spell.Behaviour.ReleaseAsset();
+            behaviour.Transform.localRotation = Quaternion.Euler(0, 0, 0);
             OnSpellLoaded?.Invoke(index, behaviour);
         }
     }

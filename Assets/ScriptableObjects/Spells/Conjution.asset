@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf64a6c19cd64baeb5f1a9420721de9a, type: 3}
-  m_Name: Calm
+  m_Name: Conjution
   m_EditorClassIdentifier: 
   <Name>k__BackingField:
-    _english: Calm
-    _russian: "\u0421\u043C\u0438\u0440\u0435\u043D\u0438\u0435"
+    _english: Conjuction
+    _russian: "\u0421\u043E\u0442\u0432\u043E\u0440\u0435\u043D\u0438\u0435"
   <Description>k__BackingField:
     _english: Gain 1 ember
     _russian: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 1 \u0443\u0433\u043E\u043B\u0451\u043A"
-  <Icon>k__BackingField: {fileID: 21300000, guid: 9b7c68b77b46b7c48b9cf837424a59be, type: 3}
-  <CastTime>k__BackingField: 1
-  <HeatCost>k__BackingField: 30
+  <Icon>k__BackingField: {fileID: 21300000, guid: 1632bafc97325d04494befc4df38d722, type: 3}
+  <HeatCost>k__BackingField: 0
   <Behaviour>k__BackingField:
     m_AssetGUID: bdbbee2dd214d2849acf6557a0287755
     m_SubObjectName: 

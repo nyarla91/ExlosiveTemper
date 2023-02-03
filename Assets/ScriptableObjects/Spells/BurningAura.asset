@@ -25,11 +25,10 @@ MonoBehaviour:
       \u043B\u0438\u0448\u043D\u0435\u0435 \u043B\u0435\u0447\u0435\u043D\u0438\u0435
       \u0442\u0430\u043A\u0436\u0435 \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
       \u0430\u0443\u0440\u0443"
-  <Icon>k__BackingField: {fileID: 21300000, guid: 9b7c68b77b46b7c48b9cf837424a59be, type: 3}
-  <CastTime>k__BackingField: 1
-  <HeatCost>k__BackingField: 30
+  <Icon>k__BackingField: {fileID: 21300000, guid: 12592505a1f7d514794421c11cf69c23, type: 3}
+  <HeatCost>k__BackingField: 0
   <Behaviour>k__BackingField:
-    m_AssetGUID: bdbbee2dd214d2849acf6557a0287755
+    m_AssetGUID: 0e506816fae6cb343a4eeffb3b4f0250
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -37,6 +37,10 @@ MonoBehaviour:
     m_Address: Spell/Fireball
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 0e506816fae6cb343a4eeffb3b4f0250
+    m_Address: Spell/BurningAura
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:
