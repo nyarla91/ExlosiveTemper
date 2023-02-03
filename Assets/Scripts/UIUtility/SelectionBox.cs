@@ -21,6 +21,7 @@ namespace UIUtility
             RectTransform.anchorMax = Vector2.one;
             RectTransform.sizeDelta = Vector2.zero;
             RectTransform.anchoredPosition = Vector2.zero;
+            RectTransform.localScale = Vector3.one;
             RectTransform.DOComplete();
             RectTransform.DOShakeScale(0.1f, new Vector2(0.1f, 0.1f));
         }

@@ -1,4 +1,6 @@
-﻿using Extentions;
+﻿using Achievements;
+using CharacterSetup;
+using Extentions;
 using Input;
 using UnityEngine;
 using Zenject;
@@ -11,6 +13,8 @@ namespace Infrastructure
         [SerializeField] private GameObject _deviceWatcherPrefab;
         [SerializeField] private GameObject _settingsPrefab;
         [SerializeField] private GameObject _pausePrefab;
+        [SerializeField] private GameObject _spellsKitPrefab;
+        [SerializeField] private GameObject _spellUnlocksPrefab;
         
         public override void InstallBindings()
         {
@@ -18,6 +22,8 @@ namespace Infrastructure
             BindFromPrefab<DeviceWatcher>(_deviceWatcherPrefab);
             BindFromPrefab<Settings.Settings>(_settingsPrefab);
             BindFromPrefab<Pause>(_pausePrefab);
+            BindFromPrefab<SpellsKit>(_spellsKitPrefab);
+            BindFromPrefab<SpellUnlocks>(_spellUnlocksPrefab);
         }
 
         private void BindFromPrefab<T>(GameObject prefab)

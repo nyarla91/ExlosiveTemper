@@ -17,24 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fc99ffbb33a284344b58287a19ed1446
   m_SerializeEntries:
-  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
-    m_Address: Scene/MainMenu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: a97ae7540f6ab9349b14e8bc69ecef05
-    m_Address: Scene/Loading
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 46c58edcccb0b3d43a28f2d7b1c91453
-    m_Address: Scene/Gameplay
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: bdbbee2dd214d2849acf6557a0287755
     m_Address: Spell/Renewal
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 12b4e5245d9ce2c42b1cd258ae9b3501
     m_Address: Spell/Preparation
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d4ace5c69418c594fa073c7311ad2db2
+    m_Address: Achievement/5seconds
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f34a459ed1a41cc489a07f0cfd5dbbdd
+    m_Address: Achievement/10seconds
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

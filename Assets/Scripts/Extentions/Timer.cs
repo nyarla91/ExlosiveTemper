@@ -31,9 +31,9 @@ namespace Extentions
 
         public WaitForExpire Yield => new WaitForExpire(this);
 
-        public event Action OnStart;
-        public event Action<float> OnTick;
-        public event Action OnExpire;
+        public event Action Started;
+        public event Action<float> Ticked;
+        public event Action Expired;
 
         public bool IsExpired => TimeLeft <= 0;
         public bool IsOn => _tickingCoroutine != null;
@@ -83,10 +83,10 @@ namespace Extentions
         public async Task GetTask()
         {
             bool expired = false;
-            OnExpire += Expire;
+            Expired += Expire;
             while (!expired)
                 await Task.Delay(20);
-            OnExpire -= Expire;
+            Expired -= Expire;
 
             void Expire() => expired = true;
         }
@@ -98,17 +98,17 @@ namespace Extentions
 
         private IEnumerator Ticking()
         {
-            OnStart?.Invoke();
+            Started?.Invoke();
             for (_timeElapsed = 0; _timeElapsed < Length; _timeElapsed += DeltaFrame)
             {
                 if (FixedTime)
                     yield return new WaitForFixedUpdate();
                 else
                     yield return null;
-                OnTick?.Invoke(TimeLeft);
+                Ticked?.Invoke(TimeLeft);
             }
             
-            OnExpire?.Invoke();
+            Expired?.Invoke();
             
             if (Loop)
                 Start();
@@ -124,7 +124,7 @@ namespace Extentions
             
             public WaitForExpire(Timer timer)
             {
-                timer.OnExpire += Expire;
+                timer.Expired += Expire;
             }
 
             private void Expire() => _expired = true;

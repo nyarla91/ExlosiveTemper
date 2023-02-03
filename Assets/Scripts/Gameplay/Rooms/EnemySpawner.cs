@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Gameplay.Rooms
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : Transformable
     {
         [SerializeField] private Room _room;
         [SerializeField] private int _wavesPerRoom;
@@ -69,7 +69,7 @@ namespace Gameplay.Rooms
         private void SpawnEnemy(Room room, GameObject prefab)
         {
             Vector3 position = room.SpawnArea.bounds.RandomPointInBounds().WithY(0);
-            EnemyComposition enemy = ContainerFactory.Instantiate<EnemyComposition>(prefab, position);
+            EnemyComposition enemy = ContainerFactory.Instantiate<EnemyComposition>(prefab, position, Transform);
             enemy.Player = Player;
             _enemiesAlive.Add(enemy);
             enemy.VitalsPool.OnHealthOver += () => _enemiesAlive.TryRemove(enemy);

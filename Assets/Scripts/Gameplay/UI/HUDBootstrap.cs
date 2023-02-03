@@ -12,6 +12,7 @@ namespace Gameplay.UI
         [SerializeField] private ChargedShotView _chargedShotView;
         [SerializeField] private ConsumableView _healthConsumable;
         [SerializeField] private ConsumableView _heatConsumable;
+        [SerializeField] private InteractableView _interactable;
         [SerializeField] private SpellView[] _spells;
         
         [Inject]
@@ -24,6 +25,7 @@ namespace Gameplay.UI
             _chargedShotView.Init(Player.Weapons);
             _healthConsumable.Init(Player.Inventory.HealthConsumable);
             _heatConsumable.Init(Player.Inventory.HeatConsumable);
+            _interactable.Init(Player.Interaction);
             _spells.Foreach(spell => spell.Init(Player.Resources, Player.Spells));
         }
     }

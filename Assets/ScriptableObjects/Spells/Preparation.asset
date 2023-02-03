@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Preparation
   m_EditorClassIdentifier: 
   <Name>k__BackingField:
-    _english: Preparation
-    _russian: "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430"
+    _english: 3
+    _russian: 3
+  <Description>k__BackingField:
+    _english: Your shots explode for short time.
+    _russian: "\u041D\u0430 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0435
+      \u0432\u0440\u0435\u043C\u044F \u0432\u0430\u0448\u0438 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u044B
+      \u0432\u0437\u0440\u044B\u0432\u0430\u044E\u0442\u0441\u044F."
   <Icon>k__BackingField: {fileID: 21300000, guid: 9caa3c5751dcf6f42a7acfd5dd63ec7a, type: 3}
   <CastTime>k__BackingField: 1
   <HeatCost>k__BackingField: 20
@@ -23,3 +28,4 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  <Achievement>k__BackingField: {fileID: 11400000, guid: d3dd5784eb358ad4b944ed8f47630a86, type: 2}

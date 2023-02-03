@@ -12,7 +12,7 @@ namespace Gameplay.Character
         public const string Stun = "Stun";
         public const string Sprint = "Sprint";
 
-        private static Dictionary<TextAsset, List<State>> _generatedMachines = new Dictionary<TextAsset, List<State>>();
+        private static readonly Dictionary<TextAsset, List<State>> _generatedMachines = new Dictionary<TextAsset, List<State>>();
         
         [SerializeField] private TextAsset _stateTable;
         [Header("RUNTIME DEBUG ONLY")]
@@ -74,6 +74,7 @@ namespace Gameplay.Character
                 _states = _generatedMachines[_stateTable];
             else
                 GeneraleStateList();
+            CurrentState = GetState(Regular);
         }
 
         private void GeneraleStateList()

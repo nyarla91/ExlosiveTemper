@@ -28,7 +28,7 @@ namespace Input
         {
             _timeWindow = timeWindow;
             _timer = new Timer(container, timeWindow);
-            _timer.OnTick += CheckAvialability;
+            _timer.Ticked += CheckAvialability;
         }
 
         public void SendInput(InputAction.CallbackContext context) => SendInput();

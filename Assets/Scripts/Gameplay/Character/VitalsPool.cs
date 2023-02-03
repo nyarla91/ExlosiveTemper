@@ -61,14 +61,6 @@ namespace Gameplay.Character
             };
         }
 
-        private void Update()
-        {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.U))
-                TakeDamage(10);
-            if (UnityEngine.Input.GetKeyDown(KeyCode.I))
-                RestoreHealth(10);
-        }
-
         private void Start()
         {
             _health.Value = _health.MaxValue;

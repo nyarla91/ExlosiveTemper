@@ -12,6 +12,12 @@ namespace Localization
         public string Russian => _russian;
         public string English => _english;
 
+        public LocalizedString(string english, string russian)
+        {
+            _english = english;
+            _russian = russian;
+        }
+
         public string GetTranslation(int language) => language switch
         {
             0 => English,

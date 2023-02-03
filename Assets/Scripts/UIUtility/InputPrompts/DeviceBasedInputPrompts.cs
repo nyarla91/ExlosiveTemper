@@ -52,5 +52,11 @@ namespace UIUtility.InputPrompts
         }
 
         protected abstract void ApplyPrompt(TPrompt prompt);
+
+        private void OnDestroy()
+        {
+            DeviceWatcher.OnGamepadModelChanged -= OnGamepadModelChanged;
+            DeviceWatcher.OnInputSchemeChanged -= OnInputSchemeChanged;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using CharacterSetup;
 using Content;
 using Extentions;
 using Extentions.Factory;
@@ -11,14 +12,13 @@ namespace Gameplay.Character.Player
 {
     public class PlayerSpells : LazyGetComponent<PlayerComposition>
     {
-        [SerializeField] private Spell[] _spells;
-
         private SpellBehaviour[] _spellBehaviours;
         private Coroutine _castCoroutine;
         private SpellBehaviour _currentlyCastedSpell;
 
         public SpellBehaviour[] SpellBehaviours => _spellBehaviours;
 
+        [Inject] private SpellsKit Kit { get; set; }
         [Inject] private ContainerFactory ContainerFactory { get; set; }
 
         public event Action<int, SpellBehaviour> OnSpellLoaded;
@@ -75,8 +75,9 @@ namespace Gameplay.Character.Player
 
         private void Start()
         {
-            _spellBehaviours = new SpellBehaviour[_spells.Length];
-            for (var i = 0; i < _spells.Length; i++)
+            Spell[] spells = Kit.Eqipped;
+            _spellBehaviours = new SpellBehaviour[spells.Length];
+            for (var i = 0; i < spells.Length; i++)
             {
                 LoadSpellBehaviour(i);
             }
@@ -84,7 +85,7 @@ namespace Gameplay.Character.Player
 
         private async void LoadSpellBehaviour(int index)
         {
-            Spell spell = _spells[index];
+            Spell spell = Kit.Eqipped[index];
             GameObject prefab = (await spell.Behaviour.LoadAssetAsync<GameObject>().Task); 
             SpellBehaviour behaviour = ContainerFactory.Instantiate<SpellBehaviour>(prefab, Transform.position, Transform);
             behaviour.Init(spell, Lazy);

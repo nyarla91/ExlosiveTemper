@@ -31,7 +31,7 @@ namespace Gameplay.UI
 
         private void UnsubscribeMenuOpen() => MenuControls.Actions.Always.OpenMenu.started -= OpenMenuIfClosed;
 
-        private async void OpenMenuIfClosed(InputAction.CallbackContext _)
+        private void OpenMenuIfClosed(InputAction.CallbackContext _)
         {
             if (Pause.IsPaused)
                 return;

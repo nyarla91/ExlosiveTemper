@@ -1,15 +1,15 @@
-﻿using Extentions;
+﻿using DG.Tweening;
+using Extentions;
 using Gameplay.Character.Player;
-using Gameplay.Interactable;
 using UnityEngine;
 
 namespace Gameplay.Rooms
 {
-    public abstract class Door : Transformable, IInteractable
+    public abstract class Door : Interactable
     {
         [SerializeField] private Collider _collider;
         
-        public void OnInteract(PlayerComposition player)
+        public override void OnInteract(PlayerComposition player)
         {
             if ( ! CanBeOpen(player))
                 return;
@@ -19,11 +19,14 @@ namespace Gameplay.Rooms
 
         public void Open()
         {
-            _collider.enabled = false;
+            Transform.DOComplete();
+            Transform.DOLocalMoveY(-10, 1);
         }
 
         public void Lock()
         {
+            Transform.DOKill();
+            Transform.localPosition = Transform.localPosition.WithY(0);
             _collider.enabled = true;
         }
 

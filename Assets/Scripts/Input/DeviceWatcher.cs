@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.DualShock;
 using UnityEngine.InputSystem.Switch;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace Input
 {
@@ -68,7 +67,6 @@ namespace Input
             _deviceUpdateActions.General.DualShock.started += SwitchToDualshock;
             _deviceUpdateActions.General.Navigation.started += SwitchToNavigation;
             SceneManager.sceneLoaded += ResetSchemes;
-            DontDestroyOnLoad(gameObject);
         }
 
         private void ResetSchemes(Scene arg0, LoadSceneMode arg1)

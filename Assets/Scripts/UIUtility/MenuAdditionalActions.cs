@@ -20,6 +20,12 @@ namespace UIUtility
 
         private void Awake()
         {
+            
+            Subscribe();
+        }
+
+        private void Subscribe()
+        {
             MenuControls.Actions.Always.Action1.performed += TryAction1;
             MenuControls.Actions.Always.Action2.performed += TryAction2;
             MenuControls.Actions.Always.Action3.performed += TryAction3;
@@ -63,8 +69,22 @@ namespace UIUtility
             }
         }
 
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+
+        private void OnDisable()
+        {
+            Unsubscribe();
+        }
 
         private void OnDestroy()
+        {
+            Unsubscribe();
+        }
+
+        private void Unsubscribe()
         {
             MenuControls.Actions.Always.Action1.performed -= TryAction1;
             MenuControls.Actions.Always.Action2.performed -= TryAction2;

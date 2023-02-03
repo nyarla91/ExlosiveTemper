@@ -13,6 +13,7 @@ namespace Gameplay.Character.Player
         private PlayerWeapons _weapons;
         private PlayerResources _resources;
         private PlayerInventory _inventory;
+        private PlayerInteraction _interaction;
         private PlayerSpells _spells;
         private StateMachine _stateMachine;
         private VitalsPool _vitals;
@@ -24,7 +25,7 @@ namespace Gameplay.Character.Player
         public PlayerResources Resources => _resources ??= GetComponent<PlayerResources>();
         public PlayerWeapons Weapons => _weapons ??= GetComponent<PlayerWeapons>();
         public PlayerInventory Inventory => _inventory ??= GetComponent<PlayerInventory>();
-
+        public PlayerInteraction Interaction => _interaction ??= GetComponent<PlayerInteraction>();
         public PlayerSpells Spells => _spells ??= GetComponent<PlayerSpells>();
         public StateMachine StateMachine => _stateMachine ??= GetComponent<StateMachine>();
         public VitalsPool Vitals => _vitals ??= GetComponent<VitalsPool>();

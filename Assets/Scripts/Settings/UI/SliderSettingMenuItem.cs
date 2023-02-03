@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using System;
+using Input;
 using UIUtility.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -39,5 +40,11 @@ namespace Settings.UI
         }
 
         private void MoveScrollbar(int delta) => _slider.value += delta;
+
+        private void OnDestroy()
+        {
+            MenuControls.Actions.Always.MoveLeft.performed -= TryMoveLeft;
+            MenuControls.Actions.Always.MoveRight.performed -= TryMoveRight;
+        }
     }
 }

@@ -1,10 +1,16 @@
-﻿using Gameplay.Character.Player;
+﻿using Extentions;
+using Gameplay.Character.Player;
+using Localization;
 using UnityEngine;
 
-namespace Gameplay.Interactable
+namespace Gameplay
 {
-    public interface IInteractable
+    public abstract class Interactable : Transformable
     {
-        public void OnInteract(PlayerComposition player);
+        [SerializeField] private LocalizedString _context;
+
+        public LocalizedString Context => _context;
+        
+        public abstract void OnInteract(PlayerComposition player);
     }
 }
