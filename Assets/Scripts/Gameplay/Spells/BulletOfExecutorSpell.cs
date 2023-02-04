@@ -1,5 +1,7 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using Gameplay.Character;
+using Gameplay.VFX;
 using Gameplay.Weapons;
 using UnityEngine;
 using Zenject;
@@ -8,6 +10,7 @@ namespace Gameplay.Spells
 {
     public class BulletOfExecutorSpell : SpellBehaviour
     {
+        [SerializeField] private ParticleSystemEffect[] _activatedEffect;
         [SerializeField] private float _maxDuration;
         [SerializeField] [Range(0, 1)] private float _maxHealthPercent;
         
@@ -26,6 +29,11 @@ namespace Gameplay.Spells
         {
             _activatedDuration = new Timer(this, _maxDuration, Pause);
             Player.Weapons.CurrentWeapon.HitscanBulletShot += TryExecute;
+        }
+
+        private void Update()
+        {
+            _activatedEffect.Foreach(effect => effect.Play = IsActive);
         }
 
         private void TryExecute(WeaponAttack attack, Vector3 point, Hitbox[] hitboxes)

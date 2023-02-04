@@ -24,7 +24,7 @@ namespace Gameplay.Character
                 return;
             }
 
-            Lazy.velocity = VoluntaryVelocity += Knockback;
+            Lazy.velocity = VoluntaryVelocity + Knockback;
             Knockback *= (1 - _knockbackResistance);
         }
     }

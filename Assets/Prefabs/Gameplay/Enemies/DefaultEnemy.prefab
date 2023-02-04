@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4521895648498540555, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+      propertyPath: _health._maxValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540558, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -251,11 +255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _burstsPeriod
-      value: 0.8
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _burstsPerWave
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _projectileBaseDamage

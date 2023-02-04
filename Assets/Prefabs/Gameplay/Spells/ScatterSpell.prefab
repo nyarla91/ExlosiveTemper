@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c312ac80e7f43128fa17308a4bc13ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosionrPrefab: {fileID: 4131229184249659343, guid: 94e719ef2c3c0e84abeb7d932e96d12d, type: 3}
   _damageRadius: 4
-  _damage: 20
-  _knockbackForce: 75
+  _damage: 50
+  _knockbackForce: 30

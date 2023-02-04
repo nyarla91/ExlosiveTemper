@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e4a566df44db6094094a496ab1657c1d, type: 2}
+    - target: {fileID: 1908145622179029258, guid: 92166dd1862056c4685346c215bfde62, type: 3}
+      propertyPath: _health._maxValue
+      value: 2500
+      objectReference: {fileID: 0}
     - target: {fileID: 1908145622179029259, guid: 92166dd1862056c4685346c215bfde62, type: 3}
       propertyPath: m_Name
       value: SprayBossEnemy_Elite
@@ -58,6 +62,14 @@ PrefabInstance:
     - target: {fileID: 1908145622179029263, guid: 92166dd1862056c4685346c215bfde62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908145622179029488, guid: 92166dd1862056c4685346c215bfde62, type: 3}
+      propertyPath: _projectileSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908145622179029488, guid: 92166dd1862056c4685346c215bfde62, type: 3}
+      propertyPath: _splashAmplitude
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2229495414905171424, guid: 92166dd1862056c4685346c215bfde62, type: 3}
       propertyPath: m_Materials.Array.data[0]

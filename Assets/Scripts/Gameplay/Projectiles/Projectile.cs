@@ -80,6 +80,7 @@ namespace Gameplay.Projectiles
         public override void PoolDisable()
         {
             Velocity = Vector3.zero;
+            _distanceTraveled = 0;
             base.PoolDisable();
         }
 
@@ -89,7 +90,7 @@ namespace Gameplay.Projectiles
             
             if (_maxTravelDistance.ApproximatelyEqual(-1, 0.001f))
                 return;
-            _distanceTraveled = Rigidbody.velocity.magnitude;
+            _distanceTraveled += Rigidbody.velocity.magnitude * Time.fixedDeltaTime;
             if (_distanceTraveled >= _maxTravelDistance)
                 PoolDisable();
         }

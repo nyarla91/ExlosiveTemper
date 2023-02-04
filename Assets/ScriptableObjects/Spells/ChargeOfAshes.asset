@@ -22,7 +22,7 @@ MonoBehaviour:
       \u0432\u0437\u0440\u044B\u0432\u0430\u044E\u0442\u0441\u044F \u043F\u0440\u0438
       \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0435."
   <Icon>k__BackingField: {fileID: 21300000, guid: 0991c721122aa7b42837350e4d7948ee, type: 3}
-  <HeatCost>k__BackingField: 1
+  <HeatCost>k__BackingField: 70
   <Behaviour>k__BackingField:
     m_AssetGUID: d1e8175cd1a233b48b7bf2eb9df0ff65
     m_SubObjectName: 

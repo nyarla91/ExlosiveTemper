@@ -71,9 +71,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142425141786318206, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
+      propertyPath: _health._maxValue
+      value: 2500
+      objectReference: {fileID: 0}
     - target: {fileID: 9142425141786318207, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
       propertyPath: m_Name
       value: BurstBossEnemy_Elite
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142425141786318212, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
+      propertyPath: _wavesPeriod
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142425141786318212, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
+      propertyPath: _burstsPerWave
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}

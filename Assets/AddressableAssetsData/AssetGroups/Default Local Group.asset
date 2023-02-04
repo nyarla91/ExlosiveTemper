@@ -57,6 +57,14 @@ MonoBehaviour:
     m_Address: Spell/BulletOfExecutor
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 7103a9c572b921e4e8aae23124ec6b8c
+    m_Address: Spell/Melt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d79ce384a30b5c047954e2e35d58fd92
+    m_Address: Spell/VortexGrenade
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:

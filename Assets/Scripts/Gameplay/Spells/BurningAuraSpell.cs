@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Extentions;
 using Gameplay.Character;
+using Gameplay.VFX;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +10,7 @@ namespace Gameplay.Spells
 {
     public class BurningAuraSpell : SpellBehaviour
     {
+        [SerializeField] private ParticleSystemEffect _effect;
         [SerializeField] private float _damagePerSecond;
         [SerializeField] private float _tickPeriod;
         [SerializeField] private float _radiusReductionPerSecond;
@@ -21,13 +24,18 @@ namespace Gameplay.Spells
         public override void OnCast()
         {
             _radius += _radiusPerCast;
-            
         }
 
         private void Start()
         {
             StartCoroutine(DealingDamage());
             Player.Vitals.Health.GainedExcees += excess => _radius += excess * _healingRadiusMultiplier;
+        }
+
+        private void Update()
+        {
+            _effect.Play = _radius > 0;
+            _effect.Transform.localScale = new Vector3(_radius, 1, _radius);
         }
 
         private IEnumerator DealingDamage()

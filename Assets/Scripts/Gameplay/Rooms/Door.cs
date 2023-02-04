@@ -2,13 +2,18 @@
 using Extentions;
 using Gameplay.Character.Player;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Rooms
 {
     public abstract class Door : Interactable
     {
         [SerializeField] private Collider _collider;
+
+        public override bool IsInteractableAtTheMoment => ! EnemySpawner.IsCombatOn;
         
+        [Inject] private EnemySpawner EnemySpawner { get; set; }
+
         public override void OnInteract(PlayerComposition player)
         {
             if ( ! CanBeOpen(player))

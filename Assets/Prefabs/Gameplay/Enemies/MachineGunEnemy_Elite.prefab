@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1770100258064046173, guid: c37312719cd7db049a249a108cf29d05, type: 3}
+      propertyPath: _wavesPeriod
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770100258064046173, guid: c37312719cd7db049a249a108cf29d05, type: 3}
+      propertyPath: _projectileSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1770100258064046242, guid: c37312719cd7db049a249a108cf29d05, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,6 +62,10 @@ PrefabInstance:
     - target: {fileID: 1770100258064046246, guid: c37312719cd7db049a249a108cf29d05, type: 3}
       propertyPath: m_Name
       value: MachineGunEnemy_Elite
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770100258064046247, guid: c37312719cd7db049a249a108cf29d05, type: 3}
+      propertyPath: _health._maxValue
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1881915646591078510, guid: c37312719cd7db049a249a108cf29d05, type: 3}
       propertyPath: m_Materials.Array.data[0]

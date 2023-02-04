@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855faef6b71a4c4faf06b0b203318fdb, type: 3}
   m_Name: HeavyEnemy
   m_EditorClassIdentifier: 
-  <Weight>k__BackingField: 5
+  <Weight>k__BackingField: 4
   <BasePrefab>k__BackingField: {fileID: 1171703079756368684, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
   <ElitePrefab>k__BackingField: {fileID: 7909860985357554316, guid: 185bbc314dca05e4886ab0cae8012dc3, type: 3}

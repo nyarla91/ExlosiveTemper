@@ -187,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540555, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _health._maxValue
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540558, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_RootOrder
@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _wavesPeriod
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _burstsPerWave

@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540555, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _health._maxValue
-      value: 35
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540558, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_RootOrder
@@ -89,11 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _wavesPeriod
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
-      propertyPath: _burstsPerWave
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _projectileSpeed
@@ -101,11 +97,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _splashAmplitude
-      value: 30
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+      propertyPath: _projectileFactory
+      value: 
+      objectReference: {fileID: 4146544156088526128}
+    - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _projectilesPerBurst
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _projectileBaseDamage
@@ -121,6 +121,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+--- !u!114 &4146544156088526128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4521895648498540784, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+  m_PrefabInstance: {fileID: 525368451318089152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4146544156088526286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4521895648498540558, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}

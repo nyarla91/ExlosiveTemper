@@ -1,14 +1,20 @@
 ﻿using System;
 using Extentions;
+using Extentions.Factory;
 using Gameplay.Character;
+using Gameplay.VFX;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Projectiles
 {
     public class Fireball : Projectile
     {
+        [SerializeField] private GameObject _explosionPrefab;
         [SerializeField] private float _explosionRadius;
         [SerializeField] private float _explosionDamage;
+        
+        [Inject] private ContainerFactory Factory { get; set; }
         
         private void Awake()
         {
@@ -20,6 +26,7 @@ namespace Gameplay.Projectiles
             LayerMask mask = LayerMask.GetMask("Player", "Enemy");
             Hitbox[] targets = AOE.GetTargets<Hitbox>(Transform.position, _explosionRadius, mask);
             targets.Foreach(hitbox => hitbox?.TakeHit(_explosionDamage));
+            Explosion.CreateExplosion(Factory, _explosionPrefab, Transform.position, _explosionRadius);
         }
     }
 }

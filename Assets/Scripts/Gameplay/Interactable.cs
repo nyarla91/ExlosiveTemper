@@ -10,6 +10,7 @@ namespace Gameplay
         [SerializeField] private LocalizedString _context;
 
         public LocalizedString Context => _context;
+        public abstract bool IsInteractableAtTheMoment { get; }
         
         public abstract void OnInteract(PlayerComposition player);
     }

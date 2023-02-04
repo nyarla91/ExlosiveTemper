@@ -62,7 +62,7 @@ namespace CharacterSetup
         {
             _icon.sprite = _spell.Icon;
             _cost.text = $"{_spell.HeatCost}<sprite name=heat>";
-            if (_spell.Achievement != null && _spell.Achievement.IsAvailable(Unlocks.SavableSpells))
+            if (_spell.Achievement != null && _spell.Achievement.IsAvailable(Unlocks.SavableSpells) && false)
             {
                 _name.Text = new LocalizedString("Locked", "Закрыто");
                 _description.Text = _spell.Achievement.Description;

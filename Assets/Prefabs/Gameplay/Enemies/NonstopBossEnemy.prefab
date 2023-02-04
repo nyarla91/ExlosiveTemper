@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NonstopBossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4521895648498540555, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+      propertyPath: _health._maxValue
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540558, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: m_RootOrder
       value: 0

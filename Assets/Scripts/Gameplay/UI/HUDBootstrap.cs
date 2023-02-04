@@ -16,6 +16,8 @@ namespace Gameplay.UI
         [SerializeField] private InteractableView _interactable;
         [SerializeField] private SpellView[] _spells;
         [SerializeField] private EnemySpawner _enemySpawner;
+        [SerializeField] private LevelCounter _levelCounter;
+        [SerializeField] private Room _room;
         
         [Inject]
         private PlayerComposition Player { get; set; }
@@ -30,6 +32,7 @@ namespace Gameplay.UI
             _interactable.Init(Player.Interaction);
             _spells.Foreach(spell => spell.Init(Player.Resources, Player.Spells));
             _enemySpawner.HUD = RectTransform;
+            _levelCounter.Init(_room);
         }
     }
 }

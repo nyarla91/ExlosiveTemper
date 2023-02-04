@@ -12,16 +12,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d6e28610e17805a408321cc1888af5f7, type: 2}
     - target: {fileID: 4939011507123562765, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
-      propertyPath: _burstsPerWave
-      value: 4
+      propertyPath: _wavesPeriod
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4939011507123562765, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
-      propertyPath: _projectileSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939011507123562765, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
-      propertyPath: _projectileBaseDamage
-      value: 15
+      propertyPath: _burstsPeriod
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4939011507123562994, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
       propertyPath: m_RootOrder
@@ -73,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4939011507123562999, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
       propertyPath: _health._maxValue
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5292667254815863178, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
       propertyPath: m_Materials.Array.data[0]

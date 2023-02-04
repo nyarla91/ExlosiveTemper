@@ -11,6 +11,7 @@ namespace Gameplay.Weapons
 {
     public class Weapon : MonoBehaviour
     {
+        [SerializeField] private GameObject _aim;
         [SerializeField] private int _animationIndex;
         [SerializeField] private PlayerWeapons _player;
         [SerializeField] private WeaponAttack _primaryAttack;
@@ -20,6 +21,8 @@ namespace Gameplay.Weapons
         private Timer _cooldown;
 
         public int AnimationIndex => _animationIndex;
+
+        public GameObject Aim => _aim;
         [Inject] private Pause Pause { get; set; }
 
         public event Action<WeaponAttack, Vector3, Hitbox[]> HitscanBulletShot; 

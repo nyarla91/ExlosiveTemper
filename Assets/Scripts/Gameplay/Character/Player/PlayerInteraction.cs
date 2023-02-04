@@ -20,7 +20,7 @@ namespace Gameplay.Character.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Interactable interactable))
+            if (other.TryGetComponent(out Interactable interactable) && interactable.IsInteractableAtTheMoment)
             {
                 _activeInterractabe = interactable;
                 OnInteractionAvailable?.Invoke(interactable);

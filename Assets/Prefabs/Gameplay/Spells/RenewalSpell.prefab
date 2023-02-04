@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5817973971563999243, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_Name
-      value: RestorationSpell
+      value: RenewalSpell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
@@ -74,5 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6065f80bc858415b90a18396f9528986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heathOverCast: 30
-  _heathAtTheEnd: 30
+  _effectPrefab: {fileID: 354433405349328930, guid: 906f37046f420c544ad654ed92c2f5ee, type: 3}
+  _healthRestored: 25

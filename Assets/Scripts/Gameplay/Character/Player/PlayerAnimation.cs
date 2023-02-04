@@ -1,4 +1,5 @@
 ﻿using Extentions;
+using Gameplay.VFX;
 using UnityEngine;
 using Zenject;
 
@@ -6,6 +7,7 @@ namespace Gameplay.Character.Player
 {
     public class PlayerAnimation : LazyGetComponent<PlayerComposition>
     {
+        [SerializeField] private ParticleSystemEffect _sprintTrail;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
         
@@ -13,6 +15,7 @@ namespace Gameplay.Character.Player
         
         private void Update()
         {
+            _sprintTrail.Play = Lazy.Movement.IsSprinting;
             if (Pause.IsPaused)
             {
                 _animator.speed = 0;
