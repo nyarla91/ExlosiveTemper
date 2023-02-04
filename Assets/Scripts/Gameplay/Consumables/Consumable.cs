@@ -15,7 +15,7 @@ namespace Gameplay.Consumables
                 if (value == _quantity)
                     return;
                 _quantity = value;
-                OnQuantityChanged?.Invoke(value);
+                QuantityChanged?.Invoke(value);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Gameplay.Consumables
             return true;
         }
 
-        public event Action<int> OnQuantityChanged; 
+        public event Action<int> QuantityChanged; 
 
         public abstract void ConsumeEffect(PlayerComposition player);
     }

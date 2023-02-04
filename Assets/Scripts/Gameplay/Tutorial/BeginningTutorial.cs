@@ -8,7 +8,6 @@ namespace Gameplay.Tutorial
     {
         private async void Start()
         {
-            print("LEE");
             await Task.Delay(500);
             TryShowTutorial();
         }

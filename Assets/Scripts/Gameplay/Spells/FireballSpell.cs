@@ -13,7 +13,6 @@ namespace Gameplay.Spells
         
         public override void OnCast()
         {
-            Debug.Log(_projectileFactory._prefab);
             GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = Random.insideUnitCircle.XYtoXZ() * 5;
             Fireball fireball = _projectileFactory.GetNewObject<Fireball>(Transform.position.WithY(1.5f) + Transform.forward);
             fireball.Init(EntityOwner.Player, _projectileDamage, Transform.forward * _projectileSpeed);

@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _wavesPeriod
-      value: 1.2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _projectileSpeed

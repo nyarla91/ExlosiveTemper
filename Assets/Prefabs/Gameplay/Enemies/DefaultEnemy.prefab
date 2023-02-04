@@ -255,10 +255,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _burstsPeriod
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _burstsPerWave
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
+      propertyPath: _projectileSpeed
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540785, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}

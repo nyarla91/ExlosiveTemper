@@ -16,7 +16,7 @@ namespace Gameplay.Rooms
 
         public override void OnInteract(PlayerComposition player)
         {
-            if ( ! CanBeOpen(player))
+            if (Pause.IsPaused || ! CanBeOpen(player))
                 return;
             OpenEffect(player);
             Open();

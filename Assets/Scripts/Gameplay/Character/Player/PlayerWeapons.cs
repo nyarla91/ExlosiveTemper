@@ -8,7 +8,6 @@ namespace Gameplay.Character.Player
 {
     public class PlayerWeapons : LazyGetComponent<PlayerComposition>
     {
-        [SerializeField] private GameObject[] _aims;
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private Weapon _secondaryWeapon;
         [SerializeField] private float _chargedShotCooldownTime;
@@ -27,11 +26,8 @@ namespace Gameplay.Character.Player
         public void SwapWeapons()
         {
             MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
-            foreach (GameObject aim in _aims)
-            {
-                aim.SetActive(false);
-            }
-            _currentWeapon.Aim.SetActive(true);
+            _currentWeapon.gameObject.SetActive(true);
+            _secondaryWeapon.gameObject.SetActive(false);
         }
 
         private void Awake()

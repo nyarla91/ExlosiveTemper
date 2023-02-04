@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2895475821514319072}
-  - component: {fileID: -3330632495024635579}
+  - component: {fileID: 1472449541752047213}
   m_Layer: 0
-  m_Name: 10Seconds
+  m_Name: Reach5Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3330632495024635579
+--- !u!114 &1472449541752047213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3822723331622368108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b1a9431ac7444d8ed10ad2e5ce6260, type: 3}
+  m_Script: {fileID: 11500000, guid: c718f082ffd44af0abdf03b2e33d6f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _seconds: 10
+  _levelRequired: 5

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfca1fa38e3f4bacb705b72fbdcd93fb, type: 3}
+  m_Name: 5Health
+  m_EditorClassIdentifier: 
+  <Library>k__BackingField: {fileID: 11400000, guid: e396994e051211541a2bbadbb2e22a4c, type: 2}
+  <Description>k__BackingField:
+    _english: Accumulate 5 healing stones
+    _russian: "\u041D\u0430\u043A\u043E\u043F\u0438\u0442\u0435 5 \u0446\u0435\u043B\u0435\u0431\u043D\u044B\u0445
+      \u043A\u0430\u043C\u043D\u0435\u0439"
+  <UnlockedSpell>k__BackingField: {fileID: 11400000, guid: ca0c5f55c9594a14fb0fb82a1fbb8ae2, type: 2}
+  <Behaviour>k__BackingField: {fileID: 3822723331622368108, guid: 151a9c7fdc9d3a247a4249f8a1b8b473, type: 3}

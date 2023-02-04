@@ -10,7 +10,7 @@ namespace Gameplay.UI
 
         public void Init(Consumable consumable)
         {
-            consumable.OnQuantityChanged += ApplyQuantity;
+            consumable.QuantityChanged += ApplyQuantity;
         }
 
         private void ApplyQuantity(int quantity)

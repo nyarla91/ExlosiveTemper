@@ -2,6 +2,7 @@
 using Gameplay.Character.Player;
 using Localization;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -9,6 +10,8 @@ namespace Gameplay
     {
         [SerializeField] private LocalizedString _context;
 
+        [Inject] protected Pause Pause { get; set; }
+        
         public LocalizedString Context => _context;
         public abstract bool IsInteractableAtTheMoment { get; }
         

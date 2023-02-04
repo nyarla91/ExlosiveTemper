@@ -16,6 +16,7 @@ namespace Gameplay.Character.Player
 
         public SpellBehaviour[] SpellBehaviours => _spellBehaviours;
 
+        [Inject] private Pause Pause { get; set; }
         [Inject] private SpellsKit Kit { get; set; }
         [Inject] private ContainerFactory ContainerFactory { get; set; }
 
@@ -29,7 +30,7 @@ namespace Gameplay.Character.Player
         private void TryUseSpell(int index)
         {
             SpellBehaviour spellToUse = _spellBehaviours[index];
-            if ( ! Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
+            if (Pause.IsPaused || ! Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
                 return;
             spellToUse.OnCast();
         }

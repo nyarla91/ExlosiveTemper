@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Extentions;
+using Extentions.Factory;
 using Gameplay.Character;
 using Gameplay.Character.Player;
 using UnityEngine;
@@ -11,18 +12,18 @@ namespace Gameplay.Weapons
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] private GameObject _aim;
         [SerializeField] private int _animationIndex;
         [SerializeField] private PlayerWeapons _player;
         [SerializeField] private WeaponAttack _primaryAttack;
         [SerializeField] private WeaponAttack _chargedAttack;
         [SerializeField] private float _attackPeriod;
+        [SerializeField] private GameObject _impactPrefab;
+        [SerializeField] private Transform _effectOrigin;
 
         private Timer _cooldown;
 
         public int AnimationIndex => _animationIndex;
-
-        public GameObject Aim => _aim;
+        [Inject] private ContainerFactory Factory { get; set; }
         [Inject] private Pause Pause { get; set; }
 
         public event Action<WeaponAttack, Vector3, Hitbox[]> HitscanBulletShot; 
@@ -34,12 +35,20 @@ namespace Gameplay.Weapons
 
             PerfromHitscanAttack(_primaryAttack, _player.Transform.forward);
             _cooldown.Restart();
+            CreateImpactEffect();
             return true;
+        }
+
+        private void CreateImpactEffect()
+        {
+            Transform effect = Factory.Instantiate<Transform>(_impactPrefab, _effectOrigin.position, _effectOrigin);
+            effect.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         public bool TryChargedShot()
         {
             PerfromHitscanAttack(_chargedAttack, _player.Transform.forward);
+            CreateImpactEffect();
             return true;
         }
 

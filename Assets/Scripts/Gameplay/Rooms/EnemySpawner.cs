@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Content;
 using Extentions;
@@ -8,6 +9,7 @@ using Gameplay.Character.Player;
 using Gameplay.Collectables;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Rooms
 {
@@ -32,6 +34,8 @@ namespace Gameplay.Rooms
 
         public EnemyComposition[] EnemiesAlive => _enemiesAlive.ToArray();
         public bool IsCombatOn => _enemiesAlive.Count > 0;
+
+        public event Action CombatIsOver;
         
         public void StartWave(Room room) => StartCoroutine(Wave(room));
 
@@ -66,7 +70,7 @@ namespace Gameplay.Rooms
                                 newEnemy.VitalsPool.HealthIsOver += () =>
                                 {
                                     Vector3 position = newEnemy.Transform.position + Random.insideUnitCircle.XYtoXZ() * 0.3f;
-                                    collectable.Factory.GetNewObject<Collectable>(position);
+                                    collectable.Factory.GetNewObject<Collectable>(position, Transform);
                                 };
                             }
                         }
@@ -74,6 +78,7 @@ namespace Gameplay.Rooms
                     }
                 }
                 yield return new WaitUntil(() => _enemiesAlive.Count == 0);
+                CombatIsOver?.Invoke();
                 yield return new PausableWaitForSeconds(this, Pause, 1);
             }
         }

@@ -16,15 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: fc99ffbb33a284344b58287a19ed1446
-  m_SerializeEntries:
-  - m_GUID: d4ace5c69418c594fa073c7311ad2db2
-    m_Address: Achievement/5seconds
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f34a459ed1a41cc489a07f0cfd5dbbdd
-    m_Address: Achievement/10seconds
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b856f5bc2811cc849bcd61772dd465ca, type: 2}
   m_SchemaSet:

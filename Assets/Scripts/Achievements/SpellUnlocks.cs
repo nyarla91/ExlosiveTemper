@@ -18,10 +18,9 @@ namespace Achievements
         [SerializeField] private List<Spell> _unlockedSpells;
         [SerializeField] private Achievement[] _achievements;
 
-        private List<AchievementBehaviour> _achievementBehaviours = new List<AchievementBehaviour>();
-        private string SavefilePath => Application.dataPath + "/permanent.json";
+        public Achievement[] Achievements => _achievements;
 
-        [Inject] private ContainerFactory Factory { get; set; }
+        private string SavefilePath => Application.dataPath + "/permanent.json";
 
         public SavableSpells SavableSpells
         {
@@ -38,34 +37,6 @@ namespace Achievements
             _unlockedSpells.Add(spell);
             _message.Show(spell.Achievement);
             Save();
-        }
-
-        public void InstantiateAchievements()
-        {
-            foreach (Achievement achievement in _achievements)
-            {
-                if (achievement.IsAvailable(SavableSpells))
-                    InstantiateAchievement(achievement);
-            }
-
-            async void InstantiateAchievement(Achievement achievement)
-            {
-                AssetReference reference = achievement.BehaviourReference;
-                GameObject prefab = await reference.LoadAssetAsync<GameObject>().Task;
-                AchievementBehaviour behaviour = Factory.Instantiate<AchievementBehaviour>(prefab, Transform.position, Transform);
-                behaviour.Init(achievement);
-                _achievementBehaviours.Add(behaviour);
-            }
-        }
-
-        public void DisposeAchievements()
-        {
-            foreach (var behaviour in _achievementBehaviours)
-            {
-                behaviour.Achievement.BehaviourReference.ReleaseAsset();
-                Destroy(behaviour.gameObject);
-            }
-            _achievementBehaviours = new List<AchievementBehaviour>();
         }
 
         private void Start()

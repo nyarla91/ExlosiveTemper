@@ -12,9 +12,11 @@ namespace Infrastructure
         [SerializeField] private Transform _playerOrigin;
         [SerializeField] private CameraView _cameraView;
         [SerializeField] private EnemySpawner _enemySpawner;
+        [SerializeField] private Room _room;
         
         public override void InstallBindings()
         {
+            Container.Bind<Room>().FromInstance(_room);
             Container.Bind<CameraView>().FromInstance(_cameraView).AsSingle();
             Container.Bind<EnemySpawner>().FromInstance(_enemySpawner).AsSingle();
             GameObject player = Container.InstantiatePrefab(_playerPrefab, _playerOrigin);

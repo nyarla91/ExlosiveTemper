@@ -9,10 +9,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1770100258064046173, guid: c37312719cd7db049a249a108cf29d05, type: 3}
       propertyPath: _wavesPeriod
-      value: 0.8
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1770100258064046173, guid: c37312719cd7db049a249a108cf29d05, type: 3}
-      propertyPath: _projectileSpeed
+      propertyPath: _projectileBaseDamage
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1770100258064046242, guid: c37312719cd7db049a249a108cf29d05, type: 3}

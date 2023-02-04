@@ -59,6 +59,14 @@ PrefabInstance:
       propertyPath: _health._maxValue
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1171703079756368855, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
+      propertyPath: _wavesPeriod
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171703079756368855, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
+      propertyPath: _projectileBaseDamage
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 3408686480008915593, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

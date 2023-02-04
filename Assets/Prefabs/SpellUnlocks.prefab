@@ -212,7 +212,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5053117346311364538
 MonoBehaviour:
@@ -869,15 +869,14 @@ MonoBehaviour:
   _message: {fileID: 2411067578165514008}
   _library: {fileID: 11400000, guid: e396994e051211541a2bbadbb2e22a4c, type: 2}
   _unlockedSpells:
-  - {fileID: 11400000, guid: a0ee7b207dd0ddd41b02ab495a3a6726, type: 2}
-  - {fileID: 11400000, guid: d29cd602814531844a0d26f927d08ea0, type: 2}
-  - {fileID: 11400000, guid: ca0c5f55c9594a14fb0fb82a1fbb8ae2, type: 2}
-  - {fileID: 11400000, guid: 0324602c9436d4344824dbacb9339920, type: 2}
-  - {fileID: 11400000, guid: 7e2f71e0d984bc242baeb7a4409455ab, type: 2}
-  - {fileID: 11400000, guid: 0f83c8af9a0146141b10ec8f2b062c3d, type: 2}
-  - {fileID: 11400000, guid: daea4092b4624054e9367a439cbecf38, type: 2}
-  - {fileID: 11400000, guid: 897afdbed49900240a06a1b28be8a1b8, type: 2}
   - {fileID: 11400000, guid: 725c227c95e5a0b4caa9a8a97f5fbba8, type: 2}
-  - {fileID: 11400000, guid: df031193133d69d4cb4e0729b7b15800, type: 2}
-  - {fileID: 11400000, guid: 0862fc90bf0b2194bac875c5d57f0424, type: 2}
-  _achievements: []
+  - {fileID: 11400000, guid: 7e2f71e0d984bc242baeb7a4409455ab, type: 2}
+  _achievements:
+  - {fileID: 11400000, guid: 7721f5254db20974eade272b3d9a22d9, type: 2}
+  - {fileID: 11400000, guid: d3dd5784eb358ad4b944ed8f47630a86, type: 2}
+  - {fileID: 11400000, guid: 7c10092012aab1649b3731d17cc37660, type: 2}
+  - {fileID: 11400000, guid: e7d94f1145f17dd47b112d6bc9f56216, type: 2}
+  - {fileID: 11400000, guid: acf5a84c56df156449bcd3425c314995, type: 2}
+  - {fileID: 11400000, guid: 6fa5b6b8b577f674c9d949b0802e6899, type: 2}
+  - {fileID: 11400000, guid: e21e56ec5ebadd247a0719c3f0861014, type: 2}
+  - {fileID: 11400000, guid: a6e07879d6cc3b44c83971423f43e4ef, type: 2}

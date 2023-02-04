@@ -8,7 +8,7 @@ namespace Extentions.Factory
 {
     public class PoolFactory : Transformable
     {
-        [SerializeField] public GameObject _prefab;
+        [SerializeField] private GameObject _prefab;
         [SerializeField] private List<TaggedObject> _pool = new List<TaggedObject>();
         
         [Inject] private ContainerFactory ContainerFactory { get; set; }
