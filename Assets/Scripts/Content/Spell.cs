@@ -13,7 +13,7 @@ namespace Content
         [field: SerializeField] public LocalizedString Description { get; set; }
         [field: SerializeField] public Sprite Icon { get; set; }
         [field: SerializeField] public int HeatCost { get; set; }
-        [field: SerializeField] public AssetReference Behaviour { get; set; }
+        [field: SerializeField] public GameObject Behaviour { get; set; }
         [field: SerializeField] public Achievement Achievement { get; private set; }
 
         private void OnValidate()

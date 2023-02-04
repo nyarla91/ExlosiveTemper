@@ -47,11 +47,12 @@ namespace Gameplay.Character.Player
         private async void LoadSpellBehaviour(int index)
         {
             Spell spell = Kit.Eqipped[index];
-            GameObject prefab = (await spell.Behaviour.LoadAssetAsync<GameObject>().Task); 
+            /*GameObject prefab = (await spell.Behaviour.LoadAssetAsync<GameObject>().Task);*/
+            GameObject prefab = spell.Behaviour;
             SpellBehaviour behaviour = ContainerFactory.Instantiate<SpellBehaviour>(prefab, Transform.position, Transform);
             behaviour.Init(spell, Lazy);
             _spellBehaviours[index] = behaviour;
-            spell.Behaviour.ReleaseAsset();
+            //spell.Behaviour.ReleaseAsset();
             behaviour.Transform.localRotation = Quaternion.Euler(0, 0, 0);
             OnSpellLoaded?.Invoke(index, behaviour);
         }

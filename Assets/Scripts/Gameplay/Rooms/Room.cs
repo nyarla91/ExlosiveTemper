@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +15,8 @@ namespace Gameplay.Rooms
         
         public int Level { get; private set; }
 
+        public event Action<int> ComeToNextLevel;
+        
         public void NextLevel(Vector3 offset)
         {
             foreach (Door door in _doors)
@@ -22,6 +25,7 @@ namespace Gameplay.Rooms
             }
             Transform.position += offset.WithY(0);
             Level++;
+            ComeToNextLevel?.Invoke(Level);
             Spawner.StartWave(this);
         }
     }

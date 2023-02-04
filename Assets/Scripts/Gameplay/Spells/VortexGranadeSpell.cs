@@ -12,7 +12,7 @@ namespace Gameplay.Spells
         
         public override void OnCast()
         {
-            VortexGrenade grenade = _factory.GetNewObject<VortexGrenade>(Transform.position.WithY(1.5f));
+            VortexGrenade grenade = _factory.GetNewObject<VortexGrenade>(Transform.position.WithY(1.5f) + Transform.forward);
             grenade.Init(EntityOwner.Player, 0, Transform.forward * _projectileSpeed);
         }
     }

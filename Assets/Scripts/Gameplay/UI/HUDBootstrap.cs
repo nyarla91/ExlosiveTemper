@@ -22,7 +22,7 @@ namespace Gameplay.UI
         [Inject]
         private PlayerComposition Player { get; set; }
         
-        private void Start()
+        private void Awake()
         {
             _healthBar.Init(Player.Vitals.Health);
             _heatBar.Init(Player.Resources.Heat);

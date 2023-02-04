@@ -140,5 +140,11 @@ namespace Extentions
             foreach (T element in collection)
                 action.Invoke(element);
         }
+
+        public static T GetIndexOrLast<T>(this IEnumerable<T> enumerable, int index)
+        {
+            T[] array = enumerable.ToArray();
+            return index < array.Length ? array[index] : array.Last();
+        }
     }
 }

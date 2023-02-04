@@ -3,13 +3,16 @@ using UnityEngine;
 
 namespace Gameplay.Tutorial
 {
-    public class TutorialMenu : Menu
+    public class TutorialMenu : MonoBehaviour
     {
+        [SerializeField] private Menu _menu;
+        [SerializeField] private TutorialsBase _base;
         [SerializeField] private string _name;
         
-        protected void Show()
+        protected void TryShowTutorial()
         {
-            Open();
+            if (_base.TrySeeTutorial(_name))
+                _menu.Open();
         }
     }
 }

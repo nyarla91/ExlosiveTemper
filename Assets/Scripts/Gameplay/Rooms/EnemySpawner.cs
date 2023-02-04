@@ -15,7 +15,7 @@ namespace Gameplay.Rooms
     {
         [SerializeField] private Room _room;
         [SerializeField] private int _wavesPerRoom;
-        [SerializeField] private int _waveTotalWeight;
+        [SerializeField] private int[] _waveTotalWeightInRoom;
         [SerializeField] private List<EnemySpawnDetails> _enemies;
         [SerializeField] private List<int> _numberOfElitesInRoom;
         [SerializeField] private int _bossLevelPerodicity;
@@ -52,11 +52,11 @@ namespace Gameplay.Rooms
                 }
                 else
                 {
-                    for (int enemyI = 0; spentWeight < _waveTotalWeight; enemyI++)
+                    int totalWeight = _waveTotalWeightInRoom.GetIndexOrLast(room.Level);
+                    for (int enemyI = 0; spentWeight < totalWeight; enemyI++)
                     {
                         EnemySpawnDetails spawnedEnemy = _enemies.PickRandomElement();
-                        int roomLevel = _room.Level >= _numberOfElitesInRoom.Count ? _numberOfElitesInRoom.Count - 1 : _room.Level;
-                        GameObject prefab = enemyI < _numberOfElitesInRoom[roomLevel] ? spawnedEnemy.ElitePrefab : spawnedEnemy.BasePrefab;
+                        GameObject prefab = enemyI < _numberOfElitesInRoom.GetIndexOrLast(room.Level) ? spawnedEnemy.ElitePrefab : spawnedEnemy.BasePrefab;
 
                         EnemyComposition newEnemy = SpawnEnemy(room, prefab);
                         foreach (CollectableSpawnDetails collectable in _collectables)

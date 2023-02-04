@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 6
   _sprintMaxSpeedModifier: 2
-  _acceleration: 40
+  _acceleration: 80
   _sprintAccelerationModifier: 1.5
   _sprintHeatCostPerSecond: 25
 --- !u!114 &2869568182423169157

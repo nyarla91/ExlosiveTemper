@@ -17,52 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fc99ffbb33a284344b58287a19ed1446
   m_SerializeEntries:
-  - m_GUID: bdbbee2dd214d2849acf6557a0287755
-    m_Address: Spell/Renewal
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 12b4e5245d9ce2c42b1cd258ae9b3501
-    m_Address: Spell/Preparation
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: d4ace5c69418c594fa073c7311ad2db2
     m_Address: Achievement/5seconds
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: f34a459ed1a41cc489a07f0cfd5dbbdd
     m_Address: Achievement/10seconds
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 1808d2003bb4ea941834db8bcd3a710d
-    m_Address: Spell/Fireball
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 0e506816fae6cb343a4eeffb3b4f0250
-    m_Address: Spell/BurningAura
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 246f3eda3215e8b44860028c74a7828f
-    m_Address: Spell/Conjuction
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 0344363eb0418294a9d95a700d5a04cf
-    m_Address: Spell/Scatter
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d1e8175cd1a233b48b7bf2eb9df0ff65
-    m_Address: Spell/ChargeOfAshes
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: fad7b7274eb08194586e13668f69d419
-    m_Address: Spell/BulletOfExecutor
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7103a9c572b921e4e8aae23124ec6b8c
-    m_Address: Spell/Melt
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d79ce384a30b5c047954e2e35d58fd92
-    m_Address: Spell/VortexGrenade
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

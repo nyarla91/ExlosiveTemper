@@ -16,16 +16,12 @@ MonoBehaviour:
     _english: Charge of ashes
     _russian: "\u0417\u0430\u0440\u044F\u0434 \u043F\u0435\u043F\u043B\u0430"
   <Description>k__BackingField:
-    _english: For a short time, your shot explode on contact
+    _english: For a short time, your shots explode on contact
     _russian: "\u041D\u0430 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435
       \u0432\u0440\u0435\u043C\u044F \u0432\u0430\u0448\u0438 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u044B
       \u0432\u0437\u0440\u044B\u0432\u0430\u044E\u0442\u0441\u044F \u043F\u0440\u0438
       \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0435."
   <Icon>k__BackingField: {fileID: 21300000, guid: 0991c721122aa7b42837350e4d7948ee, type: 3}
   <HeatCost>k__BackingField: 70
-  <Behaviour>k__BackingField:
-    m_AssetGUID: d1e8175cd1a233b48b7bf2eb9df0ff65
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  <Behaviour>k__BackingField: {fileID: 6830542715099429411, guid: d1e8175cd1a233b48b7bf2eb9df0ff65, type: 3}
   <Achievement>k__BackingField: {fileID: 11400000, guid: 7721f5254db20974eade272b3d9a22d9, type: 2}
