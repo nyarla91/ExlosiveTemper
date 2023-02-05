@@ -74,7 +74,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c312ac80e7f43128fa17308a4bc13ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 5647467774534113654}
+  _sound: {fileID: 8300000, guid: 2ec68596e8cfd1a4e9433067954cfdca, type: 3}
   _explosionrPrefab: {fileID: 4131229184249659343, guid: 94e719ef2c3c0e84abeb7d932e96d12d, type: 3}
   _damageRadius: 4
   _damage: 50
   _knockbackForce: 30
+--- !u!82 &5647467774534113654 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
+  m_PrefabInstance: {fileID: 5428283893729520310}
+  m_PrefabAsset: {fileID: 0}

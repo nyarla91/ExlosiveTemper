@@ -8,6 +8,9 @@ namespace Gameplay.Spells
 {
     public abstract class SpellBehaviour : Transformable
     {
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _sound;
+        
         public Spell Spell { get; private set; }
         protected PlayerComposition Player { get; private set; }
         
@@ -18,5 +21,8 @@ namespace Gameplay.Spells
         }
 
         public abstract void OnCast();
+
+        protected void PlaySound() => _audioSource.PlayOneShot(_sound);
+        protected void PlaySound(AudioClip clip) => _audioSource.PlayOneShot(clip);
     }
 }

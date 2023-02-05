@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Spells
 {
-    public class ConjuctionSpell : SpellBehaviour
+    public class ForgingSpell : SpellBehaviour
     {
         [SerializeField] private GameObject _effectPrefab;
         [SerializeField] private int _embersGained;
@@ -18,6 +18,7 @@ namespace Gameplay.Spells
             {
                 Player.Inventory.HeatConsumable.AddOne();
                 Factory.Instantiate<Transform>(_effectPrefab, Transform.position.WithY(1.5f), Transform);
+                PlaySound();
             }
         }
     }

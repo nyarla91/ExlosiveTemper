@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
+--- !u!82 &827989002148837864 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
+  m_PrefabInstance: {fileID: 1042423782866176552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6830542715099429411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5817973971563999243, guid: 48e3469133da29145a0675313c63892c, type: 3}
@@ -74,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b712570d936b4b5287a2d46b5546dd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 827989002148837864}
+  _sound: {fileID: 8300000, guid: dae2230a3fd13c046a1d89c1820f2e1d, type: 3}
   _projectileDamage: 40
   _projectileSpeed: 7
   _projectileFactory: {fileID: 6033256162182736450}

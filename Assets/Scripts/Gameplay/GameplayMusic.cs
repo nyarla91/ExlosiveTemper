@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using Extentions;
+using Gameplay.Character.Player;
 using Gameplay.Rooms;
 using UnityEngine;
 using Zenject;
@@ -14,11 +15,13 @@ namespace Gameplay
         
         [Inject] private Room Room { get; set; }
         [Inject] private EnemySpawner EnemySpawner { get; set; }
+        [Inject] private PlayerComposition Player { get; set; }
 
         private void Awake()
         {
             Room.ComeToNextLevel += Play;
             EnemySpawner.CombatIsOver += Stop;
+            Player.Vitals.HealthIsOver += Stop;
         }
 
         private void Play(int i)

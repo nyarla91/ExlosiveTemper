@@ -10,6 +10,7 @@ namespace Achievements
 {
     public class AchievementMessage : Transformable
     {
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private float _duration;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private Image _icon;
@@ -21,6 +22,7 @@ namespace Achievements
             _icon.sprite = achievement.UnlockedSpell.Icon;
             Transform.DOComplete();
             Transform.DOAppear(_canvasGroup);
+            _audioSource.Play();
             StartCoroutine(Hide());
         }
 

@@ -19,6 +19,7 @@ namespace Gameplay.Weapons
         [SerializeField] private float _attackPeriod;
         [SerializeField] private GameObject _impactPrefab;
         [SerializeField] private Transform _effectOrigin;
+        [SerializeField] private AudioSource _audioSource;
 
         private Timer _cooldown;
 
@@ -30,8 +31,10 @@ namespace Gameplay.Weapons
 
         public bool TryShoot()
         {
+            print("1");
             if (_cooldown.IsOn)
                 return false;
+            print("2");
 
             PerfromHitscanAttack(_primaryAttack, _player.Transform.forward);
             _cooldown.Restart();
@@ -54,8 +57,13 @@ namespace Gameplay.Weapons
 
         private void PerfromHitscanAttack(WeaponAttack attack, Vector3 direction)
         {
+            _audioSource.pitch = Random.Range(0.8f, 1.2f);
+            _audioSource.PlayOneShot(attack.Sound);
+            
+            print("3");
             for (int i = 0; i < attack.ShotsPerAttack; i++)
             {
+                print("4");
                 float degreeOffset = Random.Range(-attack.SplashAmplitude, attack.SplashAmplitude);
                 Ray ray = new Ray(_player.Transform.position.WithY(1.5f), direction.RotatedY(degreeOffset));
                 LayerMask mask = LayerMask.GetMask("Enemy", "Obstacle");
@@ -83,6 +91,11 @@ namespace Gameplay.Weapons
                     _player.Hit?.Invoke(target.TakeHit(attack.DamagePerAttack / attack.ShotsPerAttack));    
                 }
             }
+        }
+
+        private void OnEnable()
+        {
+            _cooldown?.Restart();
         }
 
         private void Start()

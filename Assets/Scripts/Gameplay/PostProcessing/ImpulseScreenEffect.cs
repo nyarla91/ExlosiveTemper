@@ -6,6 +6,8 @@ namespace Gameplay.PostProcessing
 {
     public class ImpulseScreenEffect : LazyGetComponent<Volume>
     {
+        [SerializeField] private float _pitchAmplitude;
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private float _strength = 1;
         [SerializeField] [Range(0, 1)] private float _fadeSpeed = 0.1f;
 
@@ -13,6 +15,8 @@ namespace Gameplay.PostProcessing
         protected void CreateImpulse() => CreateImpulse(1);
         protected void CreateImpulse(float impulse)
         {
+            _audioSource.pitch = Random.Range(1 - _pitchAmplitude, 1 + _pitchAmplitude);
+            _audioSource.PlayOneShot(_audioSource.clip, impulse);
             impulse *= _strength;
             if (impulse < Lazy.weight)
                 return;

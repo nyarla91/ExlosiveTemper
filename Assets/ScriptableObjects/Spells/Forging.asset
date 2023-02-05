@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf64a6c19cd64baeb5f1a9420721de9a, type: 3}
-  m_Name: Conjuction
+  m_Name: Forging
   m_EditorClassIdentifier: 
   <Name>k__BackingField:
-    _english: Conjuction
-    _russian: "\u0421\u043E\u0442\u0432\u043E\u0440\u0435\u043D\u0438\u0435"
+    _english: Forging
+    _russian: "\u041A\u043E\u0432\u043A\u0430"
   <Description>k__BackingField:
     _english: Gain 1 ember
     _russian: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 1 \u0443\u0433\u043E\u043B\u0451\u043A"

@@ -27,6 +27,7 @@ namespace Gameplay.Spells
         public override void OnCast()
         {
             _activatedDuration.Restart();
+            PlaySound();
         }
 
         private void Start()

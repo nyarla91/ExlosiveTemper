@@ -7,10 +7,12 @@ namespace Gameplay.Character.Player
 {
     public class PlayerAnimation : LazyGetComponent<PlayerComposition>
     {
+        [SerializeField] [Range(0, 1)] private float _sprintSoundLerpSpeed;
+        [SerializeField] private AudioSource _sprintSound;
         [SerializeField] private ParticleSystemEffect _sprintTrail;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
-        
+
         [Inject] private Pause Pause { get; set; }
         
         private void Update()
@@ -40,6 +42,9 @@ namespace Gameplay.Character.Player
             _animator.SetInteger("Weapon", Lazy.Weapons.CurrentWeapon.AnimationIndex);
             _animator.SetInteger("RunState", runState);
             _animator.SetFloat("RunSpeed", Lazy.Movement.Velocity.magnitude);
+
+            float targetSprintVolume = Lazy.Movement.IsSprinting ? 1 : 0;
+            _sprintSound.volume = Mathf.Lerp(_sprintSound.volume, targetSprintVolume, _sprintSoundLerpSpeed);
         }
 
         private void LateUpdate()

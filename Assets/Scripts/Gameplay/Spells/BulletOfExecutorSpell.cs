@@ -10,6 +10,7 @@ namespace Gameplay.Spells
 {
     public class BulletOfExecutorSpell : SpellBehaviour
     {
+        [SerializeField] private AudioClip _executeSound;
         [SerializeField] private ParticleSystemEffect[] _activatedEffect;
         [SerializeField] private float _maxDuration;
         [SerializeField] [Range(0, 1)] private float _maxHealthPercent;
@@ -23,6 +24,7 @@ namespace Gameplay.Spells
         public override void OnCast()
         {
             _activatedDuration.Restart();
+            PlaySound();
         }
 
         private void Start()
@@ -49,6 +51,7 @@ namespace Gameplay.Spells
                 if (vitals.Health.Percent <= _maxHealthPercent)
                 {
                     vitals.TakeDamage(10000);
+                    PlaySound(_executeSound);
                 }
             }
         }

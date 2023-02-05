@@ -8,6 +8,8 @@ namespace Gameplay.Character.Player
 {
     public class PlayerInventory : LazyGetComponent<PlayerComposition>
     {
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _pickUpSound;
         public HealthConsumable HealthConsumable { get; } = new HealthConsumable();
         public HeatConsumable HeatConsumable { get; } = new HeatConsumable();
 
@@ -18,6 +20,7 @@ namespace Gameplay.Character.Player
         }
 
         private void TryConsumeHealth() => HealthConsumable.TryConsume(Lazy);
+
         private void TryConsumeHeat() => HeatConsumable.TryConsume(Lazy);
 
         private void OnTriggerEnter(Collider other)
@@ -26,6 +29,7 @@ namespace Gameplay.Character.Player
             {
                 collectable.OnCollect(Lazy);
                 collectable.PoolDisable();
+                _audioSource.PlayOneShot(_pickUpSound);
             }
         }
     }

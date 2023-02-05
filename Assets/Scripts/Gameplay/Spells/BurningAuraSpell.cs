@@ -10,6 +10,8 @@ namespace Gameplay.Spells
 {
     public class BurningAuraSpell : SpellBehaviour
     {
+        [SerializeField] private AudioSource _auraSource;
+        [SerializeField] private AnimationCurve _auraVolumeCurve;
         [SerializeField] private ParticleSystemEffect _effect;
         [SerializeField] private float _damagePerSecond;
         [SerializeField] private float _tickPeriod;
@@ -24,6 +26,7 @@ namespace Gameplay.Spells
         public override void OnCast()
         {
             _radius += _radiusPerCast;
+            PlaySound();
         }
 
         private void Start()
@@ -36,6 +39,7 @@ namespace Gameplay.Spells
         {
             _effect.Play = _radius > 0;
             _effect.Transform.localScale = new Vector3(_radius, 1, _radius);
+            _auraSource.volume = _auraVolumeCurve.Evaluate(_radius);
         }
 
         private IEnumerator DealingDamage()

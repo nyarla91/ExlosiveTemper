@@ -15,6 +15,7 @@ namespace Gameplay.Spells
         {
             Player.Weapons.EndChargedCooldown();
             Factory.Instantiate<Transform>(_effectPrefab, Transform.position.WithY(1.5f), Transform);
+            PlaySound();
         }
     }
 }

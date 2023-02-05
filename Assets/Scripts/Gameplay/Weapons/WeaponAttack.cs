@@ -10,5 +10,6 @@ namespace Gameplay.Weapons
         [field: SerializeField] public int ShotsPerAttack { get; private set; }
         [field: SerializeField] public float SplashAmplitude { get; private set; }
         [field: SerializeField] public bool PiercesEnemies { get; private set; }
+        [field: SerializeField] public AudioClip Sound { get; private set; }
     }
 }

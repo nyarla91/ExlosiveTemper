@@ -23,6 +23,7 @@ namespace Gameplay.Spells
             LayerMask mask = LayerMask.GetMask("Enemy");
             AOE.GetTargets<Hitbox>(aoePosition, _damageRadius, mask).Foreach(target => target?.TakeHit(_damage));
             Explosion.CreateExplosion(Factory, _explosionrPrefab, aoePosition, _damageRadius);
+            PlaySound();
             
             Player.Movable.AddKnockback( - forward * _knockbackForce);
         }

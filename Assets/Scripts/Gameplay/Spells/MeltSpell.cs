@@ -20,6 +20,7 @@ namespace Gameplay.Spells
             projectiles.Foreach(projectile => projectile.PoolDisable());
             Transform effect = Factory.Instantiate<Transform>(_effectPrefab, Transform.position.WithY(1.5f));
             effect.localScale = Vector3.one.WithY(1) * _meltRadius;
+            PlaySound();
         }
     }
 }

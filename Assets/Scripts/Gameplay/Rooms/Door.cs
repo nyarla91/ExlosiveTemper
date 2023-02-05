@@ -8,6 +8,7 @@ namespace Gameplay.Rooms
 {
     public abstract class Door : Interactable
     {
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Collider _collider;
 
         public override bool IsInteractableAtTheMoment => ! EnemySpawner.IsCombatOn;
@@ -20,6 +21,7 @@ namespace Gameplay.Rooms
                 return;
             OpenEffect(player);
             Open();
+            _audioSource.Play();
         }
 
         public void Open()

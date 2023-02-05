@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
+--- !u!82 &827989002148837864 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
+  m_PrefabInstance: {fileID: 1042423782866176552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1556385813284490303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2012557417856878103, guid: 48e3469133da29145a0675313c63892c, type: 3}
@@ -79,6 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43bb30406fc241fb80892537fa783e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 827989002148837864}
+  _sound: {fileID: 8300000, guid: 59e08ea763f932c49bc5163f703944cb, type: 3}
+  _executeSound: {fileID: 8300000, guid: 299ef64089657f446a69946e36819f69, type: 3}
   _activatedEffect:
   - {fileID: 9195953502439577600}
   - {fileID: 89624260266790496}

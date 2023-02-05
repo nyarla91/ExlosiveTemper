@@ -17,6 +17,7 @@ namespace Gameplay.Spells
         {
             Player.Vitals.RestoreHealth(_healthRestored);
             Factory.Instantiate<Transform>(_effectPrefab, Transform.position.WithY(1.5f), Transform);
+            PlaySound();
         }
     }
 }
