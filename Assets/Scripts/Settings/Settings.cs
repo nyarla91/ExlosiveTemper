@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Settings
 {
     public class Settings : MonoBehaviour
     {
+        [SerializeField] private AudioMixer _mixer;
         [SerializeField] private string _savedFileName;
         [SerializeField] private SettingsConfig _config;
 
@@ -71,6 +73,11 @@ namespace Settings
                 _ => throw new ArgumentOutOfRangeException()
             };
             Screen.SetResolution(screenWidth, screenHeight, fullScreenMode);
+
+            _mixer.SetFloat("MusicVolume", SettingValueToVolume(config.Audio.GetSettingValue("music volume")));
+            _mixer.SetFloat("SFXVolume", SettingValueToVolume(config.Audio.GetSettingValue("sfx volume")));
+
+            float SettingValueToVolume(int value) => ((float) value - 100) * 0.8f;
         }
     }
 }

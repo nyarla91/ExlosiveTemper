@@ -7,11 +7,11 @@ namespace Settings
     public struct SettingsConfig
     {
         [SerializeField] private SettingsSection _video;
-        [SerializeField] private SettingsSection _sound;
+        [SerializeField] private SettingsSection _audio;
         [SerializeField] private SettingsSection _game;
         
         public SettingsSection Video => _video;
-        public SettingsSection Sound => _sound;
+        public SettingsSection Audio => _audio;
         public SettingsSection Game => _game;
 
         public SettingsSection GetSection(SettingsSectionLabel label)
@@ -19,7 +19,7 @@ namespace Settings
             return label switch
             {
                 SettingsSectionLabel.Video => Video,
-                SettingsSectionLabel.Sound => Sound,
+                SettingsSectionLabel.Audio => Audio,
                 SettingsSectionLabel.Game => Game,
                 _ => throw new ArgumentOutOfRangeException(nameof(label), label, null)
             };
@@ -29,7 +29,7 @@ namespace Settings
     public enum SettingsSectionLabel
     {
         Video,
-        Sound,
-        Game
+        Audio,
+        Game,
     }
 }
