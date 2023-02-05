@@ -2,6 +2,7 @@
 using Extentions;
 using Gameplay.Character.Player;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using Zenject;
 
@@ -9,13 +10,16 @@ namespace Gameplay.PostProcessing
 {
     public class LowHealthScreenEffect : LazyGetComponent<Volume>
     {
-        [SerializeField] private float _scale;
+        [SerializeField] private AudioMixer _mixer;
+        [SerializeField] private AnimationCurve _curve;
         
         [Inject] private PlayerComposition Player { get; set; }
 
         private void Update()
         {
-            Lazy.weight = (1 - Player.Vitals.Health.Percent) * _scale;
+            float effectStrength = _curve.Evaluate(Player.Vitals.Health.Percent);
+            Lazy.weight = effectStrength;
+            _mixer.SetFloat("Pitch", 1 - effectStrength * 0.2f);
         }
     }
 }
