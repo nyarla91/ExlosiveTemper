@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f150777d40ef48a4a44e51b4ae09eacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damagePrefab: {fileID: 3984783836739500036, guid: 36a0c838ed10a0746801e0b0d3ad310f, type: 3}
+  _deathPrefab: {fileID: 3984783836739500036, guid: f63452e5bfb1a8b4eaa8dfa587e85f87, type: 3}
   _healthbarPrefab: {fileID: 8296467730756253351, guid: 07a676810fceaed4893a3ff0b8aab90e, type: 3}
   _healthbarOrigin: {fileID: 556255189294839679}
 --- !u!114 &4521895648498540785

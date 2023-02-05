@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540559, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _approachSpeed
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4521895648498540559, guid: b1d02f26197b9194aa8915f1602acb01, type: 3}
       propertyPath: _preferedDistance
