@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Gameplay.Character.Player;
 using Gameplay.Rooms;
 using UnityEngine;
@@ -18,7 +19,12 @@ namespace Achievements
             base.Init(achievement, player, room, enemySpawner);
             Room.ComeToNextLevel += StartWatching;
             Spawner.CombatIsOver += EndWatching;
-            Player.Vitals.TookDamage += _ => _isDamaged = true;
+            Player.Vitals.TookDamage += Damage;
+        }
+
+        private void Damage(float _)
+        {
+            _isDamaged = true;
         }
 
         private void StartWatching(int level)
@@ -35,6 +41,13 @@ namespace Achievements
             if (_isWatching && ! _isDamaged)
                 Complete();
             _isWatching = false;
+        }
+
+        private void OnDestroy()
+        {
+            Room.ComeToNextLevel -= StartWatching;
+            Spawner.CombatIsOver -= EndWatching;
+            Player.Vitals.TookDamage -= Damage;
         }
     }
 }

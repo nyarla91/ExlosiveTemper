@@ -263,6 +263,11 @@ PrefabInstance:
 
         Progress will not be saved.'
       objectReference: {fileID: 0}
+    - target: {fileID: 612624880976473050, guid: cd92f52cbe3ab034fa46bec810346116, type: 3}
+      propertyPath: _text._russian
+      value: "\u0412\u044B \u0443\u0432\u0435\u0440\u043D\u044B?\n\u041F\u0440\u043E\u0433\u0440\u0435\u0441\u0441
+        \u043D\u0435 \u0431\u0443\u0434\u0435\u0442 \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D."
+      objectReference: {fileID: 0}
     - target: {fileID: 3260358922664038013, guid: cd92f52cbe3ab034fa46bec810346116, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5

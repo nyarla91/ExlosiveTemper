@@ -27,10 +27,12 @@ namespace Gameplay.Consumables
                 return false;
             ConsumeEffect(player);
             Quantity--;
+            Consumed?.Invoke();
             return true;
         }
 
         public event Action<int> QuantityChanged; 
+        public event Action Consumed; 
 
         public abstract void ConsumeEffect(PlayerComposition player);
     }

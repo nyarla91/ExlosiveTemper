@@ -24,5 +24,10 @@ namespace Achievements
             if (quantity >= _quantityRequired)
                 Complete();
         }
+
+        private void OnDestroy()
+        {
+            Consumable.QuantityChanged -= CheckQuantity;
+        }
     }
 }

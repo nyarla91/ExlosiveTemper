@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using Gameplay.Character.Player;
 using Gameplay.Rooms;
 using UnityEngine;
@@ -12,6 +13,11 @@ namespace Achievements
         {
             base.Init(achievement, player, room, enemySpawner);
             Player.Vitals.HealthIsOver += Complete;
+        }
+
+        private void OnDestroy()
+        {
+            Player.Vitals.HealthIsOver -= Complete;
         }
     }
 }

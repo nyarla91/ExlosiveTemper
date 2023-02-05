@@ -25,7 +25,7 @@ namespace Gameplay.Character.Player
         private void Awake()
         {
             Lazy.Weapons.Hit += TryAddHeat;
-            Lazy.Hitbox.OnTakeHit += DiscardHeat;
+            Lazy.Hitbox.TookHit += DiscardHeat;
         }
 
         private void DiscardHeat(HitDetails hitDetails)

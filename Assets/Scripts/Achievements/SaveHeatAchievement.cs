@@ -31,5 +31,11 @@ namespace Achievements
             if (Player.Resources.Heat.Value >= _heatRequired)
                 _startedWithHeat = true;
         }
+
+        private void OnDestroy()
+        {
+            Room.ComeToNextLevel -= CheckStartingHeat;
+            Spawner.CombatIsOver -= CheckEndingHeat;
+        }
     }
 }

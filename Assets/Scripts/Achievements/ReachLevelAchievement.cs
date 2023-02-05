@@ -23,5 +23,10 @@ namespace Achievements
                 Complete();
             }
         }
+
+        private void OnDestroy()
+        {
+            Room.ComeToNextLevel -= TryComplete;
+        }
     }
 }

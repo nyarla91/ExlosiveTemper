@@ -9,7 +9,7 @@ namespace Gameplay.Character
 
         public bool Immune { get; set; }
         
-        public event Action<HitDetails> OnTakeHit; 
+        public event Action<HitDetails> TookHit; 
         
         public HitDetails TakeHit(float damage)
         {
@@ -28,7 +28,7 @@ namespace Gameplay.Character
                 _ => EntityOwner.Enviroment,
             };
             HitDetails hitDetails = new HitDetails(entityOwner, damageDealt);
-            OnTakeHit?.Invoke(hitDetails);
+            TookHit?.Invoke(hitDetails);
             return hitDetails;
         }
     }
