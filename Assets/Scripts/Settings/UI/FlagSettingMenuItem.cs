@@ -13,6 +13,9 @@ namespace Settings.UI
         }
         
         public void OnValueChanged(bool value) => ApplySetting(value ? 1 : 0);
-        protected override void SetStartingValue(int value) => _toggle.isOn = value == 1;
+        protected override void SetStartingValue(int value)
+        {
+            _toggle.isOn = value == 1;
+        }
     }
 }

@@ -227,6 +227,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6573587999395172529}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6136409986624200800
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingItem_Slider
       objectReference: {fileID: 0}
+    - target: {fileID: 5220655567945414988, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5271037136307546205, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -575,6 +591,11 @@ MonoBehaviour:
   _settingLabel: 
   _slider: {fileID: 1998893927408181097}
   _pointsPerClick: 1
+--- !u!82 &6573587999395172529 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7989651754964151255, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}
+  m_PrefabInstance: {fileID: 3880663092711832422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9006248024804840251 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5271037136307546205, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}

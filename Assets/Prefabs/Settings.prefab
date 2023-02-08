@@ -84,9 +84,9 @@ MonoBehaviour:
         _dynamic: 1
         _pairs:
         - _key: sfx volume
-          _value: 70
+          _value: 40
         - _key: music volume
-          _value: 70
+          _value: 40
     _game:
       _settings:
         _dynamic: 1
@@ -95,3 +95,7 @@ MonoBehaviour:
           _value: 0
         - _key: aim assist
           _value: 2
+        - _key: screen shake
+          _value: 1
+        - _key: gamepad rumble
+          _value: 1

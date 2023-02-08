@@ -1,6 +1,7 @@
 ﻿using System;
 using Extentions;
 using Extentions.Factory;
+using Gameplay.PostProcessing;
 using Gameplay.UI;
 using UnityEngine;
 using Zenject;
@@ -9,12 +10,14 @@ namespace Gameplay.Character.Enemy
 {
     public class EnemyStatus : LazyGetComponent<EnemyComposition>
     {
+        [SerializeField] private float _deathShakeRatio;
         [SerializeField] private GameObject _damagePrefab;
         [SerializeField] private GameObject _deathPrefab;
         [SerializeField] private GameObject _healthbarPrefab;
         [SerializeField] private Transform _healthbarOrigin;
 
         [Inject] private ContainerFactory Factory { get; set; }
+        [Inject] private Shake Shake { get; set; }
         
         public RectTransform HUD { get; set; }
         
@@ -39,6 +42,7 @@ namespace Gameplay.Character.Enemy
 
         private void Die()
         {
+            Shake.AddImpulse(_deathShakeRatio);
             Destroy(gameObject);
         }
     }

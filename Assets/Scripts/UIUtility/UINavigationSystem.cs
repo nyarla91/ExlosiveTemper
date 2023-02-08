@@ -12,6 +12,7 @@ namespace UIUtility
     [RequireComponent(typeof(Canvas))]
     public class UINavigationSystem : Transformable
     {
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private SelectionBox _selectionBox;
 
         private GameObject _currentlySelectetElement;
@@ -82,6 +83,8 @@ namespace UIUtility
                 return;
             }
             _selectionBox.MoveTo(targetTransform);
+            _audioSource.pitch = Random.Range(0.9f, 1.1f);
+            _audioSource.Play();
         }
 
         private void UpdateSelection(UIScheme scheme)

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877531445499466488, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
+      propertyPath: _deathShakeRatio
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3185381420460126830, guid: 1d961070c9e26d64eaa69d16e57edcfb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -11,6 +11,8 @@ namespace CharacterSetup
 {
     public class SpellInSetup : MonoBehaviour
     {
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _errorSound;
         [SerializeField] private Spell _spell;
         [SerializeField] private Image _iconUnderlay;
         [SerializeField] private Image _icon;
@@ -45,8 +47,12 @@ namespace CharacterSetup
 
         public void ToggleThisSpellEquipped()
         {
-            if ( ! IsAvailable)
+            if (!IsAvailable)
+            {
+                _audioSource.PlayOneShot(_errorSound);
                 return;
+            }
+            _audioSource.Play();
             if (IsEqipped)
                 Kit.TryUnequipSpell(_spell);
             else

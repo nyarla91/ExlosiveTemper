@@ -373,7 +373,7 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""id"": ""f5f09aa3-2e74-407c-8bcf-79e51191e223"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone(min=0.7)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""ThumbstickAim"",
                     ""isComposite"": false,

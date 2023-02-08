@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using System;
+using Extentions;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -22,6 +23,12 @@ namespace Gameplay.PostProcessing
             Lazy.weight = _effectStrength;
             _mixer.SetFloat("Dry", MathExtentions.EvaluateLine(0, -1000, _effectStrength));
             _mixer.SetFloat("Room", MathExtentions.EvaluateLine(-10000, 0, _effectStrength));
+        }
+
+        private void OnDestroy()
+        {
+            _mixer.SetFloat("Dry", 0);
+            _mixer.SetFloat("Room", -10000);
         }
     }
 }

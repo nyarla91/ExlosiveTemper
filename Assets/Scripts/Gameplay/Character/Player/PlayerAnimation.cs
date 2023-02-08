@@ -12,8 +12,11 @@ namespace Gameplay.Character.Player
         [SerializeField] private ParticleSystemEffect _sprintTrail;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
+        [SerializeField] private AudioSource _errorAudioSource;
 
         [Inject] private Pause Pause { get; set; }
+
+        public void PlayError() => _errorAudioSource.Play();
         
         private void Update()
         {

@@ -46,13 +46,17 @@ namespace Gameplay.Character.Player
 
         private void TryChargedShot()
         {
-            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || Pause.IsPaused || _chargedShotCooldown.IsOn)
+            if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || Pause.IsPaused )
                 return;
-            if (_currentWeapon.TryChargedShot())
+            if (_chargedShotCooldown.IsOn)
             {
-                _chargedShotCooldown.Restart();
-                SwapWeapons();
+                Lazy.Animation.PlayError();
+                return;
             }
+            if (!_currentWeapon.TryChargedShot())
+                return;
+            _chargedShotCooldown.Restart();
+            SwapWeapons();
         }
     }
 }

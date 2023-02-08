@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e4a566df44db6094094a496ab1657c1d, type: 2}
+    - target: {fileID: 7101979486834461867, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
+      propertyPath: _deathShakeRatio
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8374584584240683630, guid: 5c507c8b1e096fe42b673bf778f0fe67, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d6e28610e17805a408321cc1888af5f7, type: 2}
+    - target: {fileID: 3911114339978292849, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
+      propertyPath: _deathShakeRatio
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4939011507123562765, guid: 008a698eb0e56d0458b406ed9d6c52a1, type: 3}
       propertyPath: _burstsPeriod
       value: 0.2

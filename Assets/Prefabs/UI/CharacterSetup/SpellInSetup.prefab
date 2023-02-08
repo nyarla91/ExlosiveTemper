@@ -686,6 +686,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3446106577450895442, guid: 9a109d9a0d9a282429a324fc6f6a6f6d, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446106577450895442, guid: 9a109d9a0d9a282429a324fc6f6a6f6d, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5324567165761908978}
@@ -714,6 +718,11 @@ PrefabInstance:
 --- !u!224 &1470316429674722605 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3352372888984672579, guid: 9a109d9a0d9a282429a324fc6f6a6f6d, type: 3}
+  m_PrefabInstance: {fileID: 4242839867156491374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3720273086094292647 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 666683137503451849, guid: 9a109d9a0d9a282429a324fc6f6a6f6d, type: 3}
   m_PrefabInstance: {fileID: 4242839867156491374}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8926615149639253829 stripped
@@ -763,6 +772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27b5e16cd704d629d5ba2df5a5ff0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 3720273086094292647}
+  _errorSound: {fileID: 8300000, guid: 784a660700cd24a41ad71228fbf8d65a, type: 3}
   _spell: {fileID: 11400000, guid: ca0c5f55c9594a14fb0fb82a1fbb8ae2, type: 2}
   _iconUnderlay: {fileID: 3391116081286243014}
   _icon: {fileID: 4012970642668435343}

@@ -13,7 +13,7 @@ namespace Gameplay.Spells
         
         public override void OnCast()
         {
-            Fireball fireball = _projectileFactory.GetNewObject<Fireball>(Transform.position.WithY(1.5f) + Transform.forward);
+            Fireball fireball = _projectileFactory.GetNewObject<Fireball>(Transform.position.WithY(1.5f) + Transform.forward * 2);
             fireball.Init(EntityOwner.Player, _projectileDamage, Transform.forward * _projectileSpeed);
             PlaySound();
         }

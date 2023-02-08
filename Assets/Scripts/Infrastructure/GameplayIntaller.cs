@@ -1,5 +1,6 @@
 ﻿using Gameplay;
 using Gameplay.Character.Player;
+using Gameplay.PostProcessing;
 using Gameplay.Rooms;
 using UnityEngine;
 using Zenject;
@@ -13,6 +14,7 @@ namespace Infrastructure
         [SerializeField] private CameraView _cameraView;
         [SerializeField] private EnemySpawner _enemySpawner;
         [SerializeField] private Room _room;
+        [SerializeField] private Shake _shake;
         
         public override void InstallBindings()
         {
@@ -23,6 +25,7 @@ namespace Infrastructure
             PlayerComposition composition = player.GetComponent<PlayerComposition>();
             Container.Bind<PlayerComposition>().FromInstance(composition);
             Container.Bind<PlayerMovement>().FromInstance(composition.Movement);
+            Container.Bind<Shake>().FromInstance(_shake);
         }
     }
 }

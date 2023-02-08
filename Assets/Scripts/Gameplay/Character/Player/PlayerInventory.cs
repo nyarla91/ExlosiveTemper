@@ -19,9 +19,17 @@ namespace Gameplay.Character.Player
             Lazy.Controls.OnConsumeHeat += TryConsumeHeat;
         }
 
-        private void TryConsumeHealth() => HealthConsumable.TryConsume(Lazy);
+        private void TryConsumeHealth()
+        {
+            if ( ! HealthConsumable.TryConsume(Lazy))
+                Lazy.Animation.PlayError();
+        }
 
-        private void TryConsumeHeat() => HeatConsumable.TryConsume(Lazy);
+        private void TryConsumeHeat()
+        {
+            if (!HeatConsumable.TryConsume(Lazy))
+                Lazy.Animation.PlayError();
+        }
 
         private void OnTriggerEnter(Collider other)
         {

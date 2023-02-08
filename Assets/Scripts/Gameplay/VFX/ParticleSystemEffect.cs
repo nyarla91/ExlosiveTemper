@@ -21,7 +21,7 @@ namespace Gameplay.VFX
         public bool Play { get; set; } = true;
         [Inject] private Pause Pause { get; set; }
 
-        private void Start()
+        protected virtual void Start()
         {
             if (_duration >= 0)
                 StartCoroutine(Lifetime());

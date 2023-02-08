@@ -162,6 +162,18 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3082117422994191167}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5952294500138130154}
         m_TargetAssemblyTypeName: Settings.UI.FlagSettingMenuItem, Assembly-CSharp
         m_MethodName: OnValueChanged
@@ -363,6 +375,11 @@ PrefabInstance:
 --- !u!224 &937712852182659253 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5271037136307546205, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}
+  m_PrefabInstance: {fileID: 4910349144015149288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3082117422994191167 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7989651754964151255, guid: 0f001bc57a0f886429b5216cb6bfe131, type: 3}
   m_PrefabInstance: {fileID: 4910349144015149288}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7099156188110715613 stripped

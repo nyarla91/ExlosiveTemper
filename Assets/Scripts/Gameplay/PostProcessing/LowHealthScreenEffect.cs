@@ -21,5 +21,10 @@ namespace Gameplay.PostProcessing
             Lazy.weight = effectStrength;
             _mixer.SetFloat("Pitch", 1 - effectStrength * 0.2f);
         }
+
+        private void OnDestroy()
+        {
+            _mixer.SetFloat("Pitch", 1);
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Gameplay.Character.Player
 {
     public class PlayerSpells : LazyGetComponent<PlayerComposition>
     {
+        
         private SpellBehaviour[] _spellBehaviours;
 
         public SpellBehaviour[] SpellBehaviours => _spellBehaviours;
@@ -30,8 +31,15 @@ namespace Gameplay.Character.Player
         private void TryUseSpell(int index)
         {
             SpellBehaviour spellToUse = _spellBehaviours[index];
-            if (Pause.IsPaused || ! Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
+            if (Pause.IsPaused)
+            {
                 return;
+            }
+            if (!Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
+            {
+                Lazy.Animation.PlayError();
+                return;
+            }
             spellToUse.OnCast();
         }
 
