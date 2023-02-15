@@ -1,15 +1,14 @@
 ﻿using Extentions;
-using Gameplay.VFX;
 using UnityEngine;
+using UnityEngine.VFX;
 using Zenject;
 
 namespace Gameplay.Character.Player
 {
-    public class PlayerAnimation : LazyGetComponent<PlayerComposition>
+    public class PlayerView : LazyGetComponent<PlayerComposition>
     {
         [SerializeField] [Range(0, 1)] private float _sprintSoundLerpSpeed;
-        [SerializeField] private AudioSource _sprintSound;
-        [SerializeField] private ParticleSystemEffect _sprintTrail;
+        [SerializeField] private VisualEffect _sprintTrail;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
         [SerializeField] private AudioSource _errorAudioSource;
@@ -20,7 +19,8 @@ namespace Gameplay.Character.Player
         
         private void Update()
         {
-            _sprintTrail.Play = Lazy.Movement.IsSprinting;
+            UpdateSprintTrail();
+
             if (Pause.IsPaused)
             {
                 _animator.speed = 0;
@@ -47,7 +47,15 @@ namespace Gameplay.Character.Player
             _animator.SetFloat("RunSpeed", Lazy.Movement.Velocity.magnitude);
 
             float targetSprintVolume = Lazy.Movement.IsSprinting ? 1 : 0;
-            _sprintSound.volume = Mathf.Lerp(_sprintSound.volume, targetSprintVolume, _sprintSoundLerpSpeed);
+        }
+
+        private void UpdateSprintTrail()
+        {
+            _sprintTrail.pause = Pause.IsPaused;
+            if (Lazy.Movement.IsSprinting)
+                _sprintTrail.Play();
+            else
+                _sprintTrail.Stop();
         }
 
         private void LateUpdate()
