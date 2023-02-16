@@ -13,7 +13,7 @@ namespace Extentions.Factory
             _factory = factory;
         }
         
-        public virtual void Reset() { }
+        public virtual void OnPoolEnabled() { }
 
         public virtual void PoolDisable()
         {

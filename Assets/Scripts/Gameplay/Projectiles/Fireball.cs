@@ -10,7 +10,6 @@ namespace Gameplay.Projectiles
 {
     public class Fireball : Projectile
     {
-        [SerializeField] private GameObject _explosionPrefab;
         [SerializeField] private float _explosionRadius;
         [SerializeField] private float _explosionDamage;
         
@@ -26,7 +25,6 @@ namespace Gameplay.Projectiles
             LayerMask mask = LayerMask.GetMask("Player", "Enemy");
             Hitbox[] targets = AOE.GetTargets<Hitbox>(Transform.position, _explosionRadius, mask);
             targets.Foreach(hitbox => hitbox?.TakeHit(_explosionDamage));
-            Explosion.CreateExplosion(Factory, _explosionPrefab, Transform.position, _explosionRadius);
         }
     }
 }

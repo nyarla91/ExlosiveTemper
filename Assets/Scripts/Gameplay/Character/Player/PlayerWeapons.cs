@@ -21,6 +21,7 @@ namespace Gameplay.Character.Player
         [Inject] private Pause Pause { get; set; }
 
         public Action<HitDetails> Hit;
+        public Action<Weapon> CurrentWeaponChanged;
 
         public void EndChargedCooldown() => _chargedShotCooldown.Reset();
         public void SwapWeapons()
@@ -28,6 +29,7 @@ namespace Gameplay.Character.Player
             MiscExtentions.Swap(ref _currentWeapon, ref _secondaryWeapon);
             _currentWeapon.gameObject.SetActive(true);
             _secondaryWeapon.gameObject.SetActive(false);
+            CurrentWeaponChanged?.Invoke(_currentWeapon);
         }
 
         private void Awake()
@@ -35,6 +37,11 @@ namespace Gameplay.Character.Player
             Lazy.Controls.OnShoot += TryShoot;
             Lazy.Controls.OnChargedShot += TryChargedShot;
             _chargedShotCooldown = new Timer(this, _chargedShotCooldownTime, Pause);
+        }
+
+        private void Start()
+        {
+            CurrentWeaponChanged?.Invoke(_currentWeapon);
         }
 
         private void TryShoot()
@@ -50,7 +57,7 @@ namespace Gameplay.Character.Player
                 return;
             if (_chargedShotCooldown.IsOn)
             {
-                Lazy.Animation.PlayError();
+                Lazy.View.PlayError();
                 return;
             }
             if (!_currentWeapon.TryChargedShot())

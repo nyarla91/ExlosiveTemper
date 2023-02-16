@@ -22,13 +22,13 @@ namespace Gameplay.Character.Player
         private void TryConsumeHealth()
         {
             if ( ! HealthConsumable.TryConsume(Lazy))
-                Lazy.Animation.PlayError();
+                Lazy.View.PlayError();
         }
 
         private void TryConsumeHeat()
         {
             if (!HeatConsumable.TryConsume(Lazy))
-                Lazy.Animation.PlayError();
+                Lazy.View.PlayError();
         }
 
         private void OnTriggerEnter(Collider other)

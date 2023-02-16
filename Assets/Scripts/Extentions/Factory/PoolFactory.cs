@@ -35,7 +35,7 @@ namespace Extentions.Factory
                 newObject.gameObject.SetActive(true);
                 newObject.Transform.position = position;
                 newObject.Transform.SetParent(parent);
-                newObject.Reset();
+                newObject.OnPoolEnabled();
                 return newObject;
             }
             return InstantiatePrefab<T>(position, prefab, parent, tag);

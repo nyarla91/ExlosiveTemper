@@ -15,6 +15,8 @@ namespace Settings
         public SettingsConfig Config => _config;
 
         private string SaveFilePath => Application.dataPath + "/" + _savedFileName + ".json";
+
+        public event Action ConfigChanged;
         
         private void Awake()
         {
@@ -46,6 +48,7 @@ namespace Settings
             string json = JsonUtility.ToJson(Config);
             File.WriteAllText(SaveFilePath, json);
             Apply(Config);
+            ConfigChanged?.Invoke();
         } 
 
         private void Apply(SettingsConfig config)

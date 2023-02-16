@@ -10,9 +10,6 @@ namespace Gameplay.Spells
 {
     public class BurningAuraSpell : SpellBehaviour
     {
-        [SerializeField] private AudioSource _auraSource;
-        [SerializeField] private AnimationCurve _auraVolumeCurve;
-        [SerializeField] private ParticleSystemEffect _effect;
         [SerializeField] private float _damagePerSecond;
         [SerializeField] private float _tickPeriod;
         [SerializeField] private float _radiusReductionPerSecond;
@@ -20,13 +17,14 @@ namespace Gameplay.Spells
         [SerializeField] private float _healingRadiusMultiplier;
         
         private float _radius;
+
+        public float Radius => _radius;
         
         [Inject] private Pause Pause { get; set; }
-        
-        public override void OnCast()
+
+        protected override void OnCast()
         {
             _radius += _radiusPerCast;
-            PlaySound();
         }
 
         private void Start()
@@ -35,18 +33,10 @@ namespace Gameplay.Spells
             Player.Vitals.Health.GainedExcees += excess => _radius += excess * _healingRadiusMultiplier;
         }
 
-        private void Update()
-        {
-            _effect.Play = _radius > 0;
-            _effect.Transform.localScale = new Vector3(_radius, 1, _radius);
-            _auraSource.volume = _auraVolumeCurve.Evaluate(_radius);
-        }
-
         private IEnumerator DealingDamage()
         {
             while (true)
             {
-                print(_radius);
                 LayerMask mask = LayerMask.GetMask("Enemy");
                 Hitbox[] targets = AOE.GetTargets<Hitbox>(Transform.position, _radius, mask);
                 float damage = _damagePerSecond * _tickPeriod;

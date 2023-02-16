@@ -20,10 +20,13 @@ namespace Gameplay.Weapons
         [SerializeField] private GameObject _impactPrefab;
         [SerializeField] private Transform _effectOrigin;
         [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private float _adaptiveTriggersForce;
 
         private Timer _cooldown;
 
         public int AnimationIndex => _animationIndex;
+        public float AdaptiveTriggersForce => _adaptiveTriggersForce;
+        public bool IsOnCooldown => _cooldown.IsOn;
         [Inject] private ContainerFactory Factory { get; set; }
         [Inject] private Pause Pause { get; set; }
 

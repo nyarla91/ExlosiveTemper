@@ -38,9 +38,12 @@
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
-      <Path>Build</Path>
+      <Path>Explosive Temper</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
+      <Path>MAC</Path>
+      <Path>MAC.app</Path>
+      <Path>MAC_BurstDebugInformation_DoNotShip</Path>
       <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>obj</Path>

@@ -7,6 +7,6 @@ namespace Extentions
     {
         private T _lazy;
 
-        protected T Lazy => _lazy ??= GetComponent<T>();
+        protected virtual T Lazy => _lazy ??= GetComponent<T>();
     }
 }

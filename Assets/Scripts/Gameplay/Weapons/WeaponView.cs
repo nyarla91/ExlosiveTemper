@@ -20,7 +20,7 @@ namespace Gameplay.Weapons
         {
             Vector3 position = Transform.position;
             ShotTrail trail = Instantiate(_shotTrailPrefab, position, Quaternion.identity).GetComponent<ShotTrail>();
-            trail.Init(position, target, 0.1f, 0.3f);
+            trail.Init(position, target, 0.1f);
         }
     }
 }

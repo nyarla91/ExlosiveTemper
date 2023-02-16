@@ -45,8 +45,6 @@ namespace Gameplay.Character.Player
             _animator.SetInteger("Weapon", Lazy.Weapons.CurrentWeapon.AnimationIndex);
             _animator.SetInteger("RunState", runState);
             _animator.SetFloat("RunSpeed", Lazy.Movement.Velocity.magnitude);
-
-            float targetSprintVolume = Lazy.Movement.IsSprinting ? 1 : 0;
         }
 
         private void UpdateSprintTrail()

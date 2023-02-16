@@ -9,7 +9,7 @@ namespace Gameplay.Character.Player
         private PlayerControls _controls;
         private PlayerMovement _movement;
         private PlayerSight _sight;
-        private PlayerAnimation _animation;
+        private PlayerView _view;
         private PlayerWeapons _weapons;
         private PlayerResources _resources;
         private PlayerInventory _inventory;
@@ -21,7 +21,7 @@ namespace Gameplay.Character.Player
         private Movable _movable;
         public PlayerControls Controls => _controls ??= GetComponent<PlayerControls>();
         public PlayerMovement Movement => _movement ??= GetComponent<PlayerMovement>();
-        public PlayerAnimation Animation => _animation ??= GetComponent<PlayerAnimation>();
+        public PlayerView View => _view ??= GetComponent<PlayerView>();
         public PlayerSight Sight => _sight ??= GetComponent<PlayerSight>();
         public PlayerResources Resources => _resources ??= GetComponent<PlayerResources>();
         public PlayerWeapons Weapons => _weapons ??= GetComponent<PlayerWeapons>();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using CharacterSetup;
 using Content;
 using Extentions;
@@ -37,10 +36,10 @@ namespace Gameplay.Character.Player
             }
             if (!Lazy.Resources.TrySpendHeat(spellToUse.Spell.HeatCost))
             {
-                Lazy.Animation.PlayError();
+                Lazy.View.PlayError();
                 return;
             }
-            spellToUse.OnCast();
+            spellToUse.Cast();
         }
 
         private void Start()
@@ -53,15 +52,13 @@ namespace Gameplay.Character.Player
             }
         }
 
-        private async void LoadSpellBehaviour(int index)
+        private void LoadSpellBehaviour(int index)
         {
             Spell spell = Kit.Eqipped[index];
-            /*GameObject prefab = (await spell.Behaviour.LoadAssetAsync<GameObject>().Task);*/
             GameObject prefab = spell.Behaviour;
             SpellBehaviour behaviour = ContainerFactory.Instantiate<SpellBehaviour>(prefab, Transform.position, Transform);
             behaviour.Init(spell, Lazy);
             _spellBehaviours[index] = behaviour;
-            //spell.Behaviour.ReleaseAsset();
             behaviour.Transform.localRotation = Quaternion.Euler(0, 0, 0);
             OnSpellLoaded?.Invoke(index, behaviour);
         }

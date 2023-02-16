@@ -10,8 +10,6 @@ namespace Gameplay.Spells
 {
     public class BulletOfExecutorSpell : SpellBehaviour
     {
-        [SerializeField] private AudioClip _executeSound;
-        [SerializeField] private ParticleSystemEffect[] _activatedEffect;
         [SerializeField] private float _maxDuration;
         [SerializeField] [Range(0, 1)] private float _maxHealthPercent;
         
@@ -20,22 +18,16 @@ namespace Gameplay.Spells
         private bool IsActive => _activatedDuration.IsOn;
         
         [Inject] private Pause Pause { get; set; }
-        
-        public override void OnCast()
+
+        protected override void OnCast()
         {
             _activatedDuration.Restart();
-            PlaySound();
         }
 
         private void Start()
         {
             _activatedDuration = new Timer(this, _maxDuration, Pause);
             Player.Weapons.CurrentWeapon.HitscanBulletShot += TryExecute;
-        }
-
-        private void Update()
-        {
-            _activatedEffect.Foreach(effect => effect.Play = IsActive);
         }
 
         private void TryExecute(WeaponAttack attack, Vector3 point, Hitbox[] hitboxes)
@@ -51,7 +43,6 @@ namespace Gameplay.Spells
                 if (vitals.Health.Percent <= _maxHealthPercent)
                 {
                     vitals.TakeDamage(10000);
-                    PlaySound(_executeSound);
                 }
             }
         }
