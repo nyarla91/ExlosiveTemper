@@ -1,8 +1,5 @@
-﻿using System;
-using Extentions;
-using Extentions.Factory;
+﻿using Extentions;
 using Gameplay.Character;
-using Gameplay.VFX;
 using Gameplay.Weapons;
 using UnityEngine;
 using Zenject;

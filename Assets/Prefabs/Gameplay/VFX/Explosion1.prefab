@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 977990889100514229}
   - component: {fileID: 7045570145990184256}
   m_Layer: 0
-  m_Name: Vortex
+  m_Name: Explosion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8752707459309002697}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 3da2abe726ebebe4ea8df9c475cf8787, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 1cd5f9e20c3b3364da3aaf81cc5ceb60, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -51,10 +51,10 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 5
+      - m_Value: 0.7
         m_Name: Scale
         m_Overridden: 1
-      - m_Value: 8
+      - m_Value: 1
         m_Name: Radius
         m_Overridden: 1
     m_Vector2f:
@@ -67,7 +67,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 1500
+      - m_Value: 3000
         m_Name: Particles
         m_Overridden: 1
     m_Matrix4x4f:

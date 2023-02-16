@@ -26,19 +26,21 @@ namespace Extentions.Factory
         {
             GameObject prefab = overridePrefab ?? _prefab;
             
+            T newObject;
             for (int i = 0; i < _pool.Count; i++)
             {
                 if (_pool[i].PooledObject.gameObject.activeSelf || _pool[i].PooledObject is not T || ! _pool[i].Tag.Equals(tag))
                     continue;
-                
-                T newObject = (T) _pool[i].PooledObject;
+                newObject = (T) _pool[i].PooledObject;
                 newObject.gameObject.SetActive(true);
                 newObject.Transform.position = position;
                 newObject.Transform.SetParent(parent);
-                newObject.OnPoolEnabled();
+                newObject.OnPoolEnable();
                 return newObject;
             }
-            return InstantiatePrefab<T>(position, prefab, parent, tag);
+            newObject = InstantiatePrefab<T>(position, prefab, parent, tag);
+            newObject.OnPoolEnable();
+            return newObject;
         }
 
         private T InstantiatePrefab<T>(Vector3 position, GameObject prefab, Transform parent, string tag) where T : PooledObject

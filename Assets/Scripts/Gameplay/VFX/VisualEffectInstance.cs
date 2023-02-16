@@ -24,20 +24,28 @@ namespace Gameplay.VFX
             }
         }
 
-        public override void OnPoolEnabled()
+        public override void OnPoolEnable()
         {
-            base.OnPoolEnabled();
-            _vfx.Reinit();
+            base.OnPoolEnable();
             _vfx.Play();
-            _emissionSpan.Restart();
+            _emissionSpan?.Restart();
             Emit = true;
+        }
+
+        public override void PoolDisable()
+        {
+            _vfx.Stop();
+            base.PoolDisable();
         }
 
         protected override void Awake()
         {
             base.Awake();
-            _emissionSpan = new Timer(this, _emitDuration, Pause);
-            _emissionSpan.Expired += () => Emit = false;
+            if (_emitDuration > 0)
+            {
+                _emissionSpan = new Timer(this, _emitDuration, Pause);
+                _emissionSpan.Expired += () => Emit = false;
+            }
         }
 
         private void Update()

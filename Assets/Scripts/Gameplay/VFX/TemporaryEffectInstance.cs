@@ -16,9 +16,9 @@ namespace Gameplay.VFX
         public Timer Lifetime => _lifetime;
         [Inject] protected Pause Pause { get; private set; }
 
-        public override void OnPoolEnabled()
+        public override void OnPoolEnable()
         {
-            base.OnPoolEnabled();
+            base.OnPoolEnable();
             _lifetime.Restart();
         }
 
