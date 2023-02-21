@@ -1,11 +1,10 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class PauseScreenEffect : LazyGetComponent<Volume>
     {

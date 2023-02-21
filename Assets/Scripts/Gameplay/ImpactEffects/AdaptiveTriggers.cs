@@ -1,11 +1,10 @@
-﻿using System;
-using Gameplay.Character.Player;
+﻿using Gameplay.Character.Player;
 using Gameplay.Weapons;
 using UniSense;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ImpactEffects
 {
     public class AdaptiveTriggers : MonoBehaviour
     {

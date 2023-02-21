@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForgingSpell
       objectReference: {fileID: 0}
+    - target: {fileID: 8659075970478927224, guid: 48e3469133da29145a0675313c63892c, type: 3}
+      propertyPath: _vfxFactory
+      value: 
+      objectReference: {fileID: 4437199394164338942}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
 --- !u!1 &2011063874802064061 stripped
@@ -78,12 +82,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d720a08259fe4b968a6a2ceb97ab6a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 5647467774534113654}
-  _sound: {fileID: 8300000, guid: e1fe07a0484c0f3428cafd8d794f913d, type: 3}
-  _effectPrefab: {fileID: 354433405349328930, guid: 906f37046f420c544ad654ed92c2f5ee, type: 3}
   _embersGained: 1
---- !u!82 &5647467774534113654 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
-  m_PrefabInstance: {fileID: 5428283893729520310}
+--- !u!114 &4437199394164338942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011063874802064061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 0}
+  _pool: []

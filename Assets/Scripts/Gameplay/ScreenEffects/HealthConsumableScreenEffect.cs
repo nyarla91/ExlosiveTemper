@@ -1,6 +1,6 @@
 ﻿using Gameplay.Consumables;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class HealthConsumableScreenEffect : ConsumableScreenEffect
     {

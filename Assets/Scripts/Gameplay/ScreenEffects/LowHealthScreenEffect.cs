@@ -1,12 +1,11 @@
-﻿using System;
-using Extentions;
+﻿using Extentions;
 using Gameplay.Character.Player;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class LowHealthScreenEffect : LazyGetComponent<Volume>
     {

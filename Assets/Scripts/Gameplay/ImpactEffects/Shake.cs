@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ImpactEffects
 {
     public class Shake : Transformable
     {

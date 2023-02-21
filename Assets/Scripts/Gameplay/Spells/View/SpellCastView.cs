@@ -8,7 +8,7 @@ namespace Gameplay.Spells.View
     public class SpellCastView : LazyGetComponent<SpellBehaviour>
     {
         [SerializeField] private AudioSource _castAudioSource;
-        [SerializeField] private PoolFactory _fxFactory;
+        [SerializeField] private PoolFactory _vfxFactory;
 
         protected virtual Vector3 VFXPosition => Transform.position.WithY(1.5f);
         
@@ -20,7 +20,7 @@ namespace Gameplay.Spells.View
         private void PlayCast()
         {
             _castAudioSource?.PlayOneShot(_castAudioSource.clip);
-            _fxFactory?.GetNewObject<VisualEffectInstance>(VFXPosition);
+            _vfxFactory?.GetNewObject<VisualEffectInstance>(VFXPosition);
         }
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using Extentions;
-using Gameplay.Character;
-using Gameplay.Character.Player;
-using UnityEngine;
-using UnityEngine.Rendering;
+﻿using Gameplay.Character.Player;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class TakingDamageScreenEffect : ImpulseScreenEffect
     {

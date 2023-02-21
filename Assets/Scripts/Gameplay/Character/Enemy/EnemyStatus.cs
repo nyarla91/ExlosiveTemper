@@ -1,7 +1,7 @@
 ﻿using System;
 using Extentions;
 using Extentions.Factory;
-using Gameplay.PostProcessing;
+using Gameplay.ImpactEffects;
 using Gameplay.UI;
 using UnityEngine;
 using Zenject;

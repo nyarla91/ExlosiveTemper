@@ -1,9 +1,10 @@
 ﻿using Extentions;
+using Gameplay.ImpactEffects;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class ImpulseScreenEffect : LazyGetComponent<Volume>
     {

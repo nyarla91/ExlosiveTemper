@@ -13,6 +13,8 @@ namespace Gameplay.Spells
         [SerializeField] private float _damageRadius;
         [SerializeField] private float _damage;
         [SerializeField] private float _knockbackForce;
+
+        public float DamageRadius => _damageRadius;
         
         [Inject] private ContainerFactory Factory { get; set; }
 

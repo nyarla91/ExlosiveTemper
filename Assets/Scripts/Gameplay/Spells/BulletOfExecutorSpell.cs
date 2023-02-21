@@ -1,32 +1,16 @@
-﻿using System;
-using Extentions;
-using Gameplay.Character;
-using Gameplay.VFX;
+﻿using Gameplay.Character;
 using Gameplay.Weapons;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Spells
 {
-    public class BulletOfExecutorSpell : SpellBehaviour
+    public class BulletOfExecutorSpell : ContiniousSpell
     {
         [SerializeField] private float _maxDuration;
         [SerializeField] [Range(0, 1)] private float _maxHealthPercent;
-        
-        private Timer _activatedDuration;
-
-        private bool IsActive => _activatedDuration.IsOn;
-        
-        [Inject] private Pause Pause { get; set; }
-
-        protected override void OnCast()
-        {
-            _activatedDuration.Restart();
-        }
 
         private void Start()
         {
-            _activatedDuration = new Timer(this, _maxDuration, Pause);
             Player.Weapons.CurrentWeapon.HitscanBulletShot += TryExecute;
         }
 
@@ -34,7 +18,7 @@ namespace Gameplay.Spells
         {
             if ( ! IsActive)
                 return;
-            _activatedDuration.Reset();
+            Interrupt();
             foreach (Hitbox hitbox in hitboxes)
             {
                 VitalsPool vitals = hitbox.GetComponent<VitalsPool>();

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using Extentions;
+﻿using Extentions;
 using UnityEngine;
 using UnityEngine.VFX;
-using Zenject;
 
 namespace Gameplay.VFX
 {

@@ -1,10 +1,8 @@
-﻿using System;
-using Gameplay.Character.Player;
+﻿using Gameplay.Character.Player;
 using Gameplay.Consumables;
-using UnityEngine;
 using Zenject;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public abstract class ConsumableScreenEffect : ImpulseScreenEffect
     {

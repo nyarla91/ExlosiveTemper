@@ -1,6 +1,6 @@
 ﻿using Gameplay;
 using Gameplay.Character.Player;
-using Gameplay.PostProcessing;
+using Gameplay.ImpactEffects;
 using Gameplay.Rooms;
 using UnityEngine;
 using Zenject;

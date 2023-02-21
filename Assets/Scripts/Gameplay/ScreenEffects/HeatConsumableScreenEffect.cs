@@ -1,7 +1,6 @@
 ﻿using Gameplay.Consumables;
-using UnityEngine;
 
-namespace Gameplay.PostProcessing
+namespace Gameplay.ScreenEffects
 {
     public class HeatConsumableScreenEffect : ConsumableScreenEffect
     {
