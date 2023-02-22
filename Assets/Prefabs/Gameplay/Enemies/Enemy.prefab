@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathShakeRatio: 1
-  _damagePrefab: {fileID: 3984783836739500036, guid: 36a0c838ed10a0746801e0b0d3ad310f, type: 3}
-  _deathPrefab: {fileID: 3984783836739500036, guid: f63452e5bfb1a8b4eaa8dfa587e85f87, type: 3}
+  _damagePrefab: {fileID: 959200728059725775, guid: ef18e2dbbfbd8c744a489c9d4f0d7066, type: 3}
+  _deathPrefab: {fileID: 959200728059725775, guid: 3d4f4961e085f1344a733150cfcfd52f, type: 3}
   _healthbarPrefab: {fileID: 8296467730756253351, guid: 07a676810fceaed4893a3ff0b8aab90e, type: 3}
   _healthbarOrigin: {fileID: 556255189294839679}
 --- !u!114 &4521895648498540785

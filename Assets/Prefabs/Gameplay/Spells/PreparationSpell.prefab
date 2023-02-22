@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5cf3df442c50659448b965144a39eef3, type: 3}
     - target: {fileID: 2012557417856878103, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PreparationSpell
       objectReference: {fileID: 0}
+    - target: {fileID: 8659075970478927224, guid: 48e3469133da29145a0675313c63892c, type: 3}
+      propertyPath: _vfxFactory
+      value: 
+      objectReference: {fileID: 3060482576306111945}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e3469133da29145a0675313c63892c, type: 3}
 --- !u!1 &6830542715099429411 stripped
@@ -86,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 4303521523055915997, guid: 1c081bb663f13844eab9bd3a2e6c0f82, type: 3}
   _pool: []

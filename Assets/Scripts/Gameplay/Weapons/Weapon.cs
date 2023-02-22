@@ -34,10 +34,8 @@ namespace Gameplay.Weapons
 
         public bool TryShoot()
         {
-            print("1");
             if (_cooldown.IsOn)
                 return false;
-            print("2");
 
             PerfromHitscanAttack(_primaryAttack, _player.Transform.forward);
             _cooldown.Restart();
@@ -63,10 +61,8 @@ namespace Gameplay.Weapons
             _audioSource.pitch = Random.Range(0.8f, 1.2f);
             _audioSource.PlayOneShot(attack.Sound);
             
-            print("3");
             for (int i = 0; i < attack.ShotsPerAttack; i++)
             {
-                print("4");
                 float degreeOffset = Random.Range(-attack.SplashAmplitude, attack.SplashAmplitude);
                 Ray ray = new Ray(_player.Transform.position.WithY(1.5f), direction.RotatedY(degreeOffset));
                 LayerMask mask = LayerMask.GetMask("Enemy", "Obstacle");

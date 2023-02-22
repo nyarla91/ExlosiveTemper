@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1eb392d822888224995280e621030667, type: 3}
+      objectReference: {fileID: 8300000, guid: fbcb2cf370927a04e9d15899ef09ea4b, type: 3}
     - target: {fileID: 2012557417856878103, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 3616367424577322027, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
   _pool: []
 --- !u!4 &5817288690293484705 stripped
 Transform:

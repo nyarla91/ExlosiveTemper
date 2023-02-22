@@ -34,7 +34,6 @@ namespace Gameplay.Character.Enemy
 
         private void Start()
         {
-            Factory.Instantiate<Transform>(_deathPrefab, Transform.position.WithY(1.5f));
             FloatingHealthbar healthbar = Instantiate(_healthbarPrefab, HUD).GetComponent<FloatingHealthbar>();
             healthbar.Init(Lazy.VitalsPool.Health);
             healthbar.InitFloating(Camera.main, _healthbarOrigin, Lazy.VitalsPool);
@@ -42,6 +41,7 @@ namespace Gameplay.Character.Enemy
 
         private void Die()
         {
+            Factory.Instantiate<Transform>(_deathPrefab, Transform.position.WithY(1.5f));
             Shake.AddImpulse(_deathShakeRatio);
             Destroy(gameObject);
         }

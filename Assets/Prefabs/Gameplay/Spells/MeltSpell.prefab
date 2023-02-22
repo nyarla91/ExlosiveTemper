@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 363372598994318272, guid: 48e3469133da29145a0675313c63892c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 56c76f88cce6c7b4dbb8d1e54e4e7184, type: 3}
     - target: {fileID: 2012557417856878103, guid: 48e3469133da29145a0675313c63892c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -95,5 +99,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 6154270154322960041, guid: 1dc48e429922faa4ca0a8aff43ae2ef2, type: 3}
   _pool: []
