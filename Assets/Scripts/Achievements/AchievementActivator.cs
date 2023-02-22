@@ -26,7 +26,7 @@ namespace Achievements
         {
             foreach (Achievement achievement in Unlocks.Achievements)
             {
-                if (achievement.IsAvailable(Unlocks.SavableSpells))
+                if ( ! Unlocks.IsSpellUnlocked(achievement.UnlockedSpell))
                     InstantiateAchievement(achievement);
             }
 

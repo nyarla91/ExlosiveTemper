@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Content;
 using UnityEngine;
+using Zenject;
 
 namespace CharacterSetup
 {
@@ -11,11 +12,17 @@ namespace CharacterSetup
         [SerializeField] private SpellsLibrary _library;
         [SerializeField] private Spell[] _eqipped;
 
-        private string SavefilePath => Application.dataPath + "/setup.json";
         public Spell[] Eqipped => _eqipped;
         public bool HasEmptySlots => _eqipped.Any(spell => spell == null);
+        
+        [Inject] private Save.Save Save { get; set; }
 
         public event Action<Spell[]> SpellsUpdated;
+
+        public void SaveEquipped()
+        {
+            Save.UpdateEquippedSpells(_library.SpellsToIndexes(_eqipped));
+        }
 
         public bool TryUnequipSpellInSlot(int slot)
         {
@@ -52,44 +59,9 @@ namespace CharacterSetup
             return false;
         }
 
-        public void Save()
+        private void Start()
         {
-            int[] spellsToSave = new int[_eqipped.Length];
-            for (int i = 0; i < _eqipped.Length; i++)
-            {
-                spellsToSave[i] = _library.GetSpellIndex(_eqipped[i]);
-            }
-            File.WriteAllText(SavefilePath, JsonUtility.ToJson(new SavableSpells(spellsToSave)));
-        }
-
-        private void Awake()
-        {
-            Load();
-        }
-
-        private void Load()
-        {
-            if ( ! File.Exists(SavefilePath))
-                return;
-            
-            int[] spellsToEquip = JsonUtility.FromJson<SavableSpells>(File.ReadAllText(SavefilePath)).Spells;
-            for (int i = 0; i < spellsToEquip.Length; i++)
-            {
-                _eqipped[i] = _library.GetSpell(spellsToEquip[i]);
-            }
-        }
-    }
-
-    [Serializable]
-    public class SavableSpells
-    {
-        [SerializeField] private int[] _spells;
-
-        public int[] Spells => _spells;
-        
-        public SavableSpells(int[] spells)
-        {
-            _spells = spells;
+            _eqipped = _library.IndexesToSpells(Save.EquippedSpells);
         }
     }
 }

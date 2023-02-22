@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Content;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace CharacterSetup
         [SerializeField] private Spell[] _spells;
 
         public Spell GetSpell(int index) => _spells[index];
+        public Spell[] IndexesToSpells(int[] indexes) => indexes.Select(GetSpell).ToArray();
 
         public int GetSpellIndex(Spell spell)
         {
@@ -20,5 +22,7 @@ namespace CharacterSetup
             }
             throw new ArgumentOutOfRangeException($"Libary has no {spell} spell");
         }
+
+        public int[] SpellsToIndexes(Spell[] spells) => spells.Select(GetSpellIndex).ToArray();
     }
 }

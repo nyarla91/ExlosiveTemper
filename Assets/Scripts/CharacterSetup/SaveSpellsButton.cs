@@ -19,7 +19,7 @@ namespace CharacterSetup
             }
             else
             {
-                Kit.Save();
+                Kit.SaveEquipped();
                 _setupWindow.OpenPreviousMenu();
             }
         }
