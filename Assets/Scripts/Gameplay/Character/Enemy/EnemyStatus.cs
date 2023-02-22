@@ -11,16 +11,20 @@ namespace Gameplay.Character.Enemy
     public class EnemyStatus : LazyGetComponent<EnemyComposition>
     {
         [SerializeField] private float _deathShakeRatio;
-        [SerializeField] private GameObject _damagePrefab;
-        [SerializeField] private GameObject _deathPrefab;
+        [SerializeField] private PoolFactory _damageEffectFactory;
+        [SerializeField] private PoolFactory _deathEffectFactory;
         [SerializeField] private GameObject _healthbarPrefab;
         [SerializeField] private Transform _healthbarOrigin;
 
+        private GameObject _droppedItem;
+        
         [Inject] private ContainerFactory Factory { get; set; }
         [Inject] private Shake Shake { get; set; }
         
         public RectTransform HUD { get; set; }
-        
+
+        public void InitDroppedItem(GameObject prefab) => _droppedItem = prefab;
+
         private void Awake()
         {
             Lazy.VitalsPool.HealthIsOver += Die;
@@ -29,7 +33,7 @@ namespace Gameplay.Character.Enemy
 
         private void PlayDamageEffect(float _)
         {
-            Factory.Instantiate<Transform>(_damagePrefab, Transform.position.WithY(1.5f));
+            _damageEffectFactory.GetNewObject(Transform.position.WithY(1.5f));
         }
 
         private void Start()
@@ -41,8 +45,9 @@ namespace Gameplay.Character.Enemy
 
         private void Die()
         {
-            Factory.Instantiate<Transform>(_deathPrefab, Transform.position.WithY(1.5f));
+            _deathEffectFactory.GetNewObject(Transform.position.WithY(1.5f));
             Shake.AddImpulse(_deathShakeRatio);
+            Factory.Instantiate<Transform>(_droppedItem, Transform.position);
             Destroy(gameObject);
         }
     }

@@ -37,50 +37,69 @@ namespace Gameplay.Rooms
 
         public event Action CombatIsOver;
         
-        public void StartWave(Room room) => StartCoroutine(Wave(room));
+        public void StartWave(Room room) => StartCoroutine(RoomCycle(room));
 
-        private IEnumerator Wave(Room room)
+        private IEnumerator RoomCycle(Room room)
         {
             yield return new WaitForSeconds(0.1f);
             bool bossLevel = room.Level % _bossLevelPerodicity == 0;
             for (int wave = 0; wave < (bossLevel ? 1 : _wavesPerRoom); wave++)
             {
-                int spentWeight = 0;
-                if (bossLevel)
-                {
-                    int bossNumber = room.Level / _bossLevelPerodicity - 1;
-                    GameObject prefab = (bossNumber >= _bossesInOrder.Count)
-                        ? _lateBossesPool.PickRandomElement()
-                        : _bossesInOrder[bossNumber];
-                    SpawnEnemy(room, prefab);
-                }
-                else
-                {
-                    int totalWeight = _waveTotalWeightInRoom.GetIndexOrLast(room.Level);
-                    for (int enemyI = 0; spentWeight < totalWeight; enemyI++)
-                    {
-                        EnemySpawnDetails spawnedEnemy = _enemies.PickRandomElement();
-                        GameObject prefab = enemyI < _numberOfElitesInRoom.GetIndexOrLast(room.Level) ? spawnedEnemy.ElitePrefab : spawnedEnemy.BasePrefab;
-
-                        EnemyComposition newEnemy = SpawnEnemy(room, prefab);
-                        foreach (CollectableSpawnDetails collectable in _collectables)
-                        {
-                            if (collectable.DoesSpawnCollectableThisTime(spawnedEnemy.Weight))
-                            {
-                                newEnemy.VitalsPool.HealthIsOver += () =>
-                                {
-                                    Vector3 position = newEnemy.Transform.position + Random.insideUnitCircle.XYtoXZ() * 0.3f;
-                                    collectable.Factory.GetNewObject<Collectable>(position, Transform);
-                                };
-                            }
-                        }
-                        spentWeight += spawnedEnemy.Weight;
-                    }
-                }
+                SpawnWave(room, bossLevel);
                 yield return new WaitUntil(() => _enemiesAlive.Count == 0);
                 CombatIsOver?.Invoke();
                 yield return new PausableWaitForSeconds(this, Pause, 1);
             }
+        }
+
+        private void SpawnWave(Room room, bool bossLevel)
+        {
+            int spentWeight = 0;
+            if (bossLevel)
+            {
+                SpawnBoss(room);
+            }
+            else
+            {
+                SpawnRegularEnemiesWave(room, spentWeight);
+            }
+        }
+
+        private void SpawnRegularEnemiesWave(Room room, int spentWeight)
+        {
+            int totalWeight = _waveTotalWeightInRoom.GetIndexOrLast(room.Level);
+            for (int enemyI = 0; spentWeight < totalWeight; enemyI++)
+            {
+                EnemySpawnDetails spawnedEnemy = _enemies.PickRandomElement();
+                GameObject prefab = enemyI < _numberOfElitesInRoom.GetIndexOrLast(room.Level)
+                    ? spawnedEnemy.ElitePrefab
+                    : spawnedEnemy.BasePrefab;
+
+                EnemyComposition newEnemy = SpawnEnemy(room, prefab);
+                GiveCollectableToEnemy(spawnedEnemy, newEnemy);
+
+                spentWeight += spawnedEnemy.Weight;
+            }
+        }
+
+        private void GiveCollectableToEnemy(EnemySpawnDetails spawnedEnemy, EnemyComposition newEnemy)
+        {
+            foreach (CollectableSpawnDetails collectable in _collectables)
+            {
+                if (collectable.DoesSpawnCollectableThisTime(spawnedEnemy.Weight))
+                {
+                    newEnemy.Status.InitDroppedItem(collectable.Prefab);
+                }
+            }
+        }
+
+        private void SpawnBoss(Room room)
+        {
+            int bossNumber = room.Level / _bossLevelPerodicity - 1;
+            GameObject prefab = (bossNumber >= _bossesInOrder.Count)
+                ? _lateBossesPool.PickRandomElement()
+                : _bossesInOrder[bossNumber];
+            SpawnEnemy(room, prefab);
         }
 
         private EnemyComposition SpawnEnemy(Room room, GameObject prefab)

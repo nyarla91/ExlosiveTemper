@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 4521895648498540556}
   - component: {fileID: 4521895648498540559}
   - component: {fileID: 5480024413680101261}
+  - component: {fileID: 3773507830821886752}
+  - component: {fileID: 9156405998913725855}
   - component: {fileID: 4521895648498540785}
   - component: {fileID: 4521895648498540784}
   m_Layer: 8
@@ -172,10 +174,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathShakeRatio: 1
-  _damagePrefab: {fileID: 959200728059725775, guid: ef18e2dbbfbd8c744a489c9d4f0d7066, type: 3}
-  _deathPrefab: {fileID: 959200728059725775, guid: 3d4f4961e085f1344a733150cfcfd52f, type: 3}
+  _damageEffectFactory: {fileID: 3773507830821886752}
+  _deathEffectFactory: {fileID: 9156405998913725855}
   _healthbarPrefab: {fileID: 8296467730756253351, guid: 07a676810fceaed4893a3ff0b8aab90e, type: 3}
   _healthbarOrigin: {fileID: 556255189294839679}
+--- !u!114 &3773507830821886752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521895648498540554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 959200728059725775, guid: ef18e2dbbfbd8c744a489c9d4f0d7066, type: 3}
+  _pool: []
+--- !u!114 &9156405998913725855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521895648498540554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9aa9bc33bd49929856b305e1df7225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 959200728059725775, guid: 3d4f4961e085f1344a733150cfcfd52f, type: 3}
+  _pool: []
 --- !u!114 &4521895648498540785
 MonoBehaviour:
   m_ObjectHideFlags: 0

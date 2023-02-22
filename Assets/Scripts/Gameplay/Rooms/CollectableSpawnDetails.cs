@@ -7,7 +7,7 @@ namespace Gameplay.Rooms
     [Serializable]
     public class CollectableSpawnDetails
     {
-        [field: SerializeField] public PoolFactory Factory { get; private set; }
+        [field: SerializeField] public GameObject Prefab { get; private set; }
         [field: SerializeField] public int WeightPereodicity { get; private set; }
 
         private int _weightTotal;
