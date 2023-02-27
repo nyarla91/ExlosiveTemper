@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5407746137751515214, guid: 2ece3a6563acfab469638fe00d47d2c6, type: 3}
       propertyPath: m_Name
-      value: ShotImpact1
+      value: ShotImpact
       objectReference: {fileID: 0}
     - target: {fileID: 6834203838705644525, guid: 2ece3a6563acfab469638fe00d47d2c6, type: 3}
       propertyPath: m_RootOrder
@@ -275,5 +275,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2612886196939839572, guid: 2ece3a6563acfab469638fe00d47d2c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ece3a6563acfab469638fe00d47d2c6, type: 3}

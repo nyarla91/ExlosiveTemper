@@ -15,10 +15,13 @@ namespace Extentions
             get => _value;
             set
             {
+                if (value > _maxValue)
+                    GainedExcees?.Invoke(value - _maxValue);
+                    
                 value = Mathf.Clamp(value, 0, MaxValue);
                 if (value.Equals(_value))
                     return;
-
+                
                 if (_value > 0 && value == 0)
                     Over?.Invoke();
 

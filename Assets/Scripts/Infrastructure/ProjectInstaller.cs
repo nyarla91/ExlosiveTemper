@@ -15,11 +15,13 @@ namespace Infrastructure
         [SerializeField] private GameObject _pausePrefab;
         [SerializeField] private GameObject _spellsKitPrefab;
         [SerializeField] private GameObject _spellUnlocksPrefab;
+        [SerializeField] private GameObject _savePrefab;
         
         public override void InstallBindings()
         {
             BindFromPrefab<SceneLoader>(_sceneLoaderPrefab);
             BindFromPrefab<DeviceWatcher>(_deviceWatcherPrefab);
+            BindFromPrefab<Save.Save>(_savePrefab);
             BindFromPrefab<Settings.Settings>(_settingsPrefab);
             BindFromPrefab<Pause>(_pausePrefab);
             BindFromPrefab<SpellsKit>(_spellsKitPrefab);

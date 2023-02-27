@@ -25,6 +25,8 @@ namespace Infrastructure
             PlayerComposition composition = player.GetComponent<PlayerComposition>();
             Container.Bind<PlayerComposition>().FromInstance(composition);
             Container.Bind<PlayerMovement>().FromInstance(composition.Movement);
+            Container.Bind<PlayerWeapons>().FromInstance(composition.Weapons);
+            Container.Bind<PlayerInventory>().FromInstance(composition.Inventory);
             Container.Bind<Shake>().FromInstance(_shake);
         }
     }

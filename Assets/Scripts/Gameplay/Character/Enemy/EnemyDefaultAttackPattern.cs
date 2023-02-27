@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Character.Enemy
 {
-    public class EnemyDefaultAttackPattern : EnemyAttackPattern<Projectile>
+    public class EnemyDefaultAttackPattern : EnemyAttackPattern
     {
         [SerializeField] private float _wavesPeriod;
         [SerializeField] private int _burstsPerWave;

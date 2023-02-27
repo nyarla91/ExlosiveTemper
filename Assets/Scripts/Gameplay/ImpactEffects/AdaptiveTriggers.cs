@@ -11,13 +11,13 @@ namespace Gameplay.ImpactEffects
         private DualSenseGamepadState _state;
         
         [Inject] private Settings.Settings Settings { get; set; }
-        [Inject] private PlayerComposition Player { get; set; }
+        [Inject] private PlayerWeapons Weapons { get; set; }
 
         private Weapon _currentWeapon;
         
         private void Awake()
         {
-            Player.Weapons.CurrentWeaponChanged += UpdateWeapon;
+            Weapons.CurrentWeaponChanged += UpdateWeapon;
         }
 
         private void Update()
@@ -27,7 +27,7 @@ namespace Gameplay.ImpactEffects
                 return;
             
             _state.RightTrigger = GetTriggerStateForForce(_currentWeapon.IsOnCooldown ? 0 : _currentWeapon.AdaptiveTriggersForce);
-            _state.LeftTrigger = GetTriggerStateForForce(Player.Weapons.ChargedShotCooldown.IsOn ? 0 : 0.3f);
+            _state.LeftTrigger = GetTriggerStateForForce(Weapons.ChargedShotCooldown.IsOn ? 0 : 0.3f);
             
             dualSense.SetGamepadState(_state);
         }

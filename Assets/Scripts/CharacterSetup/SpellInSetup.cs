@@ -68,21 +68,20 @@ namespace CharacterSetup
         {
             _icon.sprite = _spell.Icon;
             _cost.text = $"{_spell.HeatCost}<sprite name=heat>";
-            if (_spell.Achievement != null && Unlocks.IsSpellUnlocked(_spell))
+            if ( ! IsAvailable)
             {
                 _name.Text = new LocalizedString("Locked", "Закрыто");
                 _description.Text = _spell.Achievement.Description;
                 _icon.color = new Color(1, 1, 1, 0.4f);
-                IsAvailable = false;
                 return;
             }
-            IsAvailable = true;
             _name.Text = _spell.Name;
             _description.Text = _spell.Description;
         }
 
         private void Start()
         {
+            IsAvailable = _spell.Achievement == null || Unlocks.IsSpellUnlocked(_spell);
             ApplyView();
             Kit.SpellsUpdated += UpdateEquipped;
             UpdateEquipped(Kit.Eqipped);

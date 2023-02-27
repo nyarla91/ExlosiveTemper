@@ -10,11 +10,13 @@ namespace Gameplay.Character.Enemy
     {
         private VitalsPool _vitalsPool;
         private EnemyStatus _status;
+        private EnemyAttackPattern _attackPattern;
 
-        public VitalsPool VitalsPool => _vitalsPool ??= GetComponent<VitalsPool>();
+        public VitalsPool Vitals => _vitalsPool ??= GetComponent<VitalsPool>();
         public EnemyStatus Status => _status ??= GetComponent<EnemyStatus>();
-        
-        public PlayerComposition Player { get; set; }
+        public EnemyAttackPattern AttackPattern => _attackPattern ??= GetComponent<EnemyAttackPattern>();
+
+        public PlayerMovement Player { get; set; }
 
         public Vector3 DirectionToPlayer => Transform.DirectionTo(Player.Transform).WithY(0).normalized;
     }

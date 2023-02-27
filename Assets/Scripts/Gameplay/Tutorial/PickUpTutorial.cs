@@ -7,12 +7,12 @@ namespace Gameplay.Tutorial
 {
     public class PickUpTutorial : TutorialMenu
     {
-        [Inject] private PlayerComposition Player { get; set; }
+        [Inject] private PlayerInventory Inventory { get; set; }
 
         private void Awake()
         {
-            Player.Inventory.HealthConsumable.QuantityChanged += _ => TryShowTutorial();
-            Player.Inventory.HeatConsumable.QuantityChanged += _ => TryShowTutorial();
+            Inventory.HealthConsumable.QuantityChanged += _ => TryShowTutorial();
+            Inventory.HeatConsumable.QuantityChanged += _ => TryShowTutorial();
         }
     }
 }

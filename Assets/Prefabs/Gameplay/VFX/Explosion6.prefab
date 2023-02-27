@@ -53,7 +53,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3616367424577322027, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
       propertyPath: m_Name
-      value: Explosion1
+      value: Explosion6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Int.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[0].m_Name
+      value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[0].m_Value
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348137093026486452, guid: f673ef74e33d01546941205b1df0fdab, type: 3}
+      propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f673ef74e33d01546941205b1df0fdab, type: 3}

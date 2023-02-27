@@ -80,3 +80,4 @@ MonoBehaviour:
   _pausePrefab: {fileID: 1410524774520128992, guid: b460af593ff83ce47a81e39c0269d812, type: 3}
   _spellsKitPrefab: {fileID: 1492063399892020817, guid: fc1332351007fd5468436fc07a472d0c, type: 3}
   _spellUnlocksPrefab: {fileID: 8761784257271305758, guid: 1a44ac642f2ac644e82b35d2df118688, type: 3}
+  _savePrefab: {fileID: 6316863117249762532, guid: 4ce1c544654bc5f458678b6196524bb8, type: 3}

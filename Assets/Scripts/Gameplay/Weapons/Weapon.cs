@@ -97,7 +97,7 @@ namespace Gameplay.Weapons
             _cooldown?.Restart();
         }
 
-        private void Start()
+        private void Awake()
         {
             _cooldown = new Timer(this, _attackPeriod, Pause).Start();
         }

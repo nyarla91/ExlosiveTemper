@@ -6,16 +6,16 @@ using Extentions;
 using Extentions.Factory;
 using Gameplay.Character.Enemy;
 using Gameplay.Character.Player;
-using Gameplay.Collectables;
+using Gameplay.UI;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Gameplay.Rooms
 {
     public class EnemySpawner : Transformable
     {
-        [SerializeField] private Room _room;
+        [SerializeField] private PoolFactory _projectilesFactory;
+        [SerializeField] private PoolFactory _healthBarsFactory;
         [SerializeField] private int _wavesPerRoom;
         [SerializeField] private int[] _waveTotalWeightInRoom;
         [SerializeField] private List<EnemySpawnDetails> _enemies;
@@ -106,10 +106,16 @@ namespace Gameplay.Rooms
         {
             Vector3 position = room.SpawnArea.bounds.RandomPointInBounds().WithY(0);
             EnemyComposition enemy = ContainerFactory.Instantiate<EnemyComposition>(prefab, position, Transform);
-            enemy.Player = Player;
+            
             _enemiesAlive.Add(enemy);
-            enemy.Status.HUD = HUD;
-            enemy.VitalsPool.HealthIsOver += () => _enemiesAlive.TryRemove(enemy);
+            enemy.Player = Player.Movement;
+            enemy.AttackPattern.ProjectileFactory = _projectilesFactory;
+            enemy.Vitals.HealthIsOver += () => _enemiesAlive.TryRemove(enemy);
+            
+            FloatingHealthbar healthbar = _healthBarsFactory.GetNewObject<FloatingHealthbar>(Vector3.zero, HUD);
+            healthbar.ResourceBar.Init(enemy.Vitals.Health);
+            healthbar.InitFloating(Camera.main, enemy.Status.HealthbarOrigin, enemy.Vitals);
+            
             return enemy;
         }
 

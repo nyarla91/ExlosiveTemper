@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Extentions.Factory
 {
@@ -19,11 +18,11 @@ namespace Extentions.Factory
             objectToRemove.Transform.SetParent(Transform);
         }
 
-        public void GetNewObject(Vector3 position, GameObject overridePrefab, Transform parent = null, string tag = "_")
-            =>  GetNewObject<PooledObject>(position, overridePrefab, parent, tag);
+        public GameObject GetNewObject(Vector3 position, GameObject overridePrefab, Transform parent = null, string tag = "_")
+            =>  GetNewObject<PooledObject>(position, overridePrefab, parent, tag).gameObject;
 
-        public void GetNewObject(Vector3 position, Transform parent = null, string tag = "_")
-            =>  GetNewObject<PooledObject>(position, null, parent, tag);
+        public GameObject GetNewObject(Vector3 position, Transform parent = null, string tag = "_")
+            =>  GetNewObject<PooledObject>(position, null, parent, tag).gameObject;
 
         public T GetNewObject<T>(Vector3 position, Transform parent = null, string tag = "_") where T : PooledObject
             =>  GetNewObject<T>(position, null, parent, tag);
