@@ -1,4 +1,5 @@
 ﻿using Extentions;
+using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.VFX;
 using Zenject;
@@ -12,11 +13,23 @@ namespace Gameplay.Character.Player
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _spine;
         [SerializeField] private AudioSource _errorAudioSource;
+        [SerializeField] private VisualEffect _shotBlast;
 
         [Inject] private Pause Pause { get; set; }
 
         public void PlayError() => _errorAudioSource.Play();
-        
+
+        private void Awake()
+        {
+            Lazy.Weapons.Shot += PlayShotBlast;
+        }
+
+        private void PlayShotBlast(Weapon weapon)
+        {
+            _shotBlast.transform.position = weapon.EffectOrigin.position;
+            _shotBlast.Play();
+        }
+
         private void Update()
         {
             UpdateSprintTrail();

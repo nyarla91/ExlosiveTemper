@@ -21,7 +21,8 @@ namespace Gameplay.Character.Player
         [Inject] private Pause Pause { get; set; }
 
         public Action<HitDetails> Hit;
-        public Action<Weapon> CurrentWeaponChanged;
+        public event Action<Weapon> CurrentWeaponChanged;
+        public event Action<Weapon> Shot;
 
         public void EndChargedCooldown() => _chargedShotCooldown.Reset();
         public void SwapWeapons()
@@ -48,7 +49,8 @@ namespace Gameplay.Character.Player
         {
             if (Lazy.StateMachine.IsCurrentStateNoneOf(StateMachine.Regular) || Pause.IsPaused)
                 return;
-            _currentWeapon.TryShoot();
+            if (_currentWeapon.TryShoot())
+                Shot?.Invoke(_currentWeapon);
         }
 
         private void TryChargedShot()
@@ -60,8 +62,8 @@ namespace Gameplay.Character.Player
                 Lazy.View.PlayError();
                 return;
             }
-            if (!_currentWeapon.TryChargedShot())
-                return;
+
+            _currentWeapon.TryChargedShot();
             _chargedShotCooldown.Restart();
             SwapWeapons();
         }

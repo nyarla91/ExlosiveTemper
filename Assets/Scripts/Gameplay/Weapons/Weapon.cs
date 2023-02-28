@@ -17,7 +17,6 @@ namespace Gameplay.Weapons
         [SerializeField] private WeaponAttack _primaryAttack;
         [SerializeField] private WeaponAttack _chargedAttack;
         [SerializeField] private float _attackPeriod;
-        [SerializeField] private GameObject _impactPrefab;
         [SerializeField] private Transform _effectOrigin;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private float _adaptiveTriggersForce;
@@ -27,6 +26,7 @@ namespace Gameplay.Weapons
         public int AnimationIndex => _animationIndex;
         public float AdaptiveTriggersForce => _adaptiveTriggersForce;
         public bool IsOnCooldown => _cooldown.IsOn;
+        public Transform EffectOrigin => _effectOrigin;
         [Inject] private ContainerFactory Factory { get; set; }
         [Inject] private Pause Pause { get; set; }
 
@@ -39,21 +39,12 @@ namespace Gameplay.Weapons
 
             PerfromHitscanAttack(_primaryAttack, _player.Transform.forward);
             _cooldown.Restart();
-            CreateImpactEffect();
             return true;
         }
 
-        private void CreateImpactEffect()
-        {
-            Transform effect = Factory.Instantiate<Transform>(_impactPrefab, _effectOrigin.position, _effectOrigin);
-            effect.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-
-        public bool TryChargedShot()
+        public void TryChargedShot()
         {
             PerfromHitscanAttack(_chargedAttack, _player.Transform.forward);
-            CreateImpactEffect();
-            return true;
         }
 
         private void PerfromHitscanAttack(WeaponAttack attack, Vector3 direction)
