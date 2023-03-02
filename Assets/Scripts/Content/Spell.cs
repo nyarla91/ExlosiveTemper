@@ -1,25 +1,25 @@
-﻿using System;
-using Achievements;
-using Localization;
+﻿using Localization;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Content
 {
     [CreateAssetMenu(menuName = "Spell")]
     public class Spell : ScriptableObject
     {
-        [field: SerializeField] public LocalizedString Name { get; set; }
-        [field: SerializeField] public LocalizedString Description { get; set; }
-        [field: SerializeField] public Sprite Icon { get; set; }
-        [field: SerializeField] public int HeatCost { get; set; }
-        [field: SerializeField] public GameObject Behaviour { get; set; }
-        [field: SerializeField] public Achievement Achievement { get; private set; }
+        [field: SerializeField] public LocalizedString Name { get; private set; }
+        [field: SerializeField] public LocalizedString Description { get; private set; }
+        [field: SerializeField] public Sprite Icon { get; private set; }
+        [field: SerializeField] public int HeatCost { get; private set; }
+        [field: SerializeField] public GameObject Behaviour { get; private set; }
+        public bool IsUnlocked { get; private set; } = true;
+        public LocalizedString UnlockCondition { get; private set; }
 
-        private void OnValidate()
+        public void Lock(LocalizedString unlockCondition)
         {
-            if (Achievement != null)
-                Achievement.UnlockedSpell = this;
+            IsUnlocked = false;
+            UnlockCondition = unlockCondition;
         }
+
+        public void Unlock() => IsUnlocked = true;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Localization;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -81,6 +82,7 @@ namespace Settings
             _mixer.SetFloat("MusicVolume", _soundCurve.Evaluate(config.Audio.GetSettingValue("music volume")));
             _mixer.SetFloat("SFXVolume", _soundCurve.Evaluate(config.Audio.GetSettingValue("sfx volume")));
 
+            LocalizedTextMesh.Language = config.Game.GetSettingValue("language");
         }
     }
 }

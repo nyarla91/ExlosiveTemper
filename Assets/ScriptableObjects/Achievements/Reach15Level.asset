@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfca1fa38e3f4bacb705b72fbdcd93fb, type: 3}
   m_Name: Reach15Level
   m_EditorClassIdentifier: 
-  <Library>k__BackingField: {fileID: 11400000, guid: e396994e051211541a2bbadbb2e22a4c, type: 2}
   <Description>k__BackingField:
     _english: Reach room 15
     _russian: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435 15 \u043A\u043E\u043C\u043D\u0430\u0442\u044B"
-  <UnlockedSpell>k__BackingField: {fileID: 11400000, guid: daea4092b4624054e9367a439cbecf38, type: 2}
+  <UnlockedSpell>k__BackingField: {fileID: 11400000, guid: 0f83c8af9a0146141b10ec8f2b062c3d, type: 2}
   <Behaviour>k__BackingField: {fileID: 3822723331622368108, guid: 8c0b448ccb53b8b4db14d1d057c5d454, type: 3}

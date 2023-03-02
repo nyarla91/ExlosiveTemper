@@ -8,7 +8,7 @@ namespace Save
     public class SaveData
     {
         [SerializeField] private int[] _equippedSpells;
-        [SerializeField] private List<int> _unlockedSpells;
+        [SerializeField] private List<string> _completeAchievements;
         [SerializeField] private List<string> _seenTutorials;
 
         public int[] EquippedSpells
@@ -17,10 +17,10 @@ namespace Save
             set => _equippedSpells = value;
         }
 
-        public List<int> UnlockedSpells
+        public List<string> CompleteAchievements
         {
-            get => _unlockedSpells;
-            set => _unlockedSpells = value;
+            get => _completeAchievements;
+            set => _completeAchievements = value;
         }
 
         public List<string> SeenTutorials

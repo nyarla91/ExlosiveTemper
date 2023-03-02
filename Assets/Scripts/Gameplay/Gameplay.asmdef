@@ -1,0 +1,30 @@
+{
+    "name": "Gameplay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:9f7c86019b8b8024ba609cb352c3fc09",
+        "GUID:33cc0f0e39feb364ebdd0d6cedf3fd3e",
+        "GUID:09877d9cb06f060419ad51a0b0cd72b6",
+        "GUID:05585d684feb11d4cbb1b26b9513a71c",
+        "GUID:2e7ee22f22cf92a4bac9e48fe27f7e6f",
+        "GUID:2f1dbc3285a2ba24698d1c35ff3b8b29",
+        "GUID:9e12f0b328463204a96d40bea25ca301",
+        "GUID:d55f202157463f4489bcf4912370e0c9",
+        "GUID:77ec44f372d378d4ea59d615d5552355",
+        "GUID:310578bc6ca8140478c778c15e8bbb45",
+        "GUID:991801a2e935d464baef785331134997"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

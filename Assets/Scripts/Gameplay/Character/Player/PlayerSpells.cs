@@ -1,9 +1,9 @@
 ﻿using System;
-using CharacterSetup;
 using Content;
 using Extentions;
 using Extentions.Factory;
 using Gameplay.Spells;
+using Progression;
 using UnityEngine;
 using Zenject;
 

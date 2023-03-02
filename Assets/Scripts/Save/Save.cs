@@ -13,7 +13,7 @@ namespace Save
         private string SaveFilePath => Application.dataPath + "/save.json";
 
         public int[] EquippedSpells => _saveData.EquippedSpells.ToArray();
-        public int[] UnnlockedSpell => _saveData.UnlockedSpells.ToArray();
+        public string[] CompleteAchievements => _saveData.CompleteAchievements.ToArray();
 
         public bool TrySeeTutorial(string tutorial)
         {
@@ -24,9 +24,9 @@ namespace Save
             return true;
         }
         
-        public void AddUnlockedSpell(int unlockedSpell)
+        public void AddCompleteAchievement(string achievement)
         {
-            _saveData.UnlockedSpells.Add(unlockedSpell);
+            _saveData.CompleteAchievements.Add(achievement);
             SaveFile();
         }
         

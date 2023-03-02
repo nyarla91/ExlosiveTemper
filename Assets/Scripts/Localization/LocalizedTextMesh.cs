@@ -1,21 +1,17 @@
 ﻿using System.Collections.Generic;
-using Settings;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace Localization
 {
     public class LocalizedTextMesh : MonoBehaviour
     {
+        public static int Language { private get; set; }
+        
         [SerializeField] private TMP_Text _mesh;
         [SerializeField] private LocalizedString _text;
-
-        [Inject] private Settings.Settings Settings { get; set; }
         
         private Dictionary<string, string> _keys = new Dictionary<string, string>();
-
-        private int Language => Settings == null ? 0 : Settings.Config.Game.GetSettingValue("language");
 
         public LocalizedString Text
         {
@@ -59,5 +55,4 @@ namespace Localization
                 ApplyString();
         }
     }
-
 }

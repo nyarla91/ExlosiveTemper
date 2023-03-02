@@ -6,6 +6,8 @@ namespace Localization
     [Serializable]
     public class LocalizedString
     {
+        public static int Language;
+        
         [SerializeField] [TextArea(3, 10)] private string _english;
         [SerializeField] [TextArea(3, 10)] private string _russian;
 

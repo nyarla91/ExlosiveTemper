@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfca1fa38e3f4bacb705b72fbdcd93fb, type: 3}
   m_Name: HitlessBoss
   m_EditorClassIdentifier: 
-  <Library>k__BackingField: {fileID: 11400000, guid: e396994e051211541a2bbadbb2e22a4c, type: 2}
   <Description>k__BackingField:
     _english: Defeat a boss without taking damage
     _russian: "\u041F\u043E\u0431\u0435\u0434\u0438\u0442\u0435 \u0431\u043E\u0441\u0441\u0430,
       \u043D\u0435 \u043F\u043E\u043B\u0443\u0447\u0438\u0432 \u0443\u0440\u043E\u043D\u0430"
-  <UnlockedSpell>k__BackingField: {fileID: 11400000, guid: daea4092b4624054e9367a439cbecf38, type: 2}
+  <UnlockedSpell>k__BackingField: {fileID: 11400000, guid: df031193133d69d4cb4e0729b7b15800, type: 2}
   <Behaviour>k__BackingField: {fileID: 3822723331622368108, guid: cf7c09e8095c2064295ba37b40d16621, type: 3}

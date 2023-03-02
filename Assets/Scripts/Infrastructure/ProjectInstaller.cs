@@ -1,7 +1,7 @@
-﻿using Achievements;
-using CharacterSetup;
+﻿using Core;
 using Extentions;
 using Input;
+using Progression;
 using UnityEngine;
 using Zenject;
 

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfca1fa38e3f4bacb705b72fbdcd93fb, type: 3}
   m_Name: Reach5Level
   m_EditorClassIdentifier: 
-  <Library>k__BackingField: {fileID: 11400000, guid: e396994e051211541a2bbadbb2e22a4c, type: 2}
   <Description>k__BackingField:
     _english: Reach room 5
     _russian: "\u0414\u043E\u0441\u0442\u0438\u0433\u043D\u0438\u0442\u0435 5 \u043A\u043E\u043C\u043D\u0430\u0442\u044B"

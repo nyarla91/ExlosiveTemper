@@ -1,6 +1,7 @@
-﻿using UIUtility;
+﻿using Core;
 using UnityEngine;
 using Zenject;
+using Menu = UIUtility.Menu;
 
 namespace MainMenu
 {

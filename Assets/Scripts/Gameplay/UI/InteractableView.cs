@@ -1,8 +1,6 @@
-﻿using DG.Tweening;
-using Extentions;
+﻿using Extentions;
 using Gameplay.Character.Player;
 using Localization;
-using UI;
 using UIUtility;
 using UnityEngine;
 

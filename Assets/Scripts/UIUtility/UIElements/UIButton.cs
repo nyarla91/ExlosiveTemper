@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace UIUtility
+namespace UIUtility.UIElements
 {
     public class UIButton : Button
     {
